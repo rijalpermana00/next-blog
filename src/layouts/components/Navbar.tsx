@@ -51,7 +51,7 @@ const Navbar = () => {
               <div className="flex px-2 lg:px-0">
                 <ul className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-4">
                   <li className="pt-5 pb-5 border-b-2 hover:border-gray-300 border-transparent">
-                    <Link className="text-gray-1000 hover:text-gray-700 inline-flex items-center px-1 pt-1 font-medium" href="/">
+                    <Link className="text-gray-1000 hover:text-gray-700 inline-flex items-center px-1 pt-1 font-medium" href="/login">
                       Log in
                     </Link>
                   </li>
