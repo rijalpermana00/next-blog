@@ -8,7 +8,7 @@ type BadgeProps = {
 const Badge = (props: BadgeProps) => {
   return (
     <span
-      className={`inline-block rounded-full px-2 py-1 text-sm font-semibold ${props.color ?? 'text-white'} ${props.bgColor ?? 'bg-blue-600'} ${props.optionalClass}`}
+      className={`inline-block rounded-full text-xs font-semibold mr-2 px-2.5 py-0.5 ${props.color ?? 'text-white'} ${props.bgColor ?? 'bg-gray-600'} ${props.optionalClass}`}
     >
       {props.text}
     </span>

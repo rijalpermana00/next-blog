@@ -1,7 +1,7 @@
 export const AppConfig = {
-  site_name: 'Starter',
-  title: 'Nextjs Starter',
-  description: 'Starter code for your Nextjs Boilerplate with Tailwind CSS',
+  site_name: 'Truegreys',
+  title: 'Truegreys',
+  description: 'Sani Asmi Ramdani Lestari Official Blog',
   locale: 'en',
   base_url: "/",
   favicon: "/images/favicon.png",

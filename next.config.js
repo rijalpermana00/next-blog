@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['bookworm-light-nextjs.vercel.app'],
+    domains: ['bookworm-light-nextjs.vercel.app','dummyimage.com'],
   },
 }
 
