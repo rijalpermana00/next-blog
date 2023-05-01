@@ -32,7 +32,7 @@ const Index = () => {
                 />
             ))}
             <div className='pt-10'>
-                <h3 className="text-3xl font-bold text-center pb-3">
+                <h3 className="text-3xl font-bold text-center pt-10 pb-3">
                     <a className="block hover:text-primary" href="/post-1">
                     LATEST 
                     </a>

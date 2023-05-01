@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Logo from '../../components/partials/Logo';
+import Logo from '@components/partials/Logo';
 import { useState } from 'react';
 import { IoSearch } from "react-icons/io5";
 import SearchModal from './ModalSearch';
@@ -53,9 +53,16 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex px-2 lg:px-0 items-center justify-center sm:items-stretch sm:justify-end">
-            <div className="hidden sm:block sm:ml-6">
+            <div className="sm:block sm:ml-6">
               <div className="flex px-2 lg:px-0">
-                <ul className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-4">
+                <input id="nav-toggle" type="checkbox" className="hidden" />
+                <label id="show-button" className="order-2 flex cursor-pointer items-center md:order-1 md:hidden">
+                  <svg className="h-6 fill-current" viewBox="0 0 20 20">
+                    <title>Menu Open</title>
+                    <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+                  </svg>
+                </label>
+                <ul className="sm:-my-px sm:ml-6 sm:flex sm:space-x-4">
                   <li className="pt-5 pb-5">
                     <div className="order-1 ml-auto md:order-2 md:ml-0">
                       <div
