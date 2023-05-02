@@ -34,7 +34,7 @@ const MainBlog = ({
       </a>
       {mainImageLoaded && (
         <div
-          className="absolute bottom-0 left-0 p-4 text-white"
+          className="text-black sm:absolute sm:bottom-0 sm:left-0 sm:p-4 sm:text-white"
         >
           <ul className="mt-4 mb-1 flex flex-wrap items-center space-x-3 text-text">
             <li>
@@ -68,7 +68,7 @@ const MainBlog = ({
           <ul className="mt-4 flex flex-wrap items-center text-text">
             {category.map((item, index) => (
               <li key={index}>
-                <Badge text={item.name} optionalClass="border border-white" bgColor="bg-transparent"/>
+                <Badge text={item.name} optionalClass="sm:border sm:border-white" bgColor="sm:bg-transparent"/>
               </li>
             ))}
           </ul>
