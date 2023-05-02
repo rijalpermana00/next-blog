@@ -62,13 +62,13 @@ const MainBlog = ({
               {title}
             </a>
           </h3>
-          <p className="text-text hidden sm:flex">
+          <p className="text-black sm:text-white sm:flex">
             {excerpt}
           </p>
           <ul className="mt-4 flex flex-wrap items-center text-text">
             {category.map((item, index) => (
               <li key={index}>
-                <Badge text={item.name} optionalClass="sm:border sm:border-white" bgColor="sm:bg-transparent"/>
+                <Badge text={item.name} className="sm:border sm:border-white sm:bg-transparent"/>
               </li>
             ))}
           </ul>

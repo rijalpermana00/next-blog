@@ -13,13 +13,14 @@ const BlogPost = ({
 }: PostProps) => {
   return (
     <div className="col-12 sm:col-6 mb-4">
-      <Image
-        src={imageUrl}
-        alt={imageAlt}
-        width={1080}
-        height={445}
-        className="rounded-lg"
-      />
+      <div className="relative rounded-lg overflow-hidden pb-48">
+        <Image
+          src={imageUrl}
+          alt={imageAlt}
+          fill
+          className="rounded-lg object-cover object-center"
+        />
+      </div>
       <div>
         <ul className="mt-4 mb-1 flex flex-wrap items-center space-x-3 text-sm">
           <li>

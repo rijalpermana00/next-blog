@@ -37,7 +37,7 @@ const Index = () => {
                     LATEST 
                     </a>
                 </h3>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                     {posts.slice(1).map((post, index) => (
                         <Post
                             authorName={post.author.name}
