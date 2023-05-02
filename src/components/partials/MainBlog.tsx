@@ -62,7 +62,7 @@ const MainBlog = ({
               {title}
             </a>
           </h3>
-          <p className="text-text">
+          <p className="text-text hidden sm:flex">
             {excerpt}
           </p>
           <ul className="mt-4 flex flex-wrap items-center text-text">
