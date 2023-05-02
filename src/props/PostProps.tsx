@@ -1,14 +1,20 @@
+
 export type PostProps = {
     imageUrl: string;
     imageAlt: string;
     authorName: string;
     date: string;
-    category: Category[];
+    tags: Tags[];
     title: string;
     excerpt: string;
 };
 
-export interface Category {
+export interface Tags {
     id: number;
     name: string;
+}
+
+export interface Category {
+    name: string,
+    posts: PostProps[]
 }

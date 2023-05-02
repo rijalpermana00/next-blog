@@ -8,7 +8,7 @@ const MainBlog = ({
   imageAlt,
   authorName,
   date,
-  category,
+  tags,
   title,
   excerpt,
 }: PostProps) => {
@@ -27,7 +27,7 @@ const MainBlog = ({
             onError={() => {
                 handleImageError();
             }}
-            className="rounded-lg relative object-cover brightness-75"
+            className="rounded-lg relative object-cover sm:brightness-75"
             width={100000}
             height={100000}
         />
@@ -39,26 +39,24 @@ const MainBlog = ({
           <ul className="mt-4 mb-1 flex flex-wrap items-center space-x-3 text-text">
             <li>
               <a
-                className="flex items-center hover:text-primary"
+                className="flex items-center hover:text-primary text-sm"
                 href="/authors/mark-dinn"
               >
                 <Image
                     alt={authorName}
                     src="https://bookworm-light-nextjs.vercel.app/_next/image?url=%2Fimages%2Fposts%2F01.jpg&w=1920&q=75"
-                    className="mr-2 h-6 w-6 rounded-full object-cover"
+                    className="mr-2 h-6 w-6 rounded-full object-cover hidden sm:block"
                     width={50}
                     height={50}
                     loading="lazy"
                     decoding="async"
                 />
-                <span>{authorName}</span>
+                <span>{authorName} - {date}</span>
               </a>
             </li>
-            <li>-</li>
-            <li>{date}</li>
           </ul>
           <h3 className="mb-2 text-3xl font-bold">
-            <a className="block hover:text-primary" href="/post-1">
+            <a className="block hover:text-primary leading-8" href="/post-1">
               {title}
             </a>
           </h3>
@@ -66,7 +64,7 @@ const MainBlog = ({
             {excerpt}
           </p>
           <ul className="mt-4 flex flex-wrap items-center text-text">
-            {category.map((item, index) => (
+            {tags.map((item, index) => (
               <li key={index}>
                 <Badge text={item.name} className="sm:border sm:border-white sm:bg-transparent"/>
               </li>

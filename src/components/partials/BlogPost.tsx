@@ -7,7 +7,7 @@ const BlogPost = ({
   imageAlt,
   authorName,
   date,
-  category,
+  tags,
   title,
   excerpt,
 }: PostProps) => {
@@ -24,9 +24,8 @@ const BlogPost = ({
       <div>
         <ul className="mt-4 mb-1 flex flex-wrap items-center space-x-3 text-sm">
           <li>
-            <span>{authorName}</span>
+            <span>{authorName} - {date}</span>
           </li>
-          <li>{date}</li>
         </ul>
         <h3 className="mb-2 text-base font-bold">
           <a className="block hover:text-primary" href="/post-2">
@@ -35,7 +34,7 @@ const BlogPost = ({
         </h3>
         <p className="text-sm">{excerpt}</p>
         <ul className="mt-4 flex flex-wrap items-center text-text">
-          {category.slice(0, 2).map((item, index) => (
+          {tags.slice(0, 2).map((item, index) => (
             <li key={index}>
               <Badge text={item.name}/>
             </li>
