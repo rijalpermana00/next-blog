@@ -34,8 +34,8 @@ const BlogPost = ({
       <p className="text-sm">{excerpt}</p>
       <ul className="mt-4 flex flex-wrap items-center text-text">
         {category.slice(0, 2).map((item, index) => (
-          <li>
-            <Badge text={item.name} key={index}/>
+          <li key={index}>
+            <Badge text={item.name}/>
           </li>
         ))}
       </ul>

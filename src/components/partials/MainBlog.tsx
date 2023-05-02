@@ -67,8 +67,8 @@ const MainBlog = ({
           </p>
           <ul className="mt-4 flex flex-wrap items-center text-text">
             {category.map((item, index) => (
-              <li>
-                <Badge text={item.name} key={index} optionalClass="border border-white" bgColor="bg-transparent"/>
+              <li key={index}>
+                <Badge text={item.name} optionalClass="border border-white" bgColor="bg-transparent"/>
               </li>
             ))}
           </ul>
