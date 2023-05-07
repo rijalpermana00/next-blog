@@ -19,7 +19,7 @@ const MainBlog = ({
   };
 
   return (
-    <div className="col-12 relative">
+    <div className="col-12 sm:relative">
       <a href={imageUrl}>
         <Image
             alt={imageAlt}
@@ -27,9 +27,9 @@ const MainBlog = ({
             onError={() => {
                 handleImageError();
             }}
-            className="rounded-lg relative object-cover sm:brightness-75 max-h-48 sm:max-h-[32rem]"
-            width={100000}
-            height={100000}
+            className="rounded-lg relative object-cover sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem]"
+            width={200000}
+            height={200000}
         />
       </a>
       {mainImageLoaded && (
