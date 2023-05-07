@@ -10,7 +10,7 @@ const Navbar = () => {
   
   return (
     <nav className="bg-white shadow relative">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex px-2 lg:px-0">
             <div className="flex-shrink-0 flex items-center">
@@ -18,17 +18,17 @@ const Navbar = () => {
             </div>
             <ul className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-4">
               <li className="pt-5 pb-5 border-b-2 hover:border-gray-300 border-transparent">
-                <Link className="text-gray-1000 hover:text-gray-700 inline-flex items-center px-1 pt-1 font-medium" href="/">
+                <Link className="text-gray-1000 hover:text-gray-700 inline-flex items-center px-1 pt-1 font-bold" href="/">
                   Home
                 </Link>
               </li>
               <li className="pt-5 pb-5 border-b-2 hover:border-gray-300 border-transparent">
-                <Link className="text-gray-1000 hover:text-gray-700 inline-flex items-center px-1 pt-1 font-medium" href="/about">
+                <Link className="text-gray-1000 hover:text-gray-700 inline-flex items-center px-1 pt-1 font-bold" href="/about">
                   About
                 </Link>
               </li>
               <li className="pt-5 pb-5 border-b-2 hover:border-gray-300 relative group border-transparent">
-                <a className="text-gray-1000 hover:text-gray-700 inline-flex items-center px-1 pt-1 font-medium cursor-pointer">
+                <a className="text-gray-1000 hover:text-gray-700 inline-flex items-center px-1 pt-1 font-bold cursor-pointer">
                   Dropdown
                   <svg className="h-4 w-4 ml-1" viewBox="0 0 20 20">
                     <path

@@ -35,7 +35,7 @@ const SearchModal = ({ searchModal, setSearchModal }:SearchModalProps) => {
   }, [searchModal, input, router, setSearchModal]);
 
   return (
-    <div className={`search-modal mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${searchModal ? "open" : ""}`}>
+    <div className={`search-modal mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full ${searchModal ? "open" : ""}`}>
       <button onClick={() => setSearchModal(false)} className="search-close">
         <IoCloseCircleOutline size={25} />
       </button>

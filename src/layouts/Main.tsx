@@ -1,6 +1,6 @@
 import { Meta } from './components/Meta';
 import { AppConfig } from '../utils/AppConfig';
-import Navbar from './components/NavbarAlt';
+import Navbar from './components/Navbar';
 import type { ReactNode } from 'react';
 // import { Banner } from './Banner';
 // import { Footer } from './Footer';
