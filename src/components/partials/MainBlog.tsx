@@ -27,7 +27,7 @@ const MainBlog = ({
             onError={() => {
                 handleImageError();
             }}
-            className="rounded-lg relative object-cover sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem]"
+            className="rounded-lg relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem]"
             width={200000}
             height={200000}
         />
