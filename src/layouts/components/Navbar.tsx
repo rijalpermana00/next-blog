@@ -63,10 +63,10 @@ export default function Navbar() {
                     ))}
                 </ul>
                 <ul className="sm:pt-0 pt-3 sm:-my-px sm:flex sm:space-x-4 flex flex-col lg:flex-row list-none lg:ml-auto items-center">
-                    <li className="sm:pt-0 pt-3 sm:pb-0 pb-3 sm:border-b-2 hover:border-gray-800 border-transparent">
+                    <li className="sm:pt-0 pt-3 sm:pb-0 pb-3 hover:border-gray-800 border-transparent">
                         <ModalSearch setSearchModal={false}/>
                     </li>
-                    <li className="sm:pt-0 pt-3 sm:pb-0 pb-3 sm:border-b-2 hover:border-gray-800 border-transparent">
+                    <li className="sm:pt-0 pt-3 sm:pb-0 pb-3 hover:border-gray-800 border-transparent">
                         <NavbarButton title="Log In" url="/login" classNames="bg-gray-500 text-white hover:bg-gray-900"/>
                     </li>
                 </ul>

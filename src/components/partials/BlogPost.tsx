@@ -6,6 +6,7 @@ const BlogPost = ({
   imageUrl,
   imageAlt,
   authorName,
+  url,
   date,
   tags,
   title,

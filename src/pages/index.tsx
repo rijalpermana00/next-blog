@@ -25,11 +25,13 @@ const Index = () => {
                     <MainBlog
                         authorName={post.author.name}
                         title={post.title}
+                        url={post.url}
                         tags={post.categories}
                         date={post.date}
                         excerpt={createExcerpt(post.content,100)}
                         imageAlt={post.title}
                         imageUrl={post.featuredImage}
+                        content={post?.content}
                         key={index}
                     />
                 ))}
@@ -47,10 +49,12 @@ const Index = () => {
                             authorName={post.author.name}
                             title={post.title}
                             tags={post.categories}
+                            url={post.url}
                             date={post.date}
                             excerpt={createExcerpt(post.content,100)}
                             imageAlt={post.title}
                             imageUrl={post.featuredImage}
+                            content={post?.content}
                             key={index}
                         />
                     ))}
@@ -69,10 +73,12 @@ const Index = () => {
                             authorName={post.author.name}
                             title={post.title}
                             tags={post.categories}
+                            url={post.url}
                             date={post.date}
                             excerpt={createExcerpt(post.content,100)}
                             imageAlt={post.title}
                             imageUrl={post.featuredImage}
+                            content={post?.content}
                             key={index}
                         />
                     ))}

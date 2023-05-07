@@ -6,6 +6,7 @@ import { PostProps } from "@/props/PostProps";
 const MainBlog = ({
   imageUrl,
   imageAlt,
+  url,
   authorName,
   date,
   tags,
@@ -20,7 +21,7 @@ const MainBlog = ({
 
   return (
     <div className="col-12 sm:relative">
-      <a href={imageUrl}>
+      <a href={url}>
         <Image
             alt={imageAlt}
             src={imageUrl}

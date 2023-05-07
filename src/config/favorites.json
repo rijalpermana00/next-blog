@@ -5,6 +5,7 @@
             "title": "Sing with me",
             "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel mi quam. Praesent at neque ac massa pulvinar scelerisque. In hac habitasse platea dictumst. Aliquam ultricies nunc nec eros suscipit, quis elementum mi sagittis. Nulla ac iaculis tellus. Pellentesque bibendum quam vel nibh vulputate, vel faucibus dolor malesuada. Aenean aliquet augue nec quam malesuada, et venenatis nisi varius. Morbi viverra convallis ipsum, eu blandit nulla rhoncus a.",
             "featuredImage": "https://dummyimage.com/1080x720/000/fff",
+            "url":"/",
             "author": {
             "id": 1,
             "name": "John Doe",
