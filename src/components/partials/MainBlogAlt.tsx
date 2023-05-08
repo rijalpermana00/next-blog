@@ -20,7 +20,7 @@ const MainBlog = ({
   };
   
   return (
-    <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
+    <div className='w-full max-w-md sm:max-w-7xl hover:shadow-3xl mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
       <div className='max-w-md sm:max-w-7xl mx-auto'>
         <div className="col-12 mb-4 sm:mb-0 sm:relative">
           <a href={url}>
