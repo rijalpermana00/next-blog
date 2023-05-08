@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Badge from "./Badge";
 import { PostProps } from "@/props/PostProps";
+import { useState } from "react";
 
 const Blog = ({
   imageUrl,
@@ -13,6 +14,18 @@ const Blog = ({
   content,
   excerpt,
 }: PostProps) => {
+    
+    
+    const [classImage, setClassImage] = useState('');
+    
+    const handleImage = (h:number,w:number) => {
+        if(h > w){
+            setClassImage('max-w-80 w-80')
+        }else{
+            setClassImage('')
+        }
+    };
+    
   return (
     <>
         <div className="col-12 sm:col-6 mb-4">
@@ -27,7 +40,8 @@ const Blog = ({
                 <Image
                     alt={imageAlt}
                     src={imageUrl}
-                    className="rounded-lg relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] max-w-80 items-center"
+                    onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
+                    className={`rounded-lg relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] items-center ${classImage}`}
                     style={{ margin: '0 auto'}}
                     width={200000}
                     height={200000}
