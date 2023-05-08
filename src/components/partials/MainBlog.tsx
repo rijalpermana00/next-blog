@@ -20,14 +20,6 @@ const MainBlog = ({
     setMainImageLoaded(false);
   };
   
-  const handleImage = (h:number,w:number) => {
-      if(h > w){
-          setClassImage('max-w-80 w-80')
-      }else{
-          setClassImage('')
-      }
-  };
-
   return (
     <div className="col-12 sm:relative">
       <a href={url}>
@@ -37,8 +29,7 @@ const MainBlog = ({
             onError={() => {
                 handleImageError();
             }}
-            onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-            className={`rounded-lg relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] items-center ${classImage}`}
+            className="rounded-lg relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover"
             width={200000}
             height={200000}
         />

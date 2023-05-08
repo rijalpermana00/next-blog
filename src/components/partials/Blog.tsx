@@ -18,10 +18,11 @@ const Blog = ({
     const [classImage, setClassImage] = useState('');
     
     const handleImage = (h:number,w:number) => {
+        console.log(h > w)
         if(h > w){
-            setClassImage('max-w-80 w-80')
-        }else{
             setClassImage('')
+        }else{
+            setClassImage('max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem]')
         }
     };
     
@@ -40,7 +41,7 @@ const Blog = ({
                     alt={imageAlt}
                     src={imageUrl}
                     onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-                    className={`rounded-lg relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] items-center ${classImage}`}
+                    className={`rounded-lg relative items-center ${classImage}`}
                     style={{ margin: '0 auto'}}
                     width={200000}
                     height={200000}
