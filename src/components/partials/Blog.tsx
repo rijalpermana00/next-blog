@@ -43,8 +43,8 @@ const Blog = ({
                     onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
                     className={`rounded-lg relative items-center ${classImage}`}
                     style={{ margin: '0 auto'}}
-                    width={200000}
-                    height={200000}
+                    width={720}
+                    height={720}
                 />
             </a>
         </div>
