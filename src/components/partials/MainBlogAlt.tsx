@@ -30,7 +30,7 @@ const MainBlog = ({
                 onError={() => {
                     handleImageError();
                 }}
-                className="relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover"
+                className="relative max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover"
                 width={200000}
                 height={200000}
             />
