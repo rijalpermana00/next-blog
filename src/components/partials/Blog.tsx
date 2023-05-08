@@ -18,7 +18,6 @@ const Blog = ({
     const [classImage, setClassImage] = useState('');
     
     const handleImage = (h:number,w:number) => {
-        console.log(h > w)
         if(h > w){
             setClassImage('')
         }else{
@@ -30,7 +29,7 @@ const Blog = ({
     <>
         <div className="col-12 sm:col-6 mb-4">
             <h1 className="mb-10 text-5xl font-bold">
-                <a className="block hover:text-primary leading-8" href="/post-1">
+                <a className="block hover:text-primary leading-10" href="/post-1">
                 {title}
                 </a>
             </h1>
@@ -49,7 +48,7 @@ const Blog = ({
             </a>
         </div>
         <div>
-            <ul className="mt-4 mb-1 flex flex-wrap items-center space-x-3 text-sm">
+            <ul className="mb-1 flex flex-wrap items-center space-x-3 text-sm">
             <li>
                 <span>{authorName} - {date}</span>
             </li>

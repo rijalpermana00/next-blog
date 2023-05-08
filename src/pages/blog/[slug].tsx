@@ -7,7 +7,6 @@ const Slug = () => {
     
     // const posts = post.posts;
     const posts = blog.posts;
-    console.log(posts)
     
     const createExcerpt = (content: string, maxLength: number = 200): string => {
         if (content.length <= maxLength) {

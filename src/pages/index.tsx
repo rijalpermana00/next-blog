@@ -1,6 +1,6 @@
-import MainBlog from '@/components/partials/MainBlog';
+import MainBlog from '@/components/partials/MainBlogAlt';
 import { Main } from '../layouts/Main';
-import Post from '@/components/partials/BlogPost';
+import Post from '@/components/partials/BlogPostAlt';
 import post from '../config/post.json'
 import favorites from '../config/favorites.json'
 import Header from '@/components/partials/Header';
@@ -9,13 +9,13 @@ const Index = () => {
     
     const posts = post.posts;
     
-    const createExcerpt = (content: string, maxLength: number = 200): string => {
-        if (content.length <= maxLength) {
-          return content;
-        }
-        const truncatedContent = content.slice(0, maxLength);
-        return truncatedContent.slice(0, truncatedContent.lastIndexOf(' ')) + '...';
-    };  
+    // const createExcerpt = (content: string, maxLength: number = 200): string => {
+    //     if (content.length <= maxLength) {
+    //       return content;
+    //     }
+    //     const truncatedContent = content.slice(0, maxLength);
+    //     return truncatedContent.slice(0, truncatedContent.lastIndexOf(' ')) + '...';
+    // };  
     
     return (
         <Main>
@@ -28,7 +28,7 @@ const Index = () => {
                         url={post.url}
                         tags={post.categories}
                         date={post.date}
-                        excerpt={createExcerpt(post.content,100)}
+                        excerpt={post.excerpt}
                         imageAlt={post.title}
                         imageUrl={post.featuredImage}
                         content={post?.content}
@@ -51,7 +51,7 @@ const Index = () => {
                             tags={post.categories}
                             url={post.url}
                             date={post.date}
-                            excerpt={createExcerpt(post.content,100)}
+                            excerpt={post.excerpt}
                             imageAlt={post.title}
                             imageUrl={post.featuredImage}
                             content={post?.content}
@@ -75,7 +75,7 @@ const Index = () => {
                             tags={post.categories}
                             url={post.url}
                             date={post.date}
-                            excerpt={createExcerpt(post.content,100)}
+                            excerpt={post.excerpt}
                             imageAlt={post.title}
                             imageUrl={post.featuredImage}
                             content={post?.content}

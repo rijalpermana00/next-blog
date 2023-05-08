@@ -13,7 +13,6 @@ export const NavbarMenu = (props:MenuProps) => {
     
     const router = useRouter();
     const pathname = router.pathname;
-    console.log(props.url);
     
     return (
         <li className={`sm:pt-5 pt-3 sm:pb-5 pb-3 sm:border-b-2 hover:border-gray-800 border-transparent ${pathname === props.url ? 'border-gray-800' : ''}`}>
