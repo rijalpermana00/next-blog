@@ -14,9 +14,18 @@ const MainBlog = ({
   excerpt,
 }: PostProps) => {
   const [mainImageLoaded, setMainImageLoaded] = useState(true);
+  const [classImage, setClassImage] = useState('');
 
   const handleImageError = () => {
     setMainImageLoaded(false);
+  };
+  
+  const handleImage = (h:number,w:number) => {
+      if(h > w){
+          setClassImage('max-w-80 w-80')
+      }else{
+          setClassImage('')
+      }
   };
 
   return (
@@ -28,7 +37,8 @@ const MainBlog = ({
             onError={() => {
                 handleImageError();
             }}
-            className="rounded-lg relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem]"
+            onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
+            className={`rounded-lg relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] items-center ${classImage}`}
             width={200000}
             height={200000}
         />

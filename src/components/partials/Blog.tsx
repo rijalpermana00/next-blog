@@ -15,7 +15,6 @@ const Blog = ({
   excerpt,
 }: PostProps) => {
     
-    
     const [classImage, setClassImage] = useState('');
     
     const handleImage = (h:number,w:number) => {
