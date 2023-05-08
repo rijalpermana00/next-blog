@@ -22,12 +22,13 @@ const Blog = ({
                 </a>
             </h1>
         </div>
-        <div className="col-12 sm:relative">
-            <a href={url}>
+        <div className="col-12 sm:relative text-center content-center">
+            <a href={url} className="text-center content-center">
                 <Image
                     alt={imageAlt}
                     src={imageUrl}
-                    className="rounded-lg relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem]"
+                    className="rounded-lg relative sm:brightness-75 max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] max-w-80 items-center"
+                    style={{ margin: '0 auto'}}
                     width={200000}
                     height={200000}
                 />
@@ -39,7 +40,7 @@ const Blog = ({
                 <span>{authorName} - {date}</span>
             </li>
             </ul>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+            <div dangerouslySetInnerHTML={{ __html: content }} className="text-justify"/>
             <ul className="mt-4 flex flex-wrap items-center text-text">
             {tags.slice(0, 2).map((item, index) => (
                 <li key={index}>
