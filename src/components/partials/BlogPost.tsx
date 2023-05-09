@@ -5,7 +5,7 @@ import { PostProps } from "@/props/PostProps";
 const BlogPost = ({
   imageUrl,
   imageAlt,
-  authorName,
+  author,
   url,
   date,
   tags,
@@ -25,7 +25,7 @@ const BlogPost = ({
       <div>
         <ul className="mt-4 mb-1 flex flex-wrap items-center space-x-3 text-sm">
           <li>
-            <span>{authorName} - {date}</span>
+            <span>{author.name} - {date}</span>
           </li>
         </ul>
         <h3 className="mb-2 text-base font-bold">
@@ -49,7 +49,7 @@ const BlogPost = ({
 export const SecondDesign = ({
   imageUrl,
   imageAlt,
-  authorName,
+  author,
   url,
   date,
   tags,
@@ -84,7 +84,7 @@ export const SecondDesign = ({
               <p className="text-xs">{excerpt}</p>
               <ul className="mt-4 mb-1 flex flex-wrap items-center space-x-3 text-sm">
                 <li>
-                  <span>{authorName} - {date}</span>
+                  <span>{date}</span>
                 </li>
               </ul>
             </div>
@@ -97,7 +97,7 @@ export const SecondDesign = ({
 export const ThirdDesign = ({
   imageUrl,
   imageAlt,
-  authorName,
+  author,
   url,
   date,
   tags,
@@ -150,7 +150,7 @@ export const ThirdDesign = ({
                         loading="lazy"
                         decoding="async"
                     /> */}
-                    <span>By {authorName} on {date}</span>
+                    <span>By {author.name} on {date}</span>
                   </a>
                 </li>
               </ul>

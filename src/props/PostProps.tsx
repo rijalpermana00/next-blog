@@ -2,7 +2,7 @@
 export type PostProps = {
     imageUrl: string;
     imageAlt: string;
-    authorName: string;
+    author: Author;
     url?: string | undefined;
     date: string;
     tags: Tags[];
@@ -19,4 +19,11 @@ export interface Tags {
 export interface Category {
     name: string,
     posts: PostProps[]
+}
+
+export interface Author {
+    id: number;
+    name: string;
+    avatar: string;
+    
 }
