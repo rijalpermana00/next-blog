@@ -18,9 +18,9 @@ const Slug = () => {
     
     return (
         <Main>
-            {/* {posts.slice(0,1).map((post, index) => ( */}
+            <div className={`p-4 md:p-10 bg-gray-400 shadow-2xl`}>
                 <Blog
-                    authorName={posts.author.name}
+                    author={posts.author}
                     title={posts.title}
                     tags={posts.categories}
                     url={posts.url}
@@ -30,7 +30,7 @@ const Slug = () => {
                     imageAlt={posts.title}
                     imageUrl={posts.featuredImage}
                 />
-            {/* ))} */}
+            </div>
         </Main>
     );
 };

@@ -7,7 +7,7 @@ export const MainBlog = ({
   imageUrl,
   imageAlt,
   url,
-  authorName,
+  author,
   date,
   tags,
   title,
@@ -69,7 +69,7 @@ export const MainBlog = ({
                         loading="lazy"
                         decoding="async"
                     /> */}
-                    <span>By {authorName} on {date}</span>
+                    <span>By {author.name} on {date}</span>
                   </a>
                 </li>
               </ul>
