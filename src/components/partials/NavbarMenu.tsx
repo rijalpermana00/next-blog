@@ -15,7 +15,7 @@ export const NavbarMenu = (props:MenuProps) => {
     const pathname = router.pathname;
     
     return (
-        <li className={`sm:pt-5 pt-3 sm:pb-5 pb-3 sm:border-b-2 hover:border-gray-800 border-transparent ${pathname === props.url ? 'border-gray-800' : ''}`}>
+        <li className={`sm:pt-5 pt-3 sm:pb-5 pb-3 sm:border-b-2 hover:border-gray-800 ${pathname === props.url ? 'border-gray-800' : 'border-transparent'}`}>
             <a className={`${pathname === props.url ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 inline-flex items-center px-1 pt-1 font-bold`} href={props?.url ?? '#'}>
                 {props.title}
             </a>

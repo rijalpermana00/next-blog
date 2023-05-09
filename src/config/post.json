@@ -55,7 +55,7 @@
             "id": 3,
             "title": "How to train your dragon",
             "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel mi quam. Praesent at neque ac massa pulvinar scelerisque. In hac habitasse platea dictumst. Aliquam ultricies nunc nec eros suscipit, quis elementum mi sagittis. Nulla ac iaculis tellus. Pellentesque bibendum quam vel nibh vulputate, vel faucibus dolor malesuada. Aenean aliquet augue nec quam malesuada, et venenatis nisi varius. Morbi viverra convallis ipsum, eu blandit nulla rhoncus a.",
-            "featuredImage": "https://dummyimage.com/1080x720/000/fff",
+            "featuredImage": "https://dummyimage.com/600x400/2cbf5d/fff",
             "excerpt": "Lorem Ipsum Dolores Monares",
             "author": {
             "id": 1,
@@ -78,7 +78,30 @@
             "id": 4,
             "title": "Stay with Me",
             "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel mi quam. Praesent at neque ac massa pulvinar scelerisque. In hac habitasse platea dictumst. Aliquam ultricies nunc nec eros suscipit, quis elementum mi sagittis. Nulla ac iaculis tellus. Pellentesque bibendum quam vel nibh vulputate, vel faucibus dolor malesuada. Aenean aliquet augue nec quam malesuada, et venenatis nisi varius. Morbi viverra convallis ipsum, eu blandit nulla rhoncus a.",
-            "featuredImage": "https://dummyimage.com/1080x720/000/fff",
+            "featuredImage": "https://dummyimage.com/600x400/2cbf5d/fff",
+            "excerpt": "Lorem Ipsum Dolores Monares",
+            "author": {
+            "id": 1,
+            "name": "John Doe",
+            "avatar": "https://bookworm-light-nextjs.vercel.app/_next/image?url=%2Fimages%2Fposts%2F01.jpg&w=1920&q=75"
+            },
+            "date": "2022-04-01",
+            "categories": [
+            {
+                "id": 1,
+                "name": "Game"
+            },
+            {
+                "id": 2,
+                "name": "Writer"
+            }
+            ]
+        },
+        {
+            "id": 5,
+            "title": "How to build Gundam",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel mi quam. Praesent at neque ac massa pulvinar scelerisque. In hac habitasse platea dictumst. Aliquam ultricies nunc nec eros suscipit, quis elementum mi sagittis. Nulla ac iaculis tellus. Pellentesque bibendum quam vel nibh vulputate, vel faucibus dolor malesuada. Aenean aliquet augue nec quam malesuada, et venenatis nisi varius. Morbi viverra convallis ipsum, eu blandit nulla rhoncus a.",
+            "featuredImage": "https://dummyimage.com/600x400/2cbf5d/fff",
             "excerpt": "Lorem Ipsum Dolores Monares",
             "author": {
             "id": 1,
