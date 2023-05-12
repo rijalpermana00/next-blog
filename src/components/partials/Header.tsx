@@ -43,7 +43,7 @@ export const AlternativeHeader2 = ({
             <div className={`w-full w-max-full ${bgColor}`}>
                 <div className="sm:pb-12 pb-8 ">
                     <h1 className="text-6xl leading-none tracking-tighter font-black text-center text-gray-900 whitespace-pre-line leading-hero">Truegreys,</h1>
-                    <h1 className="text-6xl leading-none tracking-tighter font-black text-center text-gray-500 whitespace-pre-line leading-hero">Sani Asmi's Blog</h1>
+                    <h1 className="text-6xl leading-none tracking-tighter font-black text-center text-gray-500 whitespace-pre-line leading-hero">Sani Asmis Blog</h1>
                 </div>
             </div>
         </div>
