@@ -57,7 +57,8 @@ export const SecondDesign = ({
   excerpt,
 }: PostProps) => {
   return (
-      <div className='w-full max-w hover:shadow-2xl scale-100 hover:scale-105 mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
+      // <div className='w-full max-w hover:shadow-2xl scale-100 hover:scale-105 mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
+      <div className='w-full max-w hover:shadow-2xl hover:translate-y-1 mx-auto transition delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
         <div className='max-w mx-auto'>
           <div className="col-12 sm:col-6">
             <div className="relative overflow-hidden pb-48">

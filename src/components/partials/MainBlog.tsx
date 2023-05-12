@@ -20,7 +20,8 @@ export const MainBlog = ({
   };
   
   return (
-    <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl scale-95 hover:scale-100 mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
+    // <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl scale-95 hover:scale-100 mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
+    <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl hover:translate-y-1 mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
       <div className='max-w-md sm:max-w-7xl mx-auto'>
         <div className="col-12 mb-4 sm:mb-0 sm:relative">
           <a href={url}>
@@ -69,7 +70,8 @@ export const MainBlog = ({
                         loading="lazy"
                         decoding="async"
                     /> */}
-                    <span>By {author.name} on {date}</span>
+                    {/* <span>By {author.name} on {date}</span> */}
+                    <span>Posted on {date}</span>
                   </a>
                 </li>
               </ul>

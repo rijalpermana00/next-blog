@@ -4,13 +4,18 @@ import post from '@/config/post.json'
 import favorites from '@/config/favorites.json'
 import { MainContent } from '@/components/partials/MainContent';
 import { SecondaryContent } from '@/components/partials/SecondaryContent';
+import Header, { AlternativeHeader, AlternativeHeader2 } from '@/components/partials/Header';
+import { DefaultTabs } from '@/components/partials/Tabs';
 
 const Index = () => {
     
     return (
         <Main>
-            <MainContent bgColor='bg-gray-200'/>
-            <SecondaryContent title='Latest'>
+            {/* <AlternativeHeader2 bgColor='bg-gray-800'/> */}
+            <Header/>
+            <MainContent maxWidth='max-w-5xl' bgColor='bg-white'/>
+            <DefaultTabs/>
+            <SecondaryContent title='Latest' maxWidth='max-w-5xl'>
                 {post.posts.slice(1).map((post, index) => (
                     <SecondDesign
                         author={post.author}
@@ -26,7 +31,7 @@ const Index = () => {
                     />
                 ))}
             </SecondaryContent>
-            <SecondaryContent title='Favorites'>
+            <SecondaryContent title='Favorites' maxWidth='max-w-5xl'>
                 {favorites.posts.slice(1).map((post, index) => (
                     <SecondDesign
                         author={post.author}

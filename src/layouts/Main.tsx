@@ -15,10 +15,11 @@ type IMainProps = {
 };
   
 const Main = (props: IMainProps) => (
-    <div className="antialiased bg-gray-300">
+    // <div className="antialiased bg-gray-200">
+    <div className="antialiased">
         <Meta title={props?.title ?? AppConfig.title} description={props?.description ?? AppConfig.description} />
         <Navbar/>
-        <main className="mx-auto max-w-5xl mt-16">{props.children}</main>
+        <main className="mx-auto mt-16">{props.children}</main>
     </div>
 );
 
