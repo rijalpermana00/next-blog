@@ -148,7 +148,7 @@ export const FourthDesign = ({
 }: PostProps) => {
   return (
     <div
-      className="flex flex-col items-stretch min-h-full mb-6 transition-all duration-150 bg-white rounded-lg shadow-lg hover:shadow-2xl"
+      className="flex flex-col min-h-min mb-6 bg-white rounded-lg shadow-lg hover:shadow-2xl"
     >
       <img 
         src={imageUrl}
@@ -160,7 +160,7 @@ export const FourthDesign = ({
         <h3 className="text-xl font-medium text-gray-900">{title}</h3>
       </section>
       <p
-        className="flex flex-row flex-wrap w-full flex-1 px-4 mt-1 overflow-hidden text-gray-500 text-justify leading-snug line-clamp-3"
+        className="flex sm:flex-row flex-wrap w-full flex-1 px-4 mt-1 overflow-hidden text-gray-500 text-justify"
       >
         {excerpt}
       </p>
