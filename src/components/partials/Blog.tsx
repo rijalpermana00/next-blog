@@ -19,7 +19,7 @@ const Blog = ({
     
     const handleImage = (h:number,w:number) => {
         if(h > w){
-            setClassImage('max-w-md')
+            setClassImage('max-w-xs')
         }else{
             setClassImage('max-h-md')
         }
@@ -28,22 +28,15 @@ const Blog = ({
   return (
     <>
         <div className="col-12 sm:col-6 mb-4">
-            <h1 className="mb-3 text-5xl font-bold">
-                <a className="block hover:text-primary leading-10" href="/post-1">
+            <h3 className="text-5xl font-extrabold leading-tight">
                 {title}
-                </a>
-            </h1>
-            <ul className="mb-2 flex flex-wrap items-center space-x-3 text-sm">
+            </h3>
+        </div>
+        <div className="col-12 sm:col-6">
+            <ul className="mb-2 flex flex-wrap items-center space-x-3">
                 <li>
-                    <span>Posted on {date}</span>
+                    <p className="mb-4 text-primary-500">Posted on <time>{date}</time></p>
                 </li>
-            </ul>
-            <ul className="mb-3 flex flex-wrap items-center text-text">
-                {tags.slice(0, 2).map((item, index) => (
-                    <li key={index}>
-                    <Badge text={item.name}/>
-                    </li>
-                ))}
             </ul>
         </div>
         <div className="col-12 sm:relative text-center content-center mb-10">
@@ -52,10 +45,19 @@ const Blog = ({
                     alt={imageAlt}
                     src={imageUrl}
                     onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-                    className={`rounded-lg object-contain relative items-center ${classImage}`}
+                    className={`rounded-lg object-contain relative hidden sm:block items-center ${classImage}`}
                     style={{ margin: '0 auto'}}
-                    width={200000}
-                    height={200000}
+                    width={4000}
+                    height={4000}
+                />
+                <Image
+                    alt={imageAlt}
+                    src={imageUrl}
+                    onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
+                    className={`rounded-lg object-contain relative block sm:hidden items-center ${classImage}`}
+                    style={{ margin: '0 auto'}}
+                    width={4000}
+                    height={4000}
                 />
             </a>
         </div>

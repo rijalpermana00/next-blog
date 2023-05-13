@@ -21,7 +21,7 @@ export const MainBlog = ({
   
   return (
     // <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl scale-95 hover:scale-100 mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
-    <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl hover:translate-y-1 mx-auto transition ease-out delay-75 bg-white rounded-lg overflow-hidden'>
+    <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl hover:translate-y-1 mx-auto transition ease-out delay-75 bg-white rounded-lg overflow-hidden shadow-md'>
       <div className='max-w-md sm:max-w-7xl mx-auto'>
         <div className="col-12 mb-4 sm:mb-0 sm:relative">
           <a href={url}>
@@ -38,7 +38,7 @@ export const MainBlog = ({
           </a>
           {mainImageLoaded && (
             <div
-              className="text-black sm:absolute sm:bottom-0 sm:left-0 sm:p-4 sm:text-white sm:w-full sm:rounded-b-lg sm:bg-black sm:opacity-80 px-4 sm:px-6"
+              className="text-black sm:absolute sm:bottom-0 sm:left-0 sm:p-4 sm:text-white sm:w-full sm:rounded-b-lg sm:bg-black sm:opacity-80 px-4 sm:px-6 pt-4"
             >
               <p className="mb-1 text-sm text-primary-500">Posted on <time>18 Nov 2022</time></p>
               <h3 className="text-3xl font-bold">

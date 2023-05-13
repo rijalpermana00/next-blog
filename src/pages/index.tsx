@@ -6,6 +6,7 @@ import { MainContent } from '@/components/partials/MainContent';
 import { MainSecondaryContent, SecondaryContent } from '@/components/partials/SecondaryContent';
 import Header, { AlternativeHeader, AlternativeHeader2 } from '@/components/partials/Header';
 import { DefaultTabs } from '@/components/partials/Tabs';
+import GoToTop from '@/components/partials/GoToTop';
 
 const Index = () => {
     
@@ -47,6 +48,7 @@ const Index = () => {
                     />
                 ))}
             </MainSecondaryContent>
+            <GoToTop/>
         </Main>
     );
 };
