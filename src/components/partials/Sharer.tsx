@@ -13,21 +13,23 @@ export default function ShareButtonGroup({ url }:props) {
 
   return (
     <div className="bottom-4 right-4">
-      <button className="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 mr-2">
-        <a href={facebookShareUrl} target="_blank" rel="noopener noreferrer">
-          <FaFacebook />
-        </a>
-      </button>
-      <button className="bg-blue-400 hover:bg-blue-500 text-white rounded-full p-3 mr-2">
-        <a href={twitterShareUrl} target="_blank" rel="noopener noreferrer">
-          <FaTwitter />
-        </a>
-      </button>
-      <button className="bg-blue-300 hover:bg-blue-400 text-white rounded-full p-3">
-        <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer">
-          <FaLinkedin />
-        </a>
-      </button>
+        <p className="text-sm font-medium text-gray-500 mb-2">Share this:</p>
+        <button className="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 mr-2">
+            <a href={facebookShareUrl} target="_blank" rel="noopener noreferrer">
+            <FaFacebook />
+            </a>
+        </button>
+        <button className="bg-blue-400 hover:bg-blue-500 text-white rounded-full p-3 mr-2">
+            <a href={twitterShareUrl} target="_blank" rel="noopener noreferrer">
+            <FaTwitter />
+            </a>
+        </button>
+        <button className="bg-blue-300 hover:bg-blue-400 text-white rounded-full p-3">
+            <a href={linkedinShareUrl} target="_blank" rel="noopener noreferrer">
+            <FaLinkedin />
+            </a>
+        </button>
     </div>
+
   );
 }
