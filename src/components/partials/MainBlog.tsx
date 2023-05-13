@@ -21,7 +21,7 @@ export const MainBlog = ({
   
   return (
     // <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl scale-95 hover:scale-100 mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
-    <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl hover:translate-y-1 mx-auto transition ease-out delay-75 bg-white rounded-3xl overflow-hidden'>
+    <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl hover:translate-y-1 mx-auto transition ease-out delay-75 bg-white rounded-lg overflow-hidden'>
       <div className='max-w-md sm:max-w-7xl mx-auto'>
         <div className="col-12 mb-4 sm:mb-0 sm:relative">
           <a href={url}>
@@ -38,36 +38,30 @@ export const MainBlog = ({
           </a>
           {mainImageLoaded && (
             <div
-              className="text-black sm:absolute sm:bottom-0 sm:left-0 sm:p-4 sm:text-white sm:w-full sm:rounded-b-3xl sm:bg-black sm:opacity-80 px-4 sm:px-6"
+              className="text-black sm:absolute sm:bottom-0 sm:left-0 sm:p-4 sm:text-white sm:w-full sm:rounded-b-lg sm:bg-black sm:opacity-80 px-4 sm:px-6"
             >
-              <h3 className="mb-2 text-3xl font-bold">
+              <p className="mb-1 text-sm text-primary-500">Posted on <time>18 Nov 2022</time></p>
+              <h3 className="text-3xl font-bold">
                 <a className="block hover:text-primary leading-8" href="/post-1">
                   {title}
                 </a>
               </h3>
-              <p className="text-black sm:text-white sm:flex">
+              <p className="flex sm:flex-row flex-wrap w-full mt-1 overflow-hidden text-black sm:text-white text-justify">
                 {excerpt}
               </p>
-              <ul className="mt-4 mb-1 flex flex-wrap items-center space-x-3 text-sm">
+              {/* <p className="text-black sm:text-white sm:flex">
+                {excerpt}
+              </p> */}
+              {/* <ul className="mt-4 mb-1 flex flex-wrap items-center space-x-3 text-sm">
                 <li>
                   <a
                     className="flex items-center hover:text-primary text-sm"
                     href="/authors/mark-dinn"
                   >
-                    {/* <Image
-                        alt={authorName}
-                        src="https://bookworm-light-nextjs.vercel.app/_next/image?url=%2Fimages%2Fposts%2F01.jpg&w=1920&q=75"
-                        className="mr-2 h-6 w-6 rounded-full object-cover hidden sm:block"
-                        width={50}
-                        height={50}
-                        loading="lazy"
-                        decoding="async"
-                    /> */}
-                    {/* <span>By {author.name} on {date}</span> */}
                     <span>Posted on {date}</span>
                   </a>
                 </li>
-              </ul>
+              </ul> */}
               <ul className="mt-4 sm:mt-4 flex flex-wrap items-center text-text">
                 {tags.map((item, index) => (
                   <li key={index}>

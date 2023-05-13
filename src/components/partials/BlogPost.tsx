@@ -156,15 +156,15 @@ export const FourthDesign = ({
         alt={imageAlt}
       />
       <section className="p-4 pb-0">
-        <p className="mb-1 text-sm text-primary-500">Andrea Felsted • <time>18 Nov 2022</time></p>
-        <h3 className="text-xl font-medium text-gray-900">{title}</h3>
+        <p className="mb-1 text-sm text-primary-500">Posted on <time>18 Nov 2022</time></p>
+        <h3 className="text-xl font-bold text-gray-900">{title}</h3>
       </section>
       <p
         className="flex sm:flex-row flex-wrap w-full flex-1 px-4 mt-1 overflow-hidden text-gray-500 text-justify"
       >
         {excerpt}
       </p>
-      <section className="p-4">
+      <section className="p-4 mt-4">
         <ul className="flex flex-wrap items-center text-text">
               {tags.slice(0, 1).map((item, index) => (
                 <li key={index}>
