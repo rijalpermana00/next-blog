@@ -9,6 +9,29 @@ type props = {
     maxWidth?: 'max-w-5xl' | 'max-w-7xl' | 'max-w-full' | undefined
 }
 
+export const MainSecondaryContent = ({
+    bgColor,
+    title,
+    children,
+    maxWidth
+}:props) => {
+  
+    return (
+        // <div className={`px-4 py-3 sm:px-10 sm:py-4 mx-auto ${bgColor ?? 'bg-white'} ${maxWidth ?? ''}`}>
+        <div className={`px-4 py-3 sm:px-10 sm:py-4 mx-auto ${bgColor ?? 'bg-white'} ${maxWidth ?? ''}`}>
+            <h3 className={`text-3xl font-bold text-left mb-8 ${bgColor === 'bg-black' ? 'text-white' : 'text-gray-500'}`}>
+                <a className="block hover:text-primary" href="/post-1">
+                    {title}
+                </a>
+                <hr/>
+            </h3>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+                {children}
+            </div>
+        </div>
+    );
+}
+
 export const SecondaryContent = ({
     bgColor,
     title,
@@ -17,15 +40,18 @@ export const SecondaryContent = ({
 }:props) => {
   
     return (
+        // <div className={`px-4 py-3 sm:px-10 sm:py-4 mx-auto ${bgColor ?? 'bg-white'} ${maxWidth ?? ''}`}>
         <div className={`px-4 py-3 sm:px-10 sm:py-4 mx-auto ${bgColor ?? 'bg-white'} ${maxWidth ?? ''}`}>
-            <h3 className={`text-3xl font-bold text-left pb-3 ${bgColor === 'bg-black' ? 'text-white' : 'text-gray-500'}`}>
+            <h3 className={`text-3xl font-bold text-left mb-8 ${bgColor === 'bg-black' ? 'text-white' : 'text-gray-500'}`}>
                 <a className="block hover:text-primary" href="/post-1">
                     {title}
                 </a>
                 <hr/>
             </h3>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-                {children}
+            <div className="flex flex-row flex-wrap mx-auto">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+                    {children}
+                </div>
             </div>
         </div>
     );

@@ -21,7 +21,7 @@ export const MainBlog = ({
   
   return (
     // <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl scale-95 hover:scale-100 mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
-    <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl hover:translate-y-1 mx-auto transition ease-out delay-75 bg-white rounded-3xl shadow-md overflow-hidden'>
+    <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl hover:translate-y-1 mx-auto transition ease-out delay-75 bg-white rounded-3xl overflow-hidden'>
       <div className='max-w-md sm:max-w-7xl mx-auto'>
         <div className="col-12 mb-4 sm:mb-0 sm:relative">
           <a href={url}>
@@ -40,13 +40,6 @@ export const MainBlog = ({
             <div
               className="text-black sm:absolute sm:bottom-0 sm:left-0 sm:p-4 sm:text-white sm:w-full sm:rounded-b-3xl sm:bg-black sm:opacity-80 px-4 sm:px-6"
             >
-              <ul className="mt-3 sm:mt-0 mb-3 flex flex-wrap items-center text-text">
-                {tags.map((item, index) => (
-                  <li key={index}>
-                    <Badge text={item.name} className="sm:border sm:border-white sm:bg-transparent"/>
-                  </li>
-                ))}
-              </ul>
               <h3 className="mb-2 text-3xl font-bold">
                 <a className="block hover:text-primary leading-8" href="/post-1">
                   {title}
@@ -74,6 +67,13 @@ export const MainBlog = ({
                     <span>Posted on {date}</span>
                   </a>
                 </li>
+              </ul>
+              <ul className="mt-4 sm:mt-4 flex flex-wrap items-center text-text">
+                {tags.map((item, index) => (
+                  <li key={index}>
+                    <Badge text={item.name} className="sm:border sm:border-white sm:bg-transparent"/>
+                  </li>
+                ))}
               </ul>
             </div>
           )}
