@@ -2,6 +2,7 @@ import Image from "next/image";
 import Badge from "./Badge";
 import { PostProps } from "@/props/PostProps";
 import { useState } from "react";
+import ShareButtonGroup from "./Sharer";
 
 const Blog = ({
   imageUrl,
@@ -19,16 +20,16 @@ const Blog = ({
     
     const handleImage = (h:number,w:number) => {
         if(h > w){
-            setClassImage('max-w-xs')
+            setClassImage('max-w-sm')
         }else{
-            setClassImage('max-h-md')
+            setClassImage('max-h-sm')
         }
     };
     
   return (
     <>
         <div className="col-12 sm:col-6 mb-4">
-            <h3 className="text-5xl font-extrabold leading-tight">
+            <h3 className="text-5xl font-extrabold leading-10">
                 {title}
             </h3>
         </div>
@@ -45,7 +46,7 @@ const Blog = ({
                     alt={imageAlt}
                     src={imageUrl}
                     onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-                    className={`rounded-lg object-contain relative hidden sm:block items-center ${classImage}`}
+                    className={`rounded-lg relative hidden sm:block max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover items-center ${classImage}`}
                     style={{ margin: '0 auto'}}
                     width={4000}
                     height={4000}
@@ -54,7 +55,7 @@ const Blog = ({
                     alt={imageAlt}
                     src={imageUrl}
                     onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-                    className={`rounded-lg object-contain relative block sm:hidden items-center ${classImage}`}
+                    className={`rounded-lg object-cover relative block sm:hidden items-center ${classImage}`}
                     style={{ margin: '0 auto'}}
                     width={4000}
                     height={4000}
@@ -64,6 +65,7 @@ const Blog = ({
         <div>
             <div dangerouslySetInnerHTML={{ __html: content }} className="text-justify"/>
         </div>
+        <ShareButtonGroup url={`https://example.com/posts/${imageUrl}`} />
     </>
   );
 };
