@@ -2,7 +2,15 @@ import Image from "next/image";
 import Badge from "./Badge";
 import { PostProps } from "@/props/PostProps";
 import { useState } from "react";
-import ShareButtonGroup from "./Sharer";
+import ShareButtonGroup, { ShareButtonGroupAlt } from "./Sharer";
+import Example from "./Test";
+import DisqusComments from "./Disqus";
+
+const posts = {
+    url: 'https://sani-blog.vercel.app/',
+    title: 'menarique',
+    id: '1a'
+};
 
 const Blog = ({
   imageUrl,
@@ -63,9 +71,11 @@ const Blog = ({
             </a>
         </div>
         <div>
-            <div dangerouslySetInnerHTML={{ __html: content }} className="text-justify"/>
+            <div dangerouslySetInnerHTML={{ __html: content }}/>
         </div>
-        <ShareButtonGroup url={`https://example.com/posts/${imageUrl}`} />
+        <hr/>
+        {/* <ShareButtonGroup url="https://example.com/my-page" title="My Awesome Page" />  */}
+        <DisqusComments post={posts}/>
     </>
   );
 };
