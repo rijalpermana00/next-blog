@@ -4,8 +4,7 @@ import post from '@/config/post.json'
 import favorites from '@/config/favorites.json'
 import { MainContent } from '@/components/partials/MainContent';
 import { MainSecondaryContent, SecondaryContent } from '@/components/partials/SecondaryContent';
-import Header, { AlternativeHeader, AlternativeHeader2 } from '@/components/partials/Header';
-import { DefaultTabs } from '@/components/partials/Tabs';
+import Header from '@/components/partials/Header';
 import GoToTop from '@/components/partials/GoToTop';
 
 const Index = () => {

@@ -1,18 +1,17 @@
 import { useState } from "react";
 import Image from 'next/image';
 import Badge from "./Badge";
-import { PostProps } from "@/props/PostProps";
+import { Post, PostProps } from "@/props/PostProps";
 
 export const MainBlog = ({
-  imageUrl,
-  imageAlt,
-  url,
+  coverImage,
+  slug,
   author,
-  date,
+  publishedAt,
   tags,
   title,
   excerpt,
-}: PostProps) => {
+}: Post) => {
   const [mainImageLoaded, setMainImageLoaded] = useState(true);
 
   const handleImageError = () => {
@@ -24,10 +23,10 @@ export const MainBlog = ({
     <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl hover:translate-y-1 mx-auto transition ease-out delay-75 bg-white rounded-lg overflow-hidden shadow-md'>
       <div className='max-w-md sm:max-w-7xl mx-auto'>
         <div className="col-12 mb-4 sm:mb-0 sm:relative">
-          <a href={url}>
+          <a href={slug}>
             <Image
-                alt={imageAlt}
-                src={imageUrl}
+                alt={coverImage.fileName}
+                src={coverImage.url}
                 onError={() => {
                     handleImageError();
                 }}
@@ -65,7 +64,7 @@ export const MainBlog = ({
               <ul className="mt-4 sm:mt-4 flex flex-wrap items-center text-text">
                 {tags.map((item, index) => (
                   <li key={index}>
-                    <Badge text={item.name} className="sm:border sm:border-white sm:bg-transparent"/>
+                    <Badge text={item} className="sm:border sm:border-white sm:bg-transparent"/>
                   </li>
                 ))}
               </ul>

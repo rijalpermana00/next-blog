@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Logo from '@components/partials/Logo';
 import { useState } from 'react';
 import { IoSearch } from "react-icons/io5";
-import SearchModal from './ModalSearch';
+import SearchModal from './Modal';
 
 const Navbar = () => {
   

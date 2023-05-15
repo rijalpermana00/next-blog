@@ -19,6 +19,7 @@
       "@layouts/*": ["./src/layouts/*"],
       "@components/*": ["./src/components/*"],
       "@config/*": ["./src/config/*"],
+      "@apollo/*": ["./src/apollo/*"],
         
     }
   },

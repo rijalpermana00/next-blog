@@ -27,3 +27,29 @@ export interface Author {
     avatar: string;
     
 }
+
+export interface Post {
+    id: string;
+    slug: string;
+    title: string;
+    publishedAt: string;
+    content: {
+      html: string;
+    };
+    author: {
+      name: string;
+      id: string;
+    };
+    tags: string[];
+    coverImage: {
+      fileName: string;
+      height: number;
+      url: string;
+    };
+    excerpt: string;
+  }
+  
+export interface MyQueryResult {
+    posts: Post;
+  }
+  

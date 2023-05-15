@@ -5,7 +5,9 @@ const nextConfig = {
     domains: [
       'bookworm-light-nextjs.vercel.app',
       'dummyimage.com',
-      '64.media.tumblr.com'
+      '64.media.tumblr.com',
+      'media.graphassets.com',
+      'media.graphcms.com'
     ],
   },
 }
