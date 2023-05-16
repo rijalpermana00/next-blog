@@ -38,9 +38,9 @@ export const getLatestPosts = gql`
       slug
       title
       publishedAt
-      content {
-        html
-      }
+      # content {
+      #   html
+      # }
       author {
         name
         id

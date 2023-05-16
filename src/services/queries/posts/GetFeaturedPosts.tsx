@@ -7,9 +7,9 @@ export const getFeaturedPosts = gql`
       slug
       title
       publishedAt
-      content {
-        html
-      }
+      # content {
+      #   html
+      # }
       author {
         name
         id
