@@ -1,5 +1,3 @@
-import post from '@/config/post.json'
-import { SecondDesign } from '@/components/partials/BlogPost';
 import { ReactNode } from 'react';
 
 type props = {
