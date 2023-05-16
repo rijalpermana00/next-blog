@@ -1,37 +1,33 @@
 import { getClient } from "@/apollo/Config";
 import { MainContent } from "@/components/partials/MainContent";
 import { gql } from "@apollo/client";
-    
-const query = gql`query MyQuery {
-    posts(where: { slug: $slug }, last: 7) {
-      id
-      slug
-      title
-      publishedAt
-      content {
-        html
+
+export async function getPost(slug:string | string[] | undefined) {
+  
+  const query = gql`
+    query MyQuery{
+      post(where: {slug: "my-first-post"}) {
+        author {
+          name
+          id
+        }
+        content {
+          html
+        }
+        coverImage {
+          fileName
+          url
+        }
+        slug
+        title
+        publishedAt
+        tags
       }
-      author {
-        name
-        id
-      }
-      tags
-      coverImage {
-        fileName
-        height
-        url
-      }
-      excerpt
     }
-}`;
-
-const variables = {
-    slug: 'my-first-post'
-};
-
-export async function getPost() {
+  `;  
+  
   const client = getClient();
-  const result = await client.query({ query,variables });
+  const result = await client.query({ query });
   if (!result.data.posts) {
     return false;
   }

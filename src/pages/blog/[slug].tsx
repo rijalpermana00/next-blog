@@ -7,15 +7,18 @@ import GoToTop from '@/components/partials/GoToTop';
 import { Post } from '@/props/PostProps';
 import { useEffect, useState } from 'react';
 import { getPost } from '@/services/GetPost';
+import { useRouter } from 'next/router';
 
 const Slug = () => {
     const [post, setPost] = useState<Post | null>(null);
+    const router = useRouter();
+    const { slug } = router.query;
     
     useEffect(() => {
         
         const fetchPost = async () => {
             try {
-                const data = await getPost();
+                const data = await getPost(slug);
         
                 setPost(data);
               
@@ -26,18 +29,10 @@ const Slug = () => {
           fetchPost();
     },[]);
     
-    const createExcerpt = (content: string, maxLength: number = 200): string => {
-        if (content.length <= maxLength) {
-          return content;
-        }
-        const truncatedContent = content.slice(0, maxLength);
-        return truncatedContent.slice(0, truncatedContent.lastIndexOf(' ')) + '...';
-    };  
-    
     return (
         <Main>
             <div className={`py-10 sm:py-16 px-4 sm:px-32 sm:max-w-5xl sm:mx-auto`}>
-                {post && (
+                {post ? (
                     <Blog
                         author={post.author}
                         title={post.title}
@@ -49,7 +44,9 @@ const Slug = () => {
                         coverImage={post.coverImage}
                         id={post.id}
                     />
-                )}
+                ) :
+                <h1>empty!</h1>
+                }
             </div>
             {/* <SecondaryContent title='Other Posts' order='text-center' maxWidth='max-w-7xl'>
                 {post.posts.slice(1).map((post, index) => (

@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { getFeaturedPost } from "@/services/GetFeaturedPost";
 import { getLatestPosts } from "@/services/GetLatestPosts";
 import { Post } from '@/props/PostProps';
+import Skeleton from '@/components/partials/Skeleton';
 
 const Index = () => {
     const [featuredPost, setFeaturedPost] = useState<Post | null>(null);
@@ -56,20 +57,28 @@ const Index = () => {
             <MainContent maxWidth='max-w-7xl' bgColor='bg-white' featuredPost={featuredPost}/>
             {/* <DefaultTabs/> */}
             <SecondaryContent title='Latest' maxWidth='max-w-7xl'>
-                {latestPosts?.map((post, index) => (
-                    <FourthDesign
-                        author={post.author}
-                        title={post.title}
-                        coverImage={post.coverImage}
-                        tags={post.tags}
-                        publishedAt={post.publishedAt}
-                        excerpt={post.excerpt}
-                        content={post.content}
-                        slug={post.slug}
-                        id={post.id}
-                        key={index}
-                    />
-                ))}
+                {latestPosts ? (
+                    latestPosts?.map((post, index) => (
+                        <FourthDesign
+                            author={post.author}
+                            title={post.title}
+                            coverImage={post.coverImage}
+                            tags={post.tags}
+                            publishedAt={post.publishedAt}
+                            excerpt={post.excerpt}
+                            content={post.content}
+                            slug={post.slug}
+                            id={post.id}
+                            key={index}
+                        />
+                    ))    
+                ):(
+                    <>
+                        <Skeleton className="h-96 w-96"/>
+                        <Skeleton className="h-96 w-96"/>
+                        <Skeleton className="h-96 w-96"/>
+                    </>
+                )}
             </SecondaryContent>
             {/* <MainSecondaryContent title='Favorites' maxWidth='max-w-7xl'>
                 {favorites.posts.slice(1).map((post, index) => (

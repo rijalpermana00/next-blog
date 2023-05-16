@@ -1,6 +1,7 @@
 import MainBlog from "./MainBlog";
 import { useEffect, useState } from "react";
 import { Post } from "@/props/PostProps";
+import Skeleton from "./Skeleton";
 
 type props = {
     bgColor?: 'bg-gray-200' | 'bg-white' | undefined ,
@@ -18,7 +19,7 @@ export const MainContent = ({
         // <div className={`p-4 md:p-10 mt-[-16rem] rounded-t-3xl relative mx-auto ${bgColor ?? ''} ${maxWidth ?? ''}`}>
         <div className={`px-4 sm:px-10 rounded-t-lg relative mx-auto ${bgColor ?? ''} ${maxWidth ?? ''}`}>
             {/* <div className='bg-white pb-4'> */}
-                {featuredPost && (
+                {featuredPost ? (
                     <MainBlog
                         author={featuredPost.author}
                         title={featuredPost.title}
@@ -31,6 +32,8 @@ export const MainContent = ({
                         id={featuredPost.id}
                         key={featuredPost.id}
                     />
+                ) : (
+                    <Skeleton className="w-full h-[32rem]"/>
                 )}
             {/* </div>     */}
         </div>

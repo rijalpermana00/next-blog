@@ -4,8 +4,8 @@ export const AppConfig = {
   description: 'Sani Asmi Ramdani Lestari Official Blog',
   locale: 'en',
   base_url: "/",
-  favicon: "/images/favicon.png",
-  logo: "https://bookworm-light-nextjs.vercel.app/_next/image?url=%2Fimages%2Flogo.png&w=828&q=75",
+  favicon: "/favicon.ico",
+  logo: "/logo-no-background.svg",
   logo_width: 200,
   logo_height: 34,
   logo_text: "Bookworm Light"

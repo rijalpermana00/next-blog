@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Badge from "./Badge";
 import { Post } from "@/props/PostProps";
+import Link from "next/link";
 
 // const BlogPost = ({
 //   imageUrl,
@@ -149,29 +150,31 @@ export const FourthDesign = ({
     <div
       className="flex flex-col min-h-min mb-6 bg-white rounded-lg shadow-lg hover:shadow-2xl"
     >
-      <img 
-        src={coverImage.url}
-        className="aspect-video w-full object-cover rounded-t-lg" 
-        alt={coverImage.fileName}
-      />
-      <section className="p-4 pb-0">
-        <p className="mb-1 text-sm text-primary-500">Posted on <time>18 Nov 2022</time></p>
-        <h3 className="text-xl font-bold text-gray-900">{title}</h3>
-      </section>
-      <p
-        className="flex sm:flex-row flex-wrap w-full flex-1 px-4 mt-1 overflow-hidden text-gray-500 text-justify"
-      >
-        {excerpt}
-      </p>
-      <section className="p-4 mt-4">
-        <ul className="flex flex-wrap items-center text-text">
-              {tags.slice(0, 1).map((item, index) => (
-                <li key={index}>
-                  <Badge text={item}/>
-                </li>
-              ))}
-            </ul>
-      </section>
+      <Link href={'blog/'+slug}>
+        <img 
+          src={coverImage.url}
+          className="aspect-video w-full object-cover rounded-t-lg" 
+          alt={coverImage.fileName}
+        />
+        <section className="p-4 pb-0">
+          <p className="mb-1 text-sm text-primary-500">Posted on <time>18 Nov 2022</time></p>
+          <h3 className="text-xl font-bold text-gray-900">{title}</h3>
+        </section>
+        <p
+          className="flex sm:flex-row flex-wrap w-full flex-1 px-4 mt-1 overflow-hidden text-gray-500 text-justify"
+        >
+          {excerpt}
+        </p>
+        <section className="p-4 mt-4">
+          <ul className="flex flex-wrap items-center text-text">
+                {tags.slice(0, 1).map((item, index) => (
+                  <li key={index}>
+                    <Badge text={item}/>
+                  </li>
+                ))}
+              </ul>
+        </section>  
+      </Link>
     </div>
   )
 }
