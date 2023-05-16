@@ -50,6 +50,9 @@ export interface Post {
   }
   
 export interface MyQueryResult {
-    posts: Post;
+    post: Post;
   }
-  
+
+export interface QueryResult {
+      posts: Post[];
+}

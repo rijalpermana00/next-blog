@@ -4,35 +4,34 @@ import Blog from '@/components/partials/Blog';
 import { SecondaryContent } from '@/components/partials/SecondaryContent';
 import { FourthDesign } from '@/components/partials/BlogPost';
 import GoToTop from '@/components/partials/GoToTop';
-import { Post } from '@/props/PostProps';
+import { MyQueryResult } from '@/props/PostProps';
 import { useEffect, useState } from 'react';
-import { getPost } from '@/services/GetPost';
 import { useRouter } from 'next/router';
+import { ApolloError, useQuery } from '@apollo/client';
+import { getPost } from '@/services/queries/posts/GetPost';
 
 const Slug = () => {
-    const [post, setPost] = useState<Post | null>(null);
     const router = useRouter();
     const { slug } = router.query;
     
-    useEffect(() => {
-        
-        const fetchPost = async () => {
-            try {
-                const data = await getPost(slug);
-        
-                setPost(data);
-              
-            } catch (error) {
-              console.log(error);
-            }
-          };
-          fetchPost();
-    },[]);
+    const { 
+        loading:loadingPost, 
+        error:errorPost, 
+        data:postData
+    }:{ 
+        loading:boolean, 
+        error?: ApolloError, 
+        data?:MyQueryResult
+    } = useQuery(getPost, {
+        variables: { slug: slug },
+    });
+    
+    const post = postData?.post;
     
     return (
         <Main>
             <div className={`py-10 sm:py-16 px-4 sm:px-32 sm:max-w-5xl sm:mx-auto`}>
-                {post ? (
+                {post && (
                     <Blog
                         author={post.author}
                         title={post.title}
@@ -44,9 +43,7 @@ const Slug = () => {
                         coverImage={post.coverImage}
                         id={post.id}
                     />
-                ) :
-                <h1>empty!</h1>
-                }
+                )}
             </div>
             {/* <SecondaryContent title='Other Posts' order='text-center' maxWidth='max-w-7xl'>
                 {post.posts.slice(1).map((post, index) => (

@@ -6,12 +6,6 @@ import Example from "./Test";
 import DisqusComments from "./Disqus";
 import { Post } from "@/props/PostProps";
 
-const posts = {
-    url: 'https://sani-blog.vercel.app/',
-    title: 'menarique',
-    id: '1a'
-};
-
 const Blog = ({
     coverImage,
     slug,
@@ -20,7 +14,8 @@ const Blog = ({
     tags,
     title,
     excerpt,
-    content
+    content,
+    id,
 }: Post) => {
     
     const [classImage, setClassImage] = useState('');
@@ -74,7 +69,11 @@ const Blog = ({
         </div>
         <hr/>
         {/* <ShareButtonGroup url="https://example.com/my-page" title="My Awesome Page" />  */}
-        <DisqusComments post={posts}/>
+        <DisqusComments post={{
+            id:id,
+            title:title,
+            url:'https://sani-blog.vercel.app/blog/'+slug
+        }}/>
     </>
   );
 };

@@ -6,7 +6,7 @@ import Skeleton from "./Skeleton";
 type props = {
     bgColor?: 'bg-gray-200' | 'bg-white' | undefined ,
     maxWidth?: 'max-w-5xl' | 'max-w-7xl' | 'max-w-full' | undefined
-    featuredPost: Post | null
+    featuredPost: Post | null | undefined
 }
 
 export const MainContent = ({

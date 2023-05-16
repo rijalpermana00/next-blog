@@ -22,11 +22,12 @@ const DisqusComments = ({ post }:PostProps) => {
             <DiscussionEmbed
                 shortname={disqusShortname}
                 config={
-                    {
-                        url: 'https://sani-blog.vercel.app/',
-                        identifier: '1',
-                        title: 'Disqus SSO quick start',
-                    }
+                    // {
+                    //     url: 'https://sani-blog.vercel.app/',
+                    //     identifier: '1',
+                    //     title: 'Disqus SSO quick start',
+                    // }
+                    disqusConfig
                 }
             />
         </div>
