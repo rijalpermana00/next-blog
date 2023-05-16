@@ -25,15 +25,11 @@ const query = gql`query MyQuery {
     }
 }`;
 
-export async function getStaticProps() {
-    
-    const client = getClient();
-    await client.query({ query }).then(
-        (result) => {
-            if (!result.data.posts) {
-              return false;
-            }
-            return result.data.posts[0];
-        }    
-    );
+export async function getFeaturedPost() {
+  const client = getClient();
+  const result = await client.query({ query });
+  if (!result.data.posts) {
+    return false;
+  }
+  return result.data.posts[0];
 }

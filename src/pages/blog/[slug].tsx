@@ -1,10 +1,10 @@
 import { Main } from '@/layouts/Main';
-import post from '@/config/post.json';
 import blog from '@/config/blog.json';
 import Blog from '@/components/partials/Blog';
 import { SecondaryContent } from '@/components/partials/SecondaryContent';
 import { FourthDesign } from '@/components/partials/BlogPost';
 import GoToTop from '@/components/partials/GoToTop';
+import { Post } from '@/props/PostProps';
 
 const Slug = () => {
     
@@ -34,22 +34,22 @@ const Slug = () => {
                     imageUrl={posts.featuredImage}
                 />
             </div>
-            <SecondaryContent title='Other Posts' order='text-center' maxWidth='max-w-7xl'>
+            {/* <SecondaryContent title='Other Posts' order='text-center' maxWidth='max-w-7xl'>
                 {post.posts.slice(1).map((post, index) => (
                     <FourthDesign
                         author={post.author}
                         title={post.title}
-                        tags={post.categories}
-                        url={post.url}
-                        date={post.date}
+                        coverImage={post.coverImage}
+                        tags={post.tags}
+                        publishedAt={post.publishedAt}
                         excerpt={post.excerpt}
-                        imageAlt={post.featuredImage}
-                        imageUrl={post.featuredImage}
-                        content={post?.content}
+                        content={post.content}
+                        slug={post.slug}
+                        id={post.id}
                         key={index}
-                    />
+                />
                 ))}
-            </SecondaryContent>
+            </SecondaryContent> */}
             <GoToTop/>
         </Main>
     );

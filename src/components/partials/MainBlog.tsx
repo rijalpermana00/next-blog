@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from 'next/image';
 import Badge from "./Badge";
-import { Post, PostProps } from "@/props/PostProps";
+import { Post } from "@/props/PostProps";
 
 export const MainBlog = ({
   coverImage,
@@ -23,7 +23,7 @@ export const MainBlog = ({
     <div className='w-full max-w-md sm:max-w-7xl hover:shadow-2xl hover:translate-y-1 mx-auto transition ease-out delay-75 bg-white rounded-lg overflow-hidden shadow-md'>
       <div className='max-w-md sm:max-w-7xl mx-auto'>
         <div className="col-12 mb-4 sm:mb-0 sm:relative">
-          <a href={slug}>
+          <a href={'blog/'+slug}>
             <Image
                 alt={coverImage.fileName}
                 src={coverImage.url}
