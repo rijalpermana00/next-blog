@@ -5,11 +5,26 @@ import { SecondaryContent } from '@/components/partials/SecondaryContent';
 import { FourthDesign } from '@/components/partials/BlogPost';
 import GoToTop from '@/components/partials/GoToTop';
 import { Post } from '@/props/PostProps';
+import { useEffect, useState } from 'react';
+import { getPost } from '@/services/GetPost';
 
 const Slug = () => {
+    const [post, setPost] = useState<Post | null>(null);
     
-    // const posts = post.posts;
-    const posts = blog.posts;
+    useEffect(() => {
+        
+        const fetchPost = async () => {
+            try {
+                const data = await getPost();
+        
+                setPost(data);
+              
+            } catch (error) {
+              console.log(error);
+            }
+          };
+          fetchPost();
+    },[]);
     
     const createExcerpt = (content: string, maxLength: number = 200): string => {
         if (content.length <= maxLength) {
@@ -22,17 +37,19 @@ const Slug = () => {
     return (
         <Main>
             <div className={`py-10 sm:py-16 px-4 sm:px-32 sm:max-w-5xl sm:mx-auto`}>
-                <Blog
-                    author={posts.author}
-                    title={posts.title}
-                    tags={posts.categories}
-                    url={posts.url}
-                    date={posts.date}
-                    content={posts.content}
-                    excerpt={createExcerpt(posts.content,100)}
-                    imageAlt={posts.title}
-                    imageUrl={posts.featuredImage}
-                />
+                {post && (
+                    <Blog
+                        author={post.author}
+                        title={post.title}
+                        tags={post.tags}
+                        slug={post.slug}
+                        publishedAt={post.publishedAt}
+                        content={post.content}
+                        excerpt={post.excerpt}
+                        coverImage={post.coverImage}
+                        id={post.id}
+                    />
+                )}
             </div>
             {/* <SecondaryContent title='Other Posts' order='text-center' maxWidth='max-w-7xl'>
                 {post.posts.slice(1).map((post, index) => (
