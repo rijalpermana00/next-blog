@@ -20,8 +20,11 @@ const Main = (props: IMainProps) => (
     <div className="antialiased">
         <Meta title={props?.title ?? AppConfig.title} description={props?.description ?? AppConfig.description} />
         <Navbar/>
-        <main className="mx-auto mt-16">{props.children}</main>
-        <Footer/>
+        <div className="h-[68px]"/>
+        <main className="mx-auto mt-16 mb-16">
+            {props.children}
+        </main>
+        {/* <Footer/> */}
     </div>
 );
 

@@ -45,8 +45,8 @@ const Blog = ({
         <div className="col-12 sm:relative text-center content-center mb-10">
             <a href={slug} className="text-center content-center">
                 <Image
-                    alt={coverImage.fileName}
-                    src={coverImage.url}
+                    alt={coverImage?.fileName ?? ''}
+                    src={coverImage?.url ?? ''}
                     onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
                     className={`rounded-lg relative hidden sm:block max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover items-center ${classImage}`}
                     style={{ margin: '0 auto'}}
@@ -54,8 +54,8 @@ const Blog = ({
                     height={4000}
                 />
                 <Image
-                    alt={coverImage.fileName}
-                    src={coverImage.url}
+                    alt={coverImage?.fileName ?? ''}
+                    src={coverImage?.url ?? ''}
                     onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
                     className={`rounded-lg object-cover relative block sm:hidden items-center ${classImage}`}
                     style={{ margin: '0 auto'}}
@@ -64,11 +64,11 @@ const Blog = ({
                 />
             </a>
         </div>
-        <div>
+        <div className="mb-10">
             <div dangerouslySetInnerHTML={{ __html: content.html }}/>
         </div>
         <hr/>
-        {/* <ShareButtonGroup url="https://example.com/my-page" title="My Awesome Page" />  */}
+        <ShareButtonGroup url={slug} title={title}/>
         <DisqusComments post={{
             id:id,
             title:title,

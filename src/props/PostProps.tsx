@@ -36,17 +36,17 @@ export interface Post {
     content: {
       html: string;
     };
-    author: {
+    author?: {
       name: string;
       id: string;
     };
-    tags: string[];
-    coverImage: {
+    tags?: string[];
+    coverImage?: {
       fileName: string;
       height: number;
       url: string;
     };
-    excerpt: string;
+    excerpt?: string;
   }
   
 export interface MyQueryResult {

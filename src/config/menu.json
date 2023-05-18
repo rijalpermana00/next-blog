@@ -9,8 +9,16 @@
       "url": "/tags"
     },
     {
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
       "name": "About",
       "url": "/about"
+    },
+    {
+      "name": "Sample",
+      "url": "/sample"
     },
     {
       "name": "Pages",

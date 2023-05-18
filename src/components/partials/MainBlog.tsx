@@ -24,16 +24,18 @@ export const MainBlog = ({
       <div className='max-w-md sm:max-w-7xl mx-auto'>
         <div className="col-12 mb-4 sm:mb-0 sm:relative">
           <a href={'blog/'+slug}>
-            <Image
-                alt={coverImage.fileName}
-                src={coverImage.url}
-                onError={() => {
-                    handleImageError();
-                }}
-                className="relative max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover"
-                width={200000}
-                height={200000}
-            />
+            {coverImage?.url && (
+              <Image
+                  alt={coverImage.fileName}
+                  src={coverImage.url}
+                  onError={() => {
+                      handleImageError();
+                  }}
+                  className="relative max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover"
+                  width={200000}
+                  height={200000}
+              />
+            )}
           </a>
           {mainImageLoaded && (
             <div
@@ -62,7 +64,7 @@ export const MainBlog = ({
                 </li>
               </ul> */}
               <ul className="mt-4 sm:mt-4 flex flex-wrap items-center text-text">
-                {tags.map((item, index) => (
+                {tags?.map((item, index) => (
                   <li key={index}>
                     <Badge text={item} className="sm:border sm:border-white sm:bg-transparent"/>
                   </li>

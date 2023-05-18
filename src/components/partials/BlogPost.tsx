@@ -148,13 +148,13 @@ export const FourthDesign = ({
 }: Post) => {
   return (
     <div
-      className="flex flex-col min-h-min mb-6 bg-white rounded-lg shadow-lg hover:shadow-2xl"
+      className="flex flex-col min-h-min mb-6 bg-white rounded-lg shadow-lg hover:shadow-2xl break-inside-avoid"
     >
       <Link href={'blog/'+slug}>
         <img 
-          src={coverImage.url}
+          src={coverImage?.url}
           className="aspect-video w-full object-cover rounded-t-lg" 
-          alt={coverImage.fileName}
+          alt={coverImage?.fileName}
         />
         <section className="p-4 pb-0">
           <p className="mb-1 text-sm text-primary-500">Posted on <time>18 Nov 2022</time></p>
@@ -167,7 +167,7 @@ export const FourthDesign = ({
         </p>
         <section className="p-4 mt-4">
           <ul className="flex flex-wrap items-center text-text">
-                {tags.slice(0, 1).map((item, index) => (
+                {tags?.slice(0, 1).map((item, index) => (
                   <li key={index}>
                     <Badge text={item}/>
                   </li>
