@@ -56,6 +56,7 @@ const Index = () => {
                                     excerpt={post.excerpt} 
                                     content={post.content}
                                     id={post.id}
+                                    key={post.id}
                                 />
                             ))}
                         </div>
