@@ -12,7 +12,7 @@ import { getFeaturedPosts } from '@/services/queries/posts/GetFeaturedPosts';
 import { getLatestPosts } from '@/services/queries/posts/GetLatestPosts';
 import CardList, { cards } from '@/components/CardList';
 import Card from '@/components/partials/Card';
-import { MainBlogCard, SubMainBlogCard, SubMainImagelessBlogCard } from '@/components/partials/BlogCard';
+import { BlogCard, MainBlogCard, SubMainBlogCard, SubMainImagelessBlogCard } from '@/components/partials/BlogCard';
 
 const Article = () => {
     const { 
@@ -41,23 +41,29 @@ const Article = () => {
 
     return (
         <Main>
-            <div className={`mx-auto max-w-7xl sm:p-6 p-4`}>
+            <div className={`mx-auto max-w-7xl sm:p-6 p-4 mt-8`}>
                 <div className='flex flex-row flex-wrap'>
-                    <div className='flex-grow-0 basis-auto w-full sm:w-3/4 p-6'>
-                        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 bg-zinc-50 p-1">
-                            <div className='flex flex-col'>
-                                <span className='relative w-full leading-4 overflow-hidden rounded-xl'>
-                                    <span className='top-0 left-0 w-full h-max absolute bg-cover'>
-                                        <img className='w-[357px] h-[357px]'>
-                                        </img>
-                                    </span>
-                                </span>
-                            </div>
+                    <div className='flex-grow-0 basis-auto w-full sm:w-3/4'>
+                        <h5 className="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Popular Topics </h5>
+                        <div className="mx-auto max-w-4xl grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+                            {latestPosts?.posts.map((post) => (
+                                <BlogCard 
+                                    id={post.id}
+                                    slug={post.slug}
+                                    title={post.title}
+                                    publishedAt={post.publishedAt}
+                                    content={post.content}
+                                />
+                            ))}
                         </div>
                     </div>
-                    <div className='flex-grow-0 basis-auto w-full sm:w-1/4 p-6'> 
-                        <p className="pb-6 border-gray-400 bg-gray-200">Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages
-                            resolution son indulgence.</p>
+                    <div className='flex-grow-0 basis-auto w-full sm:w-1/4 px-6'> 
+                        <div className="mb-4">
+                            <h5 className="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Tags </h5>
+                            <ul>
+                                
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>  

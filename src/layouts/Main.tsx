@@ -21,7 +21,7 @@ const Main = (props: IMainProps) => (
         <Meta title={props?.title ?? AppConfig.title} description={props?.description ?? AppConfig.description} />
         <Navbar/>
         <div className="h-[68px]"/>
-        <main className="mx-auto mt-16 mb-16">
+        <main className="mx-auto my-0 md:my-0 sm:my-16 lg:my-16">
             {props.children}
         </main>
         {/* <Footer/> */}

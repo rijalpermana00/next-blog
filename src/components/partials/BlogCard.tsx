@@ -1,6 +1,54 @@
 import { BlogCardProps } from "@/props/BlogCardProps";
 
 
+export const BlogCard = ({
+    coverImage,
+    slug,
+    author,
+    publishedAt,
+    tags,
+    title,
+    excerpt,
+}:BlogCardProps) => {
+    return(
+        <div className='flex flex-col'>
+            <span className='block pt-[100%] relative w-full leading-4 overflow-hidden rounded-xl'>
+                <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl">
+                    <img
+                        src={`https://picsum.photos/500/300?random`}
+                        // alt={coverImage?.fileName}
+                        className="h-full w-full object-cover object-center opacity-100"
+                    />
+                </span>
+            </span>
+            <div className='m-0 mt-5 flex flex-col'>
+                <div className='flex flex-row flex-wrap items-center leading-6 text-base sm:text-xs font-normal public-sans text-gray-500'>
+                    20 May 2023
+                    <span className='mx-2 w-1 h-1 rounded-full'></span>
+                    8 minutes read
+                </div>
+                <a className='m-0 mt-2 from-inherit'>
+                    <p className='text-2xl sm:text-lg font-semibold barlow'>
+                        Believing These 7 Myths About Event Keeps You From Growing
+                    </p>
+                </a>
+                {/* {author?.name && ( */}
+                    <div className='m-0 mt-2 flex flex-row items-center leading-6 text-sm font-normal pt-3 author'>
+                        <div className='w-10 h-10 relative flex items-center justify-center flex-shrink-0 text-xl leading-4 rounded-full overflow-hidden mr-2 public-sans'>
+                            <img
+                                src="https://dummyimage.com/800x600/fff/000"
+                                // alt={author?.name}
+                                className="h-full w-full text-center text-transparent object-cover object-center"
+                            />
+                        </div>
+                        Rijal
+                    </div>
+                {/* )} */}
+            </div>
+        </div>
+    )   
+}
+
 export const MainBlogCard = ({
     coverImage,
     slug,
@@ -12,14 +60,16 @@ export const MainBlogCard = ({
 }:BlogCardProps) => {
     return(
         <div className={`bg-white rounded-2xl shadow-lg overflow-hidden`}>
-            <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl">
-                <img
-                    src={coverImage?.url}
-                    alt={title}
-                    className="h-full w-full object-cover object-center"
-                />
+            <span className='block pt-[100%] relative w-full leading-4 overflow-hidden rounded-xl'>
+                <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl">
+                    <img
+                        src={coverImage?.url}
+                        alt={title}
+                        className="h-full w-full object-cover object-center"
+                    />
+                </span>
             </span>
-            <div className='p-10 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
+            <div className='sm:p-10 p-6 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
                 <div className='flex flex-row flex-wrap items-center leading-[1.5] text-xs font-normal opacity-75'>
                     {publishedAt}
                     <span className='mx-2 w-1 h-1 rounded-full'></span>
@@ -37,7 +87,7 @@ export const MainBlogCard = ({
                 )}
                 {/* {author?.name && ( */}
                     <div className='m-0 mt-2 flex flex-row items-center leading-6 text-sm font-normal pt-3'>
-                        <div className='w-10 h-10 relative flex items-center justify-center flex-shrink-0 text-xl leading-4 rounded-full overflow-hidden mr-2'>
+                        <div className='w-8 h-8 sm:w-10 sm:h-10 relative flex items-center justify-center flex-shrink-0 text-xl leading-4 rounded-full overflow-hidden mr-2'>
                             <img
                                 src="https://dummyimage.com/800x600/fff/000"
                                 alt={author?.name}
@@ -67,12 +117,14 @@ export const SubMainBlogCard = ({
     return (
         <div className={`relative rounded-2xl shadow-lg overflow-hidden ${dimension}`}>
             <div className='overflow-hidden'>
-                <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl">
-                    <img
-                        src={`https://picsum.photos/500/300?random=` +  id}
-                        alt={coverImage?.fileName}
-                        className="h-full w-full object-cover object-center opacity-100"
-                    />
+                <span className='block pt-[100%] relative w-full leading-4 overflow-hidden rounded-xl'>
+                    <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl">
+                        <img
+                            src={`https://picsum.photos/500/300?random=` +  id}
+                            alt={coverImage?.fileName}
+                            className="h-full w-full object-cover object-center opacity-100"
+                        />
+                    </span>
                 </span>
                 <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
                     <div className='flex flex-row flex-wrap items-center leading-6 text-base sm:text-xs font-normal opacity-75'>
@@ -121,32 +173,36 @@ export const SubMainImagelessBlogCard = ({
 }:BlogCardProps) => {
     return (
         <div className={`relative rounded-2xl shadow-lg overflow-hidden ${dimension} ${bgColor}`}>
-            <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
-                <div className='flex flex-row flex-wrap top-0 items-center leading-6 text-base sm:text-xs font-normal opacity-75'>
-                    {publishedAt}
-                    <span className='mx-2 w-4 h-4 rounded-full'></span>
-                    8 minutes read
-                </div>
-                <a href={`blog/`+slug} className='m-0 mt-2 text-2xl sm:text-lg font-semibold barlow'>
-                    {title}
-                </a>
-                {excerpt && (
-                    <p className='m-0 mt-2 leading-6 text-base sm:text-sm font-normal overflow-hidden '>
-                        {excerpt}
-                    </p>
-                )}
-                {author?.name && (
-                    <div className='m-0 mt-2 flex flex-row items-center leading-6 text-sm font-normal pt-3 author'>
-                        <div className='w-10 h-10 relative flex items-center justify-center flex-shrink-0 text-xl leading-4 rounded-full overflow-hidden mr-2'>
-                            <img
-                                src="https://dummyimage.com/800x600/fff/000"
-                                // alt={author?.name}
-                                className="h-full w-full text-center text-transparent object-cover object-center"
-                            />
+            <div className='overflow-hidden'>
+                <span className="block pt-[100%] relative w-full overflow-hidden rounded-xl">
+                    <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
+                        <div className='flex flex-row flex-wrap top-0 items-center leading-6 text-base sm:text-xs font-normal opacity-75'>
+                            {publishedAt}
+                            <span className='mx-2 w-4 h-4 rounded-full'></span>
+                            8 minutes read
                         </div>
-                        {author?.name}
-                    </div>
-                )}
+                        <a href={`blog/`+slug} className='m-0 mt-2 text-2xl sm:text-lg font-semibold barlow'>
+                            {title}
+                        </a>
+                        {excerpt && (
+                            <p className='m-0 mt-2 leading-6 text-base sm:text-sm font-normal overflow-hidden text-ellipsis line-clamp-3'>
+                                {excerpt}
+                            </p>
+                        )}
+                        {author?.name && (
+                            <div className='m-0 mt-2 flex flex-row items-center leading-6 text-sm font-normal pt-3 author'>
+                                <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-8 md:h-8 relative flex items-center justify-center flex-shrink-0 text-xl leading-4 rounded-full overflow-hidden mr-2'>
+                                    <img
+                                        src="https://dummyimage.com/800x600/fff/000"
+                                        // alt={author?.name}
+                                        className="h-full w-full text-center text-transparent object-cover object-center"
+                                    />
+                                </div>
+                                {author?.name}
+                            </div>
+                        )}
+                    </div>    
+                </span>
             </div>
         </div>
     )
