@@ -89,7 +89,7 @@ export const MainBlogCard = ({
                     <div className='m-0 mt-2 flex flex-row items-center leading-6 text-sm font-normal pt-3'>
                         <div className='w-8 h-8 sm:w-10 sm:h-10 relative flex items-center justify-center flex-shrink-0 text-xl leading-4 rounded-full overflow-hidden mr-2'>
                             <img
-                                src="https://dummyimage.com/800x600/fff/000"
+                                src={coverImage?.url}
                                 alt={author?.name}
                                 className="h-full w-full text-center text-transparent object-cover object-center"
                             />
@@ -120,7 +120,8 @@ export const SubMainBlogCard = ({
                 <span className='block pt-[100%] relative w-full leading-4 overflow-hidden rounded-xl'>
                     <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl">
                         <img
-                            src={`https://picsum.photos/500/300?random=` +  id}
+                            src={coverImage?.url}
+                            // src={`https://picsum.photos/500/300?random=` +  id}
                             alt={coverImage?.fileName}
                             className="h-full w-full object-cover object-center opacity-100"
                         />

@@ -104,7 +104,7 @@ const Index = () => {
                     <div className='flex flex-row flex-wrap'>
                         <div className='flex-grow-0 basis-auto w-full sm:w-2/3'>
                             <h5 className="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Popular Topics </h5>
-                            <div className="mx-auto max-w-4xl grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+                            <div className="mx-auto max-w-4xl grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
                                 {latestPosts?.posts.map((post) => (
                                     (post?.coverImage?.url 
                                         ?
