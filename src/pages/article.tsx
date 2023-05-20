@@ -53,6 +53,7 @@ const Article = () => {
                                     title={post.title}
                                     publishedAt={post.publishedAt}
                                     content={post.content}
+                                    key={post.id}
                                 />
                             ))}
                         </div>
