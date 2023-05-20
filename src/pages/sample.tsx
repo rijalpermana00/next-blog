@@ -56,6 +56,7 @@ const Index = () => {
                                     excerpt={post.excerpt} 
                                     content={post.content}
                                     id={post.id}
+                                    key={post.id}
                                 />
                             ))}
                         </div>
@@ -76,6 +77,7 @@ const Index = () => {
                                                 id={post.id}
                                                 bgColor='bg-orange-300'
                                                 dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
+                                                key={post.id}
                                             />
                                         : 
                                             <SubMainImagelessBlogCard 
@@ -90,6 +92,7 @@ const Index = () => {
                                                 id={post.id}
                                                 bgColor='bg-orange-300'
                                                 dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
+                                                key={post.id}
                                             />
                                     )
                                 ))}
