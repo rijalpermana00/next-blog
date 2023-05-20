@@ -42,6 +42,7 @@ const Index = () => {
     return (
         <Main>
             {/* <div className={`mx-auto max-w-7xl sm:p-6 p-4`}> */}
+                <Header/>
                 <div className='max-w-6xl sm:p-6 p-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 flex-row flex-wrap mx-auto justify-center'>
                     <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2'>
                         <div className="relative sm:w-md sm:h-md w-md h-md">
