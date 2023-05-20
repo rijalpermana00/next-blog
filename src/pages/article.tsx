@@ -42,68 +42,22 @@ const Article = () => {
     return (
         <Main>
             <div className={`mx-auto max-w-7xl sm:p-6 p-4`}>
-                <div className="block md:flex md:space-x-2 px-2 lg:p-0">
-                    <div className='mb-4 md:mb-0 w-full md:w-3/4 relative rounded inline-block'>
-                        <div className="relative sm:grid w-full">
-                            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 justify-center">
-                                {latestPosts?.posts.map((post) => (
-                                    <SubMainImagelessBlogCard 
-                                        coverImage={post?.coverImage}
-                                        slug={post.slug}
-                                        publishedAt="18 May 2023"
-                                        // tags={card.imageUrl}
-                                        title={post.title}
-                                        author={post?.author}
-                                        excerpt={post.excerpt} 
-                                        content={post.content}
-                                        id={post.id}
-                                        bgColor='bg-orange-300'
-                                        dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
-                                    />
-                                ))}
+                <div className='flex flex-row flex-wrap'>
+                    <div className='flex-grow-0 basis-auto w-full sm:w-3/4 p-6'>
+                        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 bg-zinc-50 p-1">
+                            <div className='flex flex-col'>
+                                <span className='relative w-full leading-4 overflow-hidden rounded-xl'>
+                                    <span className='top-0 left-0 w-full h-max absolute bg-cover'>
+                                        <img className='w-[357px] h-[357px]'>
+                                        </img>
+                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <div className='mb-4 md:mb-0 w-full md:w-1/3 relative rounded inline-block'>
-                        <div className="relative">
-                            <div className="mb-4">
-                                <h5 className="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Popular Topics </h5>
-                                <ul>
-                                <li className="px-1 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
-                                    <a href="#" className="flex items-center text-gray-600 cursor-pointer">
-                                    <span className="inline-block h-4 w-4 bg-green-300 mr-3"></span>
-                                    Nutrition
-                                    <span className="text-gray-500 ml-auto">23 articles</span>
-                                    <i className='text-gray-500 bx bx-right-arrow-alt ml-1'></i>
-                                    </a>
-                                </li>
-                                <li className="px-1 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
-                                    <a href="#" className="flex items-center text-gray-600 cursor-pointer">
-                                    <span className="inline-block h-4 w-4 bg-indigo-300 mr-3"></span>
-                                    Food & Diet
-                                    <span className="text-gray-500 ml-auto">18 articles</span>
-                                    <i className='text-gray-500 bx bx-right-arrow-alt ml-1'></i>
-                                    </a>
-                                </li>
-                                <li className="px-1 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
-                                    <a href="#" className="flex items-center text-gray-600 cursor-pointer">
-                                    <span className="inline-block h-4 w-4 bg-yellow-300 mr-3"></span>
-                                    Workouts
-                                    <span className="text-gray-500 ml-auto">34 articles</span>
-                                    <i className='text-gray-500 bx bx-right-arrow-alt ml-1'></i>
-                                    </a>
-                                </li>
-                                <li className="px-1 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
-                                    <a href="#" className="flex items-center text-gray-600 cursor-pointer">
-                                    <span className="inline-block h-4 w-4 bg-blue-300 mr-3"></span>
-                                    Immunity
-                                    <span className="text-gray-500 ml-auto">9 articles</span>
-                                    <i className='text-gray-500 bx bx-right-arrow-alt ml-1'></i>
-                                    </a>
-                                </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div className='flex-grow-0 basis-auto w-full sm:w-1/4 p-6'> 
+                        <p className="pb-6 border-gray-400 bg-gray-200">Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages
+                            resolution son indulgence.</p>
                     </div>
                 </div>
             </div>  
