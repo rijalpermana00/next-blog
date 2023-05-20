@@ -38,7 +38,7 @@ export default function Navbar() {
     
     
     return (
-        <nav className="fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 md:px-2 md:py-3 sm:px-0 sm:py-0 navbar-expand-lg bg-white shadow">
+        <nav className="fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 md:px-0 md:py-0 sm:px-0 sm:py-0 lg:px-2 lg:py-3 navbar-expand-lg bg-white shadow">
             <div className="container px-4 mx-auto flex flex-wrap items-center justify-between max-w-7xl sm:px-6 lg:px-8">
                 <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                     <Logo/>
