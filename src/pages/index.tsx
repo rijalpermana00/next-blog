@@ -61,7 +61,7 @@ const Index = () => {
                                 />
                             ))}
                         </div>
-                        <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 justify-center">
+                        <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 justify-center">
                             {latestPosts?.posts.map((post) => (
                                 (post?.coverImage?.url 
                                     ?
@@ -102,9 +102,9 @@ const Index = () => {
                 <hr/>
                 <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
                     <div className='flex flex-row flex-wrap'>
-                        <div className='flex-grow-0 basis-auto w-full sm:w-2/3'>
+                        <div className='flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5'>
                             <h5 className="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Popular Topics </h5>
-                            <div className="mx-auto max-w-4xl grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+                            <div className="mx-auto max-w-4xl grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
                                 {latestPosts?.posts.map((post) => (
                                     (post?.coverImage?.url 
                                         ?
@@ -141,7 +141,7 @@ const Index = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className='flex-grow-0 basis-auto w-full sm:w-1/3 px-6'> 
+                        <div className='flex-grow-0 basis-auto w-full sm:w-1/3 md:w-full lg:w-1/3 px-0 sm:px-6 md:px-0 lg:px-6 sm:mb-5 md:mb-10 lg:mb-5'> 
                             <div className="mb-4">
                                 <h5 className="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Tags </h5>
                                 <ul>
