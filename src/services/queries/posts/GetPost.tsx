@@ -17,7 +17,9 @@ export const getPost = gql`
       slug
       title
       publishedAt
-      tags
+      tags {
+        name
+      }
     }
   }
 `;  

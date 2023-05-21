@@ -24,7 +24,7 @@ const Main = (props: IMainProps) => (
         <main className="mx-auto my-0 md:my-0 sm:my-16 lg:my-16">
             {props.children}
         </main>
-        {/* <Footer/> */}
+        <Footer/>
     </div>
 );
 

@@ -5,6 +5,7 @@ import ShareButtonGroup, { ShareButtonGroupAlt } from "./Sharer";
 import Example from "./Test";
 import DisqusComments from "./Disqus";
 import { Post } from "@/props/PostProps";
+import Moment from "react-moment";
 
 const Blog = ({
     coverImage,
@@ -38,31 +39,33 @@ const Blog = ({
         <div className="col-12 sm:col-6">
             <ul className="mb-2 flex flex-wrap items-center space-x-3">
                 <li>
-                    <p className="mb-4 text-primary-500">Posted on <time>{publishedAt}</time></p>
+                    <p className="mb-4 text-primary-500">Posted on <Moment format="DD MMM YYYY">{publishedAt}</Moment></p>
                 </li>
             </ul>
         </div>
         <div className="col-12 sm:relative text-center content-center mb-10">
-            <a href={slug} className="text-center content-center">
-                <Image
-                    alt={coverImage?.fileName ?? ''}
-                    src={coverImage?.url ?? ''}
-                    onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-                    className={`rounded-lg relative hidden sm:block max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover items-center ${classImage}`}
-                    style={{ margin: '0 auto'}}
-                    width={4000}
-                    height={4000}
-                />
-                <Image
-                    alt={coverImage?.fileName ?? ''}
-                    src={coverImage?.url ?? ''}
-                    onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-                    className={`rounded-lg object-cover relative block sm:hidden items-center ${classImage}`}
-                    style={{ margin: '0 auto'}}
-                    width={4000}
-                    height={4000}
-                />
-            </a>
+            {coverImage?.url &&
+                <a href={slug} className="text-center content-center">
+                    <Image
+                        alt={coverImage?.fileName ?? ''}
+                        src={coverImage?.url ?? ''}
+                        onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
+                        className={`rounded-lg relative hidden sm:block max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover items-center ${classImage}`}
+                        style={{ margin: '0 auto'}}
+                        width={4000}
+                        height={4000}
+                    />
+                    <Image
+                        alt={coverImage?.fileName ?? ''}
+                        src={coverImage?.url ?? ''}
+                        onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
+                        className={`rounded-lg object-cover relative block sm:hidden items-center ${classImage}`}
+                        style={{ margin: '0 auto'}}
+                        width={4000}
+                        height={4000}
+                    />
+                </a>
+            }
         </div>
         <div className="mb-10">
             <div dangerouslySetInnerHTML={{ __html: content.html }}/>

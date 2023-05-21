@@ -2,7 +2,7 @@
 
 export default function Footer(){
     return (
-        <footer className="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-800 fixed bottom-0 left-0 w-full">
+        <footer className="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-800 bottom-0 left-0 w-full">
             {/* <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" /> */}
             {/* <div className="sm:flex sm:items-center sm:justify-center mb-5">
                 <ul className="flex flex-wrap items-center mb-6 sm:mb-0">

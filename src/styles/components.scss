@@ -12,3 +12,11 @@ html {
 .public-sans{
   font-family: '__Public_Sans_a5724b','__Public_Sans_Fallback_a5724b',Helvetica,Arial,sans-serif;
 }
+
+.slick-track {
+  @apply relative flex items-center justify-center text-center
+}
+
+.slick-list {
+  @apply text-center
+}

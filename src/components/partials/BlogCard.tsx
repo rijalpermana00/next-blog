@@ -1,4 +1,5 @@
 import { BlogCardProps } from "@/props/BlogCardProps";
+import Moment from "react-moment";
 
 
 export const BlogCard = ({
@@ -61,19 +62,24 @@ export const MainBlogCard = ({
     return(
         <div className={`bg-white rounded-2xl shadow-lg overflow-hidden`}>
             <span className='block pt-[100%] relative w-full leading-4 overflow-hidden rounded-xl'>
-                <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl">
-                    <img
-                        src={coverImage?.url}
-                        alt={title}
-                        className="h-full w-full object-cover object-center"
-                    />
-                </span>
+                {coverImage?.url ?(
+                    <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl">
+                        <img
+                            src={coverImage?.url}
+                            alt={title}
+                            className="h-full w-full object-cover object-center"
+                        />
+                    </span>
+                )
+                :
+                    <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl bg-emerald-500"/>
+                }
             </span>
             <div className='sm:p-10 p-6 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
                 <div className='flex flex-row flex-wrap items-center leading-[1.5] text-xs font-normal opacity-75'>
-                    {publishedAt}
+                    <Moment format="DD MMM YYYY">{publishedAt}</Moment>
                     <span className='mx-2 w-1 h-1 rounded-full'></span>
-                    8 minutes read
+                    {/* 8 minutes read */}
                 </div>
                 <a href={`blog/`+slug} className='m-0 mt-2 from-inherit'>
                     <p className='text-2xl font-semibold barlow'>
@@ -98,7 +104,9 @@ export const MainBlogCard = ({
                     </div>
                 {/* )} */}
             </div>
-            <div id="wrapper" className="bg-gradient-to-b from-transparent from-0% to-black to-75% z-[8] top-0 left-0 w-full h-full absolute rounded-2xl"/>
+            {coverImage?.url &&(
+                <div id="wrapper" className="bg-gradient-to-b from-transparent from-0% to-black to-75% z-[8] top-0 left-0 w-full h-full absolute rounded-2xl"/>
+            )}
         </div>
     )   
 }
@@ -129,9 +137,9 @@ export const SubMainBlogCard = ({
                 </span>
                 <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
                     <div className='flex flex-row flex-wrap items-center leading-6 text-base sm:text-xs font-normal opacity-75'>
-                        {publishedAt}
+                        <Moment format="DD MMM YYYY">{publishedAt}</Moment>
                         <span className='mx-2 w-1 h-1 rounded-full'></span>
-                        8 minutes read
+                        {/* 8 minutes read */}
                     </div>
                     <a href={`blog/`+slug} className='m-0 mt-2 from-inherit'>
                         <p className='text-2xl sm:text-lg font-semibold barlow'>
@@ -178,9 +186,9 @@ export const SubMainImagelessBlogCard = ({
                 <span className="block pt-[100%] relative w-full overflow-hidden rounded-xl">
                     <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
                         <div className='flex flex-row flex-wrap top-0 items-center leading-6 text-base sm:text-xs font-normal opacity-75'>
-                            {publishedAt}
+                            <Moment format="DD MMM YYYY">{publishedAt}</Moment>
                             <span className='mx-2 w-4 h-4 rounded-full'></span>
-                            8 minutes read
+                            {/* 8 minutes read */}
                         </div>
                         <a href={`blog/`+slug} className='m-0 mt-2 text-2xl sm:text-lg font-semibold barlow'>
                             {title}

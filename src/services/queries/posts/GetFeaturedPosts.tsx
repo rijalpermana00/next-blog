@@ -2,7 +2,12 @@ import { gql } from "@apollo/client";
 
 export const getFeaturedPosts = gql`
   query MyQuery {
-    posts(where: {tags_contains_some: "Featured"}, last: 1) {
+    posts(
+      where: {tags_some: {_search: "featured"}}
+      first: 5
+      orderBy: publishedAt_DESC
+      stage: PUBLISHED
+    ) {
       id
       slug
       title
@@ -14,7 +19,12 @@ export const getFeaturedPosts = gql`
         name
         id
       }
-      tags
+      tags {
+        name
+      }
+      category {
+        name
+      }
       coverImage {
         fileName
         height

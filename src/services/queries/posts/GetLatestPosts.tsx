@@ -1,38 +1,14 @@
 import { gql } from "@apollo/client";
 
-// export const getLatestPosts = gql`
-//   query MyQuery {
-//     posts(last: 7) {
-//       id
-//       slug
-//       title
-//       publishedAt
-//       content {
-//         html
-//       }
-//       author {
-//         name
-//         id
-//       }
-//       tags
-//       coverImage {
-//         fileName
-//         height
-//         url
-//       }
-//       excerpt
-//     }
-//   }
-// `;
-
 export const getLatestPosts = gql`
-  query MyQuery($featuredPostId: [ID!]) {
+  query MyQuery($featuredPostIds: [ID!]) {
     posts(
       where: {
         AND: [
-          { NOT: { id_in: $featuredPostId } }
+          { NOT: { id_in: $featuredPostIds } }
         ]
       }
+      stage: PUBLISHED
     ) {
       id
       slug
@@ -45,7 +21,12 @@ export const getLatestPosts = gql`
         name
         id
       }
-      tags
+      tags {
+        name
+      }
+      category {
+        name
+      }
       coverImage {
         fileName
         height
