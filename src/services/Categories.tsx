@@ -1,23 +1,6 @@
 import { ApolloError, QueryResult, useQuery } from "@apollo/client";
 import { getCategories } from "./queries/GetCategories";
-
-interface CategoryData {
-    name: string;
-    color: string;
-    posts: { id: string }[];
-}
-  
-interface CategoriesConnectionData {
-    edges: { 
-        node: CategoryData 
-    }[];
-}
-
-interface CategoryInfo {
-    categoryName: string;
-    color: string;
-    count: number;
-  }
+import { CategoriesConnectionData, CategoryInfo } from "@/props/CategoriesProps";
 
 export function Categories(){
     const { 
@@ -59,13 +42,18 @@ function countCategoriesAndPosts(data: CategoriesConnectionData): CategoryInfo[]
   
     // Populate the array with category name, count, and color information
     categoryCounts.forEach((count, categoryName) => {
-        const categoryColor = data.edges.find((edge) => edge.node.name === categoryName)?.node.color || "";
-        // Create the CategoryInfo object and push it to the array
-        categoryInfoArray.push({
-            categoryName: categoryName,
-            color: categoryColor,
+        const categoryEdge = data.edges.find((edge) => edge.node.name === categoryName);
+        if (categoryEdge) {
+          const { color, image, slug } = categoryEdge.node;
+          // Create the CategoryInfo object and push it to the array
+          categoryInfoArray.push({
+            categoryName,
+            color,
             count,
-        });
+            image,
+            slug,
+          });
+        }
     });
   
     return categoryInfoArray;

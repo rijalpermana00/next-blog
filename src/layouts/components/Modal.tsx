@@ -28,7 +28,7 @@ const Search = ({ setSearch }:SearchProps) => {
   }, [input, router, setSearch]);
 
   return (
-    <div className="relative flex w-full flex-wrap items-stretch border-2 rounded-lg border-gray-300 ring-0">
+    <div className="relative flex w-full flex-wrap items-stretch border-2 rounded-2xl border-gray-300 ring-0">
       <span className="z-10 h-full leading-snug font-normal text-center text-gray-300 absolute bg-transparent text-base items-center justify-center w-8 pl-3 py-3">
           <FaSearch/>
       </span>
@@ -38,7 +38,7 @@ const Search = ({ setSearch }:SearchProps) => {
         placeholder="Search here..." 
         value={input} 
         onChange={(e) => setInput(e.target.value)} 
-        className="px-3 py-3 placeholder-gray-600 text-gray-900 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring focus:ring-gray-500 w-full pl-10"
+        className="px-3 py-3 placeholder-gray-600 text-gray-900 relative bg-white rounded-2xl text-sm shadow outline-none focus:outline-none focus:ring focus:ring-gray-500 w-full pl-10"
       />        
     </div>
   );

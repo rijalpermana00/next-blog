@@ -2,8 +2,14 @@ import { gql } from "@apollo/client";
 
 export const getTags = gql`
     query MyQuery {
-        tags {
-            name
+        tagsConnection(stage: PUBLISHED) {
+            edges{
+                node{
+                    name
+
+                }
+            }
         }
     }
+
 `;

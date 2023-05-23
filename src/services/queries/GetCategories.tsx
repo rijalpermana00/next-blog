@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const getCategories = gql`
     query MyQuery {
-        categoriesConnection(stage: PUBLISHED){
+        categoriesConnection(stage: PUBLISHED) {
             edges {
                 node {
                     name
@@ -10,8 +10,14 @@ export const getCategories = gql`
                     posts {
                         id
                     }
+                    image{
+                        fileName
+                        url
+                    }
+                    slug
                 }
             }
         }
     }
+
 `;

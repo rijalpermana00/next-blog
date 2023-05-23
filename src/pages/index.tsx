@@ -15,8 +15,12 @@ import Card from '@/components/partials/Card';
 import { BlogCard, MainBlogCard, SubMainBlogCard, SubMainImagelessBlogCard } from '@/components/partials/BlogCard';
 import { getTags } from '@/services/queries/GetTags';
 import { Categories } from '@/services/Categories';
-import CategoryCard from '@/components/partials/CategoryCard';
+import CategoryCard from '@/components/partials/TagCard';
 import { Carousel } from '@/components/partials/Carousel';
+import { ScrollableCard } from '@/components/partials/ScrollableCard';
+import { Splides } from '@/components/partials/Splide';
+import { TagsConnectionData } from "@/props/TagProps";
+
 
 const Index = () => {
     const { 
@@ -125,6 +129,9 @@ const Index = () => {
                 </div>
                 <hr/>
                 {/* <Carousel/> */}
+                {/* <ScrollableCard/> */}
+                <Splides data={categories}/>
+                <hr/>
                 <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
                     <div className='flex flex-row flex-wrap'>
                         <div className='flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5'>
