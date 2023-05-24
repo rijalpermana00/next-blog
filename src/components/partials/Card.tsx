@@ -62,7 +62,7 @@ export const SplideCard = (props:splideCardProps) => {
               </span>
             </div>
           </div>
-        </div>      
+        </div>
       </a>
     </div>
   )

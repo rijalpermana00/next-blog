@@ -53,7 +53,7 @@ const Index = () => {
         <Main>
             {/* <div className={`mx-auto max-w-7xl sm:p-6 p-4`}> */}
                 <Header/>
-                <div className='max-w-6xl sm:p-6 p-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 flex-row flex-wrap mx-auto justify-center'>
+                <div className='max-w-6xl sm:p-6 p-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 flex-row flex-wrap mx-auto justify-center mb-6'>
                     <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2'>
                         <div className="relative sm:w-md sm:h-md w-md h-md">
                             {featuredPosts 
@@ -74,7 +74,8 @@ const Index = () => {
                                     ))
                                 ) : (
                                     
-                                    <Skeleton className="w-full h-[32rem]"/>
+                                    <Skeleton className="w-full h-56 sm:h-96 md:h-96 lg:h-[34rem]"/>
+                                    // <Skeleton className="w-full h-[34rem]"/>
                                 )
                             }
                         </div>
@@ -117,10 +118,10 @@ const Index = () => {
                                     ))
                                 ) : (
                                     <>
-                                        <Skeleton className="w-full sm:h-[23.5rem] md:h-[23.5rem] lg:h-full"/>
-                                        <Skeleton className="w-full sm:h-[23.5rem] md:h-[23.5rem] lg:h-full"/>
-                                        <Skeleton className="w-full sm:h-[23.5rem] md:h-[23.5rem] lg:h-full"/>
-                                        <Skeleton className="w-full sm:h-[23.5rem] md:h-[23.5rem] lg:h-full"/>
+                                        <Skeleton className="w-full h-56 sm:h-96 md:h-96 lg:h-full"/>
+                                        <Skeleton className="w-full h-0 sm:h-96 md:h-96 lg:h-full"/>
+                                        <Skeleton className="w-full h-0 sm:h-96 md:h-96 lg:h-full"/>
+                                        <Skeleton className="w-full h-0 sm:h-96 md:h-96 lg:h-full"/>
                                     </>
                                 )
                             }
@@ -128,49 +129,63 @@ const Index = () => {
                     </div>
                 </div>
                 <hr/>
-                {/* <Carousel/> */}
-                {/* <ScrollableCard/> */}
-                <Splides data={categories}/>
+                {categories.length > 0 
+                    ? 
+                        <Splides data={categories}/>
+                    :
+                        <>
+                        </>
+                }
                 <hr/>
                 <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
                     <div className='flex flex-row flex-wrap'>
                         <div className='flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5'>
                             <h5 className="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Latest Posts </h5>
                             <div className="mx-auto max-w-4xl grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
-                                {latestPosts?.posts.map((post) => (
-                                    (post?.coverImage?.url 
-                                        ?
-                                            <SubMainBlogCard 
-                                                coverImage={post?.coverImage}
-                                                slug={post.slug}
-                                                publishedAt={post.publishedAt}
-                                                // tags={card.imageUrl}
-                                                title={post.title}
-                                                author={post?.author}
-                                                excerpt={post.excerpt} 
-                                                content={post.content}
-                                                id={post.id}
-                                                bgColor='bg-orange-300'
-                                                // dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
-                                                key={post.id}
-                                            />
-                                        : 
-                                            <SubMainImagelessBlogCard 
-                                                coverImage={post?.coverImage}
-                                                slug={post.slug}
-                                                publishedAt={post.publishedAt}
-                                                // tags={card.imageUrl}
-                                                title={post.title}
-                                                author={post?.author}
-                                                excerpt={post.excerpt} 
-                                                content={post.content}
-                                                id={post.id}
-                                                bgColor='bg-red-300'
-                                                // dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
-                                                key={post.id}
-                                            />
-                                    )
-                                ))}
+                                {latestPosts ? 
+                                
+                                    latestPosts?.posts.map((post) => (
+                                        (post?.coverImage?.url 
+                                            ?
+                                                <SubMainBlogCard 
+                                                    coverImage={post?.coverImage}
+                                                    slug={post.slug}
+                                                    publishedAt={post.publishedAt}
+                                                    // tags={card.imageUrl}
+                                                    title={post.title}
+                                                    author={post?.author}
+                                                    excerpt={post.excerpt} 
+                                                    content={post.content}
+                                                    id={post.id}
+                                                    bgColor='bg-orange-300'
+                                                    // dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
+                                                    key={post.id}
+                                                />
+                                            : 
+                                                <SubMainImagelessBlogCard 
+                                                    coverImage={post?.coverImage}
+                                                    slug={post.slug}
+                                                    publishedAt={post.publishedAt}
+                                                    // tags={card.imageUrl}
+                                                    title={post.title}
+                                                    author={post?.author}
+                                                    excerpt={post.excerpt} 
+                                                    content={post.content}
+                                                    id={post.id}
+                                                    bgColor='bg-red-300'
+                                                    // dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
+                                                    key={post.id}
+                                                />
+                                        )
+                                    ))
+                                    :
+                                    <>
+                                        <Skeleton className="w-full h-[20rem] sm:h-[22.5rem] md:h-[22.5rem]"/>
+                                        <Skeleton className="w-full h-0 sm:h-[22.5rem] md:h-[22.5rem]"/>
+                                        <Skeleton className="w-full h-0 sm:h-[22.5rem] md:h-[22.5rem]"/>
+                                        <Skeleton className="w-full h-0 sm:h-[22.5rem] md:h-[22.5rem]"/>
+                                    </>
+                                }
                             </div>
                             <div className='flex flex-col items-center pt-10 pb-20 md:pb-0'>
                                 <button className='inline-flex items-center justify-center relative bg-transparent font-bold px-2 py-3 cursor-pointer border-gray-700 border rounded-lg text-sm'>See More</button>
