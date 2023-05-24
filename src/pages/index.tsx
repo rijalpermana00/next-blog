@@ -19,9 +19,9 @@ import CategoryCard from '@/components/partials/TagCard';
 import { Carousel } from '@/components/partials/Carousel';
 import { ScrollableCard } from '@/components/partials/ScrollableCard';
 import { Splides } from '@/components/partials/Splide';
-import { TagsConnectionData } from "@/props/TagProps";
 import { TagBadge } from '@/components/partials/Badge';
 import OwnerCard from '@/components/partials/OwnerCard';
+import { TagsConnectionData } from '@/props/TagsProps';
 
 
 const Index = () => {
@@ -50,6 +50,16 @@ const Index = () => {
     });
     
     const categories = Categories();
+    
+    const { 
+        loading:loadingTags, 
+        error:errorTags, 
+        data:tagsData
+    }:{ 
+        loading:boolean, 
+        error?: ApolloError, 
+        data?:TagsConnectionData
+    } = useQuery(getTags);
     
     return (
         <Main>
@@ -198,8 +208,8 @@ const Index = () => {
                             <div className="mb-4">
                                 <h5 className="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Tags </h5>
                                 <ul>
-                                    {categories.map((cat,index) => (
-                                        <TagBadge text={cat.categoryName} url={cat.slug} key={index}/>
+                                    {tagsData?.tags.map((cat,index) => (
+                                        <TagBadge text={cat.name} url={'/tags/'+cat.slug} key={index}/>
                                     ))}
                                 </ul>
                             </div>
