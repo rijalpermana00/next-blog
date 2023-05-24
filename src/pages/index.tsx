@@ -20,6 +20,8 @@ import { Carousel } from '@/components/partials/Carousel';
 import { ScrollableCard } from '@/components/partials/ScrollableCard';
 import { Splides } from '@/components/partials/Splide';
 import { TagsConnectionData } from "@/props/TagProps";
+import { TagBadge } from '@/components/partials/Badge';
+import OwnerCard from '@/components/partials/OwnerCard';
 
 
 const Index = () => {
@@ -192,16 +194,12 @@ const Index = () => {
                             </div>
                         </div>
                         <div className='flex-grow-0 basis-auto w-full sm:w-1/3 md:w-full lg:w-1/3 px-0 sm:px-6 md:px-0 lg:px-6 sm:mb-5 md:mb-10 lg:mb-5'> 
+                            <OwnerCard/>
                             <div className="mb-4">
                                 <h5 className="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Tags </h5>
                                 <ul>
                                     {categories.map((cat,index) => (
-                                        <CategoryCard 
-                                            title={cat.categoryName} 
-                                            total={cat.count} 
-                                            color={cat.color}
-                                            key={index}
-                                        />
+                                        <TagBadge text={cat.categoryName} url={cat.slug} key={index}/>
                                     ))}
                                 </ul>
                             </div>

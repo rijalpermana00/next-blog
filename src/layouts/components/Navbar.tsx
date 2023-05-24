@@ -66,9 +66,9 @@ export default function Navbar() {
                     <li className="sm:pt-0 pt-3 sm:pb-0 pb-3">
                         <Search setSearch={false}/>
                     </li>
-                    <li className="sm:pt-0 pt-3 sm:pb-0 pb-3 hover:border-gray-800 border-transparent">
+                    {/* <li className="sm:pt-0 pt-3 sm:pb-0 pb-3 hover:border-gray-800 border-transparent">
                         <NavbarButton title="Log In" url="/login" classNames="bg-gray-500 text-white hover:bg-gray-900"/>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             </div>

@@ -1,6 +1,7 @@
 type BadgeProps = {
   text: string;
   className?: string;
+  url?: string;
 };
 
 const MainBadge = (props: BadgeProps) => {
@@ -22,5 +23,15 @@ export const AltBadge = (props: BadgeProps) => {
     </span>
   );
 };
+
+export const TagBadge = (props: BadgeProps) => {
+  return (
+    <a href={props.url ?? '#'}>
+      <div className="inline-flex items-center gap-1 rounded-lg bg-gray-300 px-2 py-1 text-xs font-semibold text-gray-800 m-1">
+        {props.text}
+      </div>
+    </a>
+  )
+}
 
 export default MainBadge;
