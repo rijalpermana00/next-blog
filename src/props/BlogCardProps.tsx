@@ -17,6 +17,6 @@ export interface BlogCardProps {
       url?: string;
     };
     excerpt?: string;
-    bgColor?: 'bg-red-300' | 'bg-blue-300' | 'bg-green-300' | 'bg-white' | 'bg-black' | 'bg-yellow-300' | 'bg-gray-300' | 'bg-orange-300' | undefined
+    bgColor?: 'bg-red-300' | 'bg-blue-300' | 'bg-green-300' | 'bg-white' | 'bg-black' | 'bg-yellow-300' | 'bg-gray-300' | 'bg-orange-300 ' | 'bg-orange-300 dark:bg-gray-500' | 'bg-gray-300 dark:bg-gray-500' | undefined
     dimension?: string;
 }

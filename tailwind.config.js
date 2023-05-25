@@ -16,6 +16,10 @@ module.exports = {
       '6xl': '4rem',
     },
     extend: {
+      colors: {
+        night: 'rgb(22, 28, 36)',
+        dusk: 'rgb(145, 158, 171)'
+      },
     },
   },
   plugins: [],

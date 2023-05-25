@@ -20,7 +20,7 @@ export default function Footer(){
                     </li>
                 </ul>
             </div> */}
-            <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            <span className="block text-sm text-gray-500 text-center dark:text-gray-400">
                 © 2023 <a href="https://iam-rijal.netlify.app" target="_blank" className="hover:underline">Sani Asmi - Truegrey</a>
                 <br/> 
                 All Rights Reserved 

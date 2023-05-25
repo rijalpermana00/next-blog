@@ -60,7 +60,7 @@ export const MainBlogCard = ({
     excerpt,
 }:BlogCardProps) => {
     return(
-        <div className={`bg-white rounded-2xl shadow-lg overflow-hidden`}>
+        <div className={`bg-white dark:bg-dusk rounded-2xl shadow-lg overflow-hidden`}>
             <span className='block pt-[100%] relative w-full leading-4 overflow-hidden rounded-xl'>
                 {coverImage?.url ?(
                     <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl">
@@ -72,10 +72,10 @@ export const MainBlogCard = ({
                     </span>
                 )
                 :
-                    <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl bg-emerald-500"/>
+                    <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl bg-gray-500 dark:bg-gray-700"/>
                 }
             </span>
-            <div className='sm:p-10 p-6 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
+            <div className='sm:p-10 p-6 w-full flex flex-col bottom-0 z-[9] absolute text-gray-800 dark:text-white'>
                 <div className='flex flex-row flex-wrap items-center leading-[1.5] text-xs font-normal opacity-75'>
                     <Moment format="DD MMM YYYY">{publishedAt}</Moment>
                     <span className='mx-2 w-1 h-1 rounded-full'></span>
@@ -135,7 +135,7 @@ export const SubMainBlogCard = ({
                         />
                     </span>
                 </span>
-                <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
+                <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-gray-800 dark:text-white'>
                     <div className='flex flex-row flex-wrap items-center leading-6 text-base sm:text-xs font-normal opacity-75'>
                         <Moment format="DD MMM YYYY">{publishedAt}</Moment>
                         <span className='mx-2 w-1 h-1 rounded-full'></span>
@@ -184,7 +184,7 @@ export const SubMainImagelessBlogCard = ({
         <div className={`relative rounded-2xl shadow-lg overflow-hidden ${dimension} ${bgColor}`}>
             <div className='overflow-hidden'>
                 <span className="block pt-[100%] relative w-full overflow-hidden rounded-xl">
-                    <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-white'>
+                    <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-gray-800 dark:text-white'>
                         <div className='flex flex-row flex-wrap top-0 items-center leading-6 text-base sm:text-xs font-normal opacity-75'>
                             <Moment format="DD MMM YYYY">{publishedAt}</Moment>
                             <span className='mx-2 w-4 h-4 rounded-full'></span>

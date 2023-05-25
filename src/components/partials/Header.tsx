@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <div className="sm:pb-12 pb-8">
             <div className="mx-auto max-w-2xl">
-                <h1 className="text-6xl leading-none tracking-tighter font-black text-center text-gray-900 whitespace-pre-line leading-hero">Truegreys,</h1>
+                <h1 className="text-6xl leading-none tracking-tighter font-black text-center text-gray-900 dark:text-gray-200 whitespace-pre-line leading-hero">Truegreys,</h1>
                 <h1 className="text-6xl leading-none tracking-tighter font-black text-center text-gray-500 whitespace-pre-line leading-hero mb-7">by Sani Asmi</h1>
                 <h6 className="text-2xl leading-none tracking-tighter font-black text-center text-gray-500 whitespace-pre-line leading-hero">Fiksi, Fiksi, Fiksi, atau Mungkin Bukan</h6>
             </div>

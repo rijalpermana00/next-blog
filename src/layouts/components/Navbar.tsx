@@ -8,6 +8,7 @@ import router from "next/router";
 
 export default function Navbar() {
     const [navbarOpen, setNavbarOpen] = useState(false);
+    const [isTransparent, setIsTransparent] = useState(true);
 
     
     const menus = menu.main;
@@ -36,9 +37,23 @@ export default function Navbar() {
 
     }, [router]);
     
+    useEffect(() => {
+        const handleScroll = () => {
+          const isScrolled = window.scrollY > 0;
+          setIsTransparent(!isScrolled);
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+    
+    
     
     return (
-        <nav className="fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 md:px-2 md:py-3 sm:px-0 sm:py-0 lg:px-0 lg:py-0 navbar-expand-lg bg-white shadow">
+        <nav className={`fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 md:px-2 md:py-3 sm:px-0 sm:py-0 lg:px-0 lg:py-0 navbar-expand-lg bg-white dark:bg-night opacity-[0.92] shadow`}>
             <div className="container px-4 mx-auto flex flex-wrap items-center justify-between max-w-7xl sm:px-6 lg:px-8">
                 <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                     <Logo/>
@@ -50,27 +65,27 @@ export default function Navbar() {
                         {menuIcon}
                     </button>
                 </div>
-            <div
-                className={
-                "lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none" +
-                (navbarOpen ? " block" : " hidden")
-                }
-                id="example-navbar-warning"
-            >
-                <ul className="sm:pt-0 pt-3 sm:-my-px sm:ml-6 sm:flex sm:space-x-4 flex flex-col lg:flex-row list-none items-center">
-                    {menus.map((menu, index) => (
-                        <NavbarMenu  title={menu.name} url={menu.url} key={index}/>
-                    ))}
-                </ul>
-                <ul className="sm:pt-0 pt-3 sm:-my-px sm:flex sm:space-x-4 flex flex-col lg:flex-row list-none lg:ml-auto items-center">
-                    <li className="sm:pt-0 pt-3 sm:pb-0 pb-3">
-                        <Search setSearch={false}/>
-                    </li>
-                    {/* <li className="sm:pt-0 pt-3 sm:pb-0 pb-3 hover:border-gray-800 border-transparent">
-                        <NavbarButton title="Log In" url="/login" classNames="bg-gray-500 text-white hover:bg-gray-900"/>
-                    </li> */}
-                </ul>
-            </div>
+                <div
+                    className={
+                    "lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none" +
+                    (navbarOpen ? " block" : " hidden")
+                    }
+                    id="example-navbar-warning"
+                >
+                    <ul className="sm:pt-0 pt-3 sm:-my-px sm:ml-6 sm:flex sm:space-x-4 flex flex-col lg:flex-row list-none items-center">
+                        {menus.map((menu, index) => (
+                            <NavbarMenu  title={menu.name} url={menu.url} key={index}/>
+                        ))}
+                    </ul>
+                    <ul className="sm:pt-0 pt-3 sm:-my-px sm:flex sm:space-x-4 flex flex-col lg:flex-row list-none lg:ml-auto items-center">
+                        <li className="sm:pt-0 pt-3 sm:pb-0 pb-3">
+                            <Search setSearch={false}/>
+                        </li>
+                        {/* <li className="sm:pt-0 pt-3 sm:pb-0 pb-3 hover:border-gray-800 border-transparent">
+                            <NavbarButton title="Log In" url="/login" classNames="bg-gray-500 text-white hover:bg-gray-900"/>
+                        </li> */}
+                    </ul>
+                </div>
             </div>
         </nav>
     );
