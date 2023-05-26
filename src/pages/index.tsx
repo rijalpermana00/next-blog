@@ -16,9 +16,11 @@ import { TagsConnectionData } from '@/props/TagsProps';
 import { ThemeProps } from '@/props/ThemeProps';
 import { MainContent } from '@/components/MainContent';
 import { SecondaryContent } from '@/components/SecondaryContent';
+import { useEffect, useState } from 'react';
 
 
-const Index = ({setTheme,isDarkMode}:ThemeProps) => {
+const Index = () => {
+  
     const { 
         loading:loadingFeaturedPost, 
         error:errorFeaturedPost, 
@@ -45,21 +47,11 @@ const Index = ({setTheme,isDarkMode}:ThemeProps) => {
     
     const categories = Categories();
     
-    const { 
-        loading:loadingTags, 
-        error:errorTags, 
-        data:tagsData
-    }:{ 
-        loading:boolean, 
-        error?: ApolloError, 
-        data?:TagsConnectionData
-    } = useQuery(getTags);
-    
     return (
-        <Main setTheme={setTheme} isDarkMode={isDarkMode}>
+        <Main>
             {/* <div className={`mx-auto max-w-7xl sm:p-6 p-4`}> */}
                 <Header/>
-                <MainContent featuredPosts={featuredPosts}/>
+                <MainContent posts={featuredPosts}/>
                 <hr/>
                 {categories.length > 0 
                     ? 
@@ -69,7 +61,7 @@ const Index = ({setTheme,isDarkMode}:ThemeProps) => {
                         </>
                 }
                 <hr/>
-                <SecondaryContent latestPosts={latestPosts} tags={tagsData}/>
+                <SecondaryContent posts={latestPosts}/>
             {/* </div> */}
             <GoToTop/>
         </Main>

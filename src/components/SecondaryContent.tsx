@@ -4,22 +4,34 @@ import Skeleton from "./partials/Skeleton"
 import OwnerCard from "./partials/OwnerCard";
 import { TagBadge } from "./partials/Badge";
 import { TagsConnectionData } from "@/props/TagsProps";
+import { ApolloError, useQuery } from "@apollo/client";
+import { getTags } from "@/services/queries/GetTags";
 
 interface HomeProps {
-    latestPosts: PostProps;
-    tags: TagsConnectionData | undefined;
+    posts: PostProps;
 }
 
 export const SecondaryContent = (props:HomeProps) => {
+    
+    const { 
+        loading:loadingTags, 
+        error:errorTags, 
+        data:tagsData
+    }:{ 
+        loading:boolean, 
+        error?: ApolloError, 
+        data?:TagsConnectionData
+    } = useQuery(getTags);
+    
     return(
         <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
             <div className='flex flex-row flex-wrap'>
                 <div className='flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5'>
                     <h5 className="font-bold text-lg uppercase text-gray-700 dark:text-gray-300 px-1 mb-2"> Latest Posts </h5>
                     <div className="mx-auto max-w-4xl grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
-                        {props.latestPosts ? 
+                        {props.posts ? 
                         
-                            props.latestPosts?.posts.map((post) => (
+                            props.posts?.posts.map((post) => (
                                 (post?.coverImage?.url 
                                     ?
                                         <SubMainBlogCard 
@@ -71,7 +83,7 @@ export const SecondaryContent = (props:HomeProps) => {
                     <div className="mb-4">
                         <h5 className="font-bold text-lg uppercase text-gray-700 dark:text-gray-300 px-1 mb-2"> Tags </h5>
                         <ul>
-                            {props.tags?.tags.map((cat,index) => (
+                            {tagsData?.tags.map((cat,index) => (
                                 <TagBadge text={cat.name} url={'/tags/'+cat.slug} key={index}/>
                             ))}
                         </ul>

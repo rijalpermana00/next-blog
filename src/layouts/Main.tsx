@@ -14,8 +14,6 @@ type IMainProps = {
     title?: string,
     description?: string,
     children: ReactNode;
-    setTheme:SetThemeFn;
-    isDarkMode:boolean;
     
 };
   
@@ -23,7 +21,7 @@ const Main = (props: IMainProps) => (
     // <div className="antialiased bg-gray-200">
     <div className="antialiased">
         <Meta title={props?.title ?? AppConfig.title} description={props?.description ?? AppConfig.description} />
-        <Navbar setTheme={props.setTheme} isDarkMode={props.isDarkMode}/>
+        <Navbar/>
         <div className="h-[68px]"/>
         <main className="mx-auto my-0 md:my-0 sm:my-16 lg:my-16">
             {props.children}

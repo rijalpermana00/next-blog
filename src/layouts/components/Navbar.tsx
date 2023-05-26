@@ -7,12 +7,12 @@ import router from "next/router";
 import { ThemeProps } from "@/props/ThemeProps";
 // components
 
-export default function Navbar({setTheme,isDarkMode}:ThemeProps) {
+export default function Navbar() {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [isTransparent, setIsTransparent] = useState(true);
     const [currentTheme, setCurrentTheme] = useState<string>('');
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
-    
     const menus = menu.main;
     
     const menuIcon = navbarOpen ? (
@@ -62,6 +62,18 @@ export default function Navbar({setTheme,isDarkMode}:ThemeProps) {
         setCurrentTheme(newTheme);
         localStorage.setItem('theme', newTheme);
         document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    };
+    
+    const setTheme = (theme: string) => {
+        if (theme === 'light') {
+        window.localStorage.setItem('theme', 'light');
+        } else if (theme === 'dark') {
+        window.localStorage.setItem('theme', 'dark');
+        } else {
+        window.localStorage.removeItem('theme');
+        }
+
+        setIsDarkMode(theme === 'dark');
     };
     
     return (

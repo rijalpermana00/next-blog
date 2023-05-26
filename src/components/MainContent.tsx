@@ -3,7 +3,7 @@ import { MainBlogCard, SubMainBlogCard, SubMainImagelessBlogCard } from "./parti
 import Skeleton from "./partials/Skeleton"
 
 interface HomeProps {
-    featuredPosts: QueryResult | undefined;
+    posts: QueryResult | undefined;
 }
 
 export const MainContent = (props:HomeProps) => {
@@ -11,9 +11,9 @@ export const MainContent = (props:HomeProps) => {
         <div className='max-w-6xl sm:p-6 p-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 flex-row flex-wrap mx-auto justify-center mb-6'>
             <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2'>
                 <div className="relative sm:w-md sm:h-md w-md h-md">
-                    {props.featuredPosts 
+                    {props.posts 
                         ? (
-                            props.featuredPosts?.posts.slice(0,1).map((post) => (
+                            props.posts?.posts.slice(0,1).map((post) => (
                                 <MainBlogCard 
                                     coverImage={post?.coverImage}
                                     slug={post.slug}
@@ -35,9 +35,9 @@ export const MainContent = (props:HomeProps) => {
                     }
                 </div>
                 <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 justify-center">
-                    {props.featuredPosts
+                    {props.posts
                         ? (
-                            props.featuredPosts?.posts.slice(1,5).map((post) => (
+                            props.posts?.posts.slice(1,5).map((post) => (
                                 (post?.coverImage?.url 
                                     ?
                                         <SubMainBlogCard 
