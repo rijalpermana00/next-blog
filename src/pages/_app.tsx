@@ -10,11 +10,11 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const theme = window.localStorage.getItem('theme');
     if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-    setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+      setIsDarkMode(true);
     } else {
-    document.documentElement.classList.remove('dark');
-    setIsDarkMode(false);
+      document.documentElement.classList.remove('dark');
+      setIsDarkMode(false);
     }
 }, []);
   
