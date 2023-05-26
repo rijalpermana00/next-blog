@@ -1,5 +1,4 @@
 import { Main } from '@/layouts/Main';
-import blog from '@/config/blog.json';
 import Blog from '@/components/partials/Blog';
 import { SecondaryContent } from '@/components/partials/SecondaryContent';
 import { FourthDesign } from '@/components/partials/BlogPost';
