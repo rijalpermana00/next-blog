@@ -7,3 +7,7 @@ export interface TagData {
 export interface TagsConnectionData {
     tags: TagData[] | [];
 }
+
+export interface TagsData{
+    
+}

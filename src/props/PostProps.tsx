@@ -56,3 +56,9 @@ export interface MyQueryResult {
 export interface QueryResult {
       posts: Post[];
 }
+
+export interface Query{
+  QueryResult: QueryResult
+}
+
+export type PostProps = QueryResult | undefined;

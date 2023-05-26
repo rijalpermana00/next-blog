@@ -4,6 +4,7 @@ import { AppConfig } from '../utils/AppConfig';
 import Navbar from './components/Navbar';
 import type { ReactNode } from 'react';
 import Footer from './components/Footer';
+import { SetThemeFn } from '@/props/ThemeProps';
 // import { Banner } from './Banner';
 // import { Footer } from './Footer';
 // import { Hero } from './Hero';
@@ -13,13 +14,16 @@ type IMainProps = {
     title?: string,
     description?: string,
     children: ReactNode;
+    setTheme:SetThemeFn;
+    isDarkMode:boolean;
+    
 };
   
 const Main = (props: IMainProps) => (
     // <div className="antialiased bg-gray-200">
     <div className="antialiased">
         <Meta title={props?.title ?? AppConfig.title} description={props?.description ?? AppConfig.description} />
-        <Navbar/>
+        <Navbar setTheme={props.setTheme} isDarkMode={props.isDarkMode}/>
         <div className="h-[68px]"/>
         <main className="mx-auto my-0 md:my-0 sm:my-16 lg:my-16">
             {props.children}

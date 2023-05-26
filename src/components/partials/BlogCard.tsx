@@ -135,7 +135,7 @@ export const SubMainBlogCard = ({
                         />
                     </span>
                 </span>
-                <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-gray-800 dark:text-white'>
+                <div className='p-6 w-full flex flex-col bottom-0 z-[9] absolute text-gray-300 dark:text-white'>
                     <div className='flex flex-row flex-wrap items-center leading-6 text-base sm:text-xs font-normal opacity-75'>
                         <Moment format="DD MMM YYYY">{publishedAt}</Moment>
                         <span className='mx-2 w-1 h-1 rounded-full'></span>
