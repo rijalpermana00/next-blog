@@ -75,7 +75,7 @@ export const MainBlogCard = ({
                     <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-2xl bg-gray-500 dark:bg-gray-700"/>
                 }
             </span>
-            <div className='sm:p-10 p-6 w-full flex flex-col bottom-0 z-[9] absolute text-gray-800 dark:text-white'>
+            <div className='sm:p-10 p-6 w-full flex flex-col bottom-0 z-[9] absolute text-gray-300 dark:text-white'>
                 <div className='flex flex-row flex-wrap items-center leading-[1.5] text-xs font-normal opacity-75'>
                     <Moment format="DD MMM YYYY">{publishedAt}</Moment>
                     <span className='mx-2 w-1 h-1 rounded-full'></span>
