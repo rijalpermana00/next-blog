@@ -3,7 +3,7 @@ export interface BlogCardProps {
     slug: string;
     title: string;
     publishedAt: string;
-    content: {
+    content?: {
       html: string;
     };
     author?: {
@@ -12,6 +12,7 @@ export interface BlogCardProps {
     };
     tags?: string[];
     coverImage?: {
+      __typename?: string;
       fileName?: string;
       height?: number;
       url?: string;

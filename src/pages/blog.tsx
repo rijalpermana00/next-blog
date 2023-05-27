@@ -17,7 +17,12 @@ const Index = () => {
     
     return (
         <Main>
-            <SecondaryContent posts={posts}/>
+            {posts
+                ? 
+                <SecondaryContent posts={posts}/>
+                :
+                <></>
+            }
         </Main>
     );
 };
