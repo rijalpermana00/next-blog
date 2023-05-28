@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
       document.documentElement.classList.remove('dark');
       setIsDarkMode(false);
     }
-}, []);
+  }, []);
   
   const client = getClient();
   

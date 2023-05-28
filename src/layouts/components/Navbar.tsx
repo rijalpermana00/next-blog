@@ -16,7 +16,7 @@ export default function Navbar() {
     const menus = menu.main;
     
     const menuIcon = navbarOpen ? (
-        <svg className="h-6 fill-current menu-icon" viewBox="0 0 20 20">
+        <svg className="h-6 fill-current menu-icon dark:text-white text-gray-800" viewBox="0 0 20 20">
             <title>Menu Close</title>
             <polygon
                 points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
@@ -24,7 +24,7 @@ export default function Navbar() {
             />
         </svg>
     ) : (
-        <svg className="h-6 fill-current menu-icon active" viewBox="0 0 20 20">
+        <svg className="h-6 fill-current menu-icon active dark:text-white text-gray-800" viewBox="0 0 20 20">
             <title>Menu Open</title>
             <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z" />
         </svg>
