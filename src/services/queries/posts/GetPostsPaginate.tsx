@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const getPosts = gql`
     query MyQuery($after: String = null) {
-        postsConnection(first: 6, orderBy: publishedAt_ASC, after: $after) {
+        postsConnection(first: 6, orderBy: publishedAt_DESC, after: $after) {
             pageInfo {
             pageSize
             startCursor
