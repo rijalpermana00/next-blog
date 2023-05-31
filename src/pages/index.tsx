@@ -51,7 +51,7 @@ const Index = () => {
         <Main>
             {/* <div className={`mx-auto max-w-7xl sm:p-6 p-4`}> */}
                 <Header/>
-                <MainContent posts={featuredPosts}/>
+                <MainContent posts={featuredPosts} contentTitle='Featured Posts'/>
                 <hr/>
                 {categories.length > 0 
                     ? 
@@ -61,7 +61,7 @@ const Index = () => {
                         </>
                 }
                 <hr/>
-                <SecondaryContent posts={latestPosts}/>
+                <SecondaryContent posts={latestPosts} ownerTitle='Owner' contentTitle='Latest Posts'/>
             {/* </div> */}
             <GoToTop/>
         </Main>

@@ -54,7 +54,7 @@ export interface PostsConnection {
     __typename: string;
 }
 
-export interface zxc {
+export interface PostCollection {
     postsConnection: PostsConnection;
 }
 

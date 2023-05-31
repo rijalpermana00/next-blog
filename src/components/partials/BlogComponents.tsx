@@ -1,21 +1,24 @@
 import { TagsConnectionData } from "@/props/TagsProps";
 import { getTags } from "@/services/queries/GetTags";
-import { ApolloError, useQuery } from "@apollo/client";
+import { ApolloError, useLazyQuery, useQuery } from "@apollo/client";
 import { SubMainBlogCard, SubMainImagelessBlogCard } from "./BlogCard";
 import Skeleton from "./Skeleton";
 import OwnerCard from "./OwnerCard";
 import { TagBadge } from "./Badge";
-import { PostsConnection, PostsData } from "@/props/PostConnectionProps";
+import { PostsConnection } from "@/props/PostConnectionProps";
 import { useEffect, useState } from "react";
+import { getPosts } from "@/services/queries/posts/GetPostsPaginate";
 
 interface HomeProps {
-  posts: PostsConnection;
+  posts?: PostsConnection;
   ownerTitle?: string;
   contentTile?: string;
 }
 
 export const BlogComponents = (props: HomeProps) => {
-    const [loadedItems, setLoadedItems] = useState<PostsConnection | undefined>();
+    const [loadedItems, setLoadedItems] = useState<PostsConnection | null>(null);
+    const [lastId, setLastId] = useState<string | null>(null);
+    const [nextAvail, setNextAvail] = useState(false);
 
   const {
         loading: loadingTags,
@@ -30,8 +33,47 @@ export const BlogComponents = (props: HomeProps) => {
     useEffect(() => {
         if (props.posts) {
           setLoadedItems(props.posts);
+          setLastId(props.posts.pageInfo.endCursor)
+          setNextAvail(props.posts.pageInfo.hasNextPage)
         }
     }, [props.posts]);
+    
+    const [ loadMore, { loading } ] = useLazyQuery(getPosts, {
+        notifyOnNetworkStatusChange: true,
+        onCompleted: ( data ) => {
+            setLoadedItems((prevItems: PostsConnection | null) => {
+                if (prevItems && data && data.postsConnection) {
+                    return {
+                        ...prevItems,
+                        edges: [...prevItems.edges, ...data.postsConnection.edges],
+                        pageInfo: data.postsConnection.pageInfo,
+                        __typename: data.postsConnection.__typename,
+                    };
+                }
+                return null;
+            });
+            setLastId(data.postsConnection.pageInfo.endCursor)
+            setNextAvail(data.postsConnection.pageInfo.hasNextPage)
+            
+        },
+        onError: ( error ) => {
+            console.log( error?.graphQLErrors );
+        },
+    });
+    
+    const loadMoreItems = () => {
+
+        if(loading){
+            return false
+        }
+        let queryVariables = { 
+            after: lastId 
+        };
+    
+        loadMore( {
+          variables: queryVariables,
+        } );
+    };
 
     return (
         <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
@@ -81,7 +123,13 @@ export const BlogComponents = (props: HomeProps) => {
                         }
                     </div>
                     <div className="flex flex-col items-center pt-10 pb-20 md:pb-0">
-                        <button className="inline-flex items-center justify-center relative bg-white dark:bg-dusk text-gray-400 dark:text-white font-bold px-2 py-3 cursor-pointer border-gray-700 dark:border-dusk border rounded-lg text-sm">See More</button>
+                        { nextAvail &&  
+                            <button 
+                                onClick={loadMoreItems}
+                                className="inline-flex items-center justify-center relative bg-white dark:bg-dusk text-gray-400 dark:text-white font-bold px-2 py-3 cursor-pointer border-gray-700 dark:border-dusk border rounded-lg text-sm">
+                                {loading ? 'Loading...' : 'Load More'}
+                            </button>
+                        }
                     </div>
                 </div>
                 <div className="flex-grow-0 basis-auto w-full sm:w-1/3 md:w-full lg:w-1/3 px-0 sm:px-6 md:px-0 lg:px-6 sm:mb-5 md:mb-10 lg:mb-5">

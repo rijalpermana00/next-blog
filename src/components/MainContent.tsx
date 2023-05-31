@@ -4,11 +4,13 @@ import Skeleton from "./partials/Skeleton"
 
 interface HomeProps {
     posts: QueryResult | undefined;
+    contentTitle?: string;
 }
 
 export const MainContent = (props:HomeProps) => {
     return(
         <div className='max-w-6xl sm:p-6 p-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 flex-row flex-wrap mx-auto justify-center mb-6'>
+            <h5 className="font-bold text-lg uppercase text-gray-700 dark:text-gray-300 px-1 mb-2">{props.contentTitle}</h5>
             <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2'>
                 <div className="relative sm:w-md sm:h-md w-md h-md">
                     {props.posts 

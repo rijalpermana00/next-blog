@@ -10,7 +10,7 @@ import { getTags } from "@/services/queries/GetTags";
 interface HomeProps {
     posts: PostProps;
     ownerTitle?: string;
-    contentTile?: string;
+    contentTitle?: string;
 }
 
 export const SecondaryContent = (props:HomeProps) => {
@@ -29,7 +29,7 @@ export const SecondaryContent = (props:HomeProps) => {
         <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
             <div className='flex flex-row flex-wrap'>
                 <div className='flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5'>
-                    <h5 className="font-bold text-lg uppercase text-gray-700 dark:text-gray-300 px-1 mb-2">{props.contentTile}</h5>
+                    <h5 className="font-bold text-lg uppercase text-gray-700 dark:text-gray-300 px-1 mb-2">{props.contentTitle}</h5>
                     <div className="mx-auto max-w-4xl grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
                         {props.posts ? 
                         
