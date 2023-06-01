@@ -8,6 +8,7 @@ import { TagBadge } from "./Badge";
 import { PostsConnection } from "@/props/PostConnectionProps";
 import { useEffect, useState } from "react";
 import { getPosts } from "@/services/queries/posts/GetPostsPaginate";
+import { TagList } from "@/services/Tags";
 
 interface HomeProps {
   posts?: PostsConnection;
@@ -20,15 +21,7 @@ export const BlogComponents = (props: HomeProps) => {
     const [lastId, setLastId] = useState<string | null>(null);
     const [nextAvail, setNextAvail] = useState(false);
 
-  const {
-        loading: loadingTags,
-        error: errorTags,
-        data: tagsData
-    }: {
-        loading: boolean;
-        error?: ApolloError;
-        data?: TagsConnectionData;
-    } = useQuery(getTags);
+    const tagsData = TagList();
 
     useEffect(() => {
         if (props.posts) {

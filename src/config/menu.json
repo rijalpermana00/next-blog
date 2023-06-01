@@ -5,47 +5,12 @@
       "url": "/"
     },
     {
-      "name": "Tags",
-      "url": "/tags"
-    },
-    {
       "name": "Blog",
       "url": "/blog"
     },
     {
       "name": "About",
       "url": "/about"
-    },
-    {
-      "name": "Sample",
-      "url": "/sample"
-    },
-    {
-      "name": "Pages",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Article",
-          "url": "/article"
-        },
-        {
-          "name": "Categories",
-          "url": "/categories"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        },
-        {
-          "name": "Elements",
-          "url": "/elements"
-        },
-        {
-          "name": "Privacy Policy",
-          "url": "/privacy-policy"
-        }
-      ]
     }
   ],
   "footer": [

@@ -30,7 +30,7 @@ const Slug = () => {
     
     return (
         <Main>
-            <div className={`py-10 sm:py-16 px-4 sm:px-32 sm:max-w-5xl sm:mx-auto`}>
+            <div className={`px-4 sm:px-32 sm:max-w-5xl sm:mx-auto`}>
                 {post && (
                     <Blog
                         author={post.author}

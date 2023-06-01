@@ -30,11 +30,11 @@ const Blog = ({
     };
     
   return (
-    <>
+    <div className="text-gray-800 dark:text-white">
         <div className="col-12 sm:col-6 mb-4">
-            <h3 className="text-5xl font-extrabold leading-10">
+            <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[2.75rem] lg:text-5xl m-0 font-bold leading-snug barlow">
                 {title}
-            </h3>
+            </h1>
         </div>
         <div className="col-12 sm:col-6">
             <ul className="mb-2 flex flex-wrap items-center space-x-3">
@@ -77,7 +77,7 @@ const Blog = ({
             title:title,
             url:'https://sani-blog.vercel.app/blog/'+slug
         }}/>
-    </>
+    </div>
   );
 };
 
