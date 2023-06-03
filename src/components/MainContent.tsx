@@ -1,9 +1,10 @@
 import { PostProps, QueryResult } from "@/props/PostProps"
 import { MainBlogCard, SubMainBlogCard, SubMainImagelessBlogCard } from "./partials/BlogCard"
 import Skeleton from "./partials/Skeleton"
+import { PostCollection } from "@/props/PostConnectionProps";
 
 interface HomeProps {
-    posts: QueryResult | undefined;
+    posts: PostCollection | null;
     contentTitle?: string;
 }
 
@@ -15,18 +16,19 @@ export const MainContent = (props:HomeProps) => {
                 <div className="relative sm:w-md sm:h-md w-md h-md">
                     {props.posts 
                         ? (
-                            props.posts?.posts.slice(0,1).map((post) => (
-                                <MainBlogCard 
-                                    coverImage={post?.coverImage}
-                                    slug={post.slug}
-                                    publishedAt={post.publishedAt}
+                            props.posts?.postsConnection.edges.slice(0,1).map((edge) => (
+                                <MainBlogCard
+                                    tags={edge.node.tags}
+                                    category={edge.node.category} 
+                                    coverImage={edge?.node?.coverImage}
+                                    slug={'/blog/'+edge.node.category?.slug+'/'+edge.node.slug}
+                                    publishedAt={edge.node.publishedAt}
                                     // tags={card.imageUrl}
-                                    author={post?.author}
-                                    title={post.title}
-                                    excerpt={post.excerpt} 
-                                    content={post.content}
-                                    id={post.id}
-                                    key={post.id}
+                                    author={edge.node?.author}
+                                    title={edge.node.title}
+                                    excerpt={edge.node.excerpt} 
+                                    id={edge.node.id}
+                                    key={edge.node.id}
                                 />
                             ))
                         ) : (
@@ -39,37 +41,34 @@ export const MainContent = (props:HomeProps) => {
                 <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 justify-center">
                     {props.posts
                         ? (
-                            props.posts?.posts.slice(1,5).map((post) => (
-                                (post?.coverImage?.url 
+                            props.posts?.postsConnection.edges.slice(1,5).map((edge) => (
+                                (edge.node?.coverImage?.url 
                                     ?
                                         <SubMainBlogCard 
-                                            coverImage={post?.coverImage}
-                                            slug={post.slug}
-                                            publishedAt={post.publishedAt}
+                                            coverImage={edge.node?.coverImage}
+                                            slug={'/blog/'+edge.node.category?.slug+'/'+edge.node.slug}
+                                            publishedAt={edge.node.publishedAt}
                                             // tags={card.imageUrl}
-                                            title={post.title}
-                                            author={post?.author}
-                                            excerpt={post.excerpt} 
-                                            content={post.content}
-                                            id={post.id}
+                                            title={edge.node.title}
+                                            author={edge.node?.author}
+                                            excerpt={edge.node.excerpt} 
+                                            id={edge.node.id}
                                             bgColor='bg-gray-300 dark:bg-gray-500'
                                             // dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
-                                            key={post.id}
+                                            key={edge.node.id}
                                         />
                                     : 
-                                        <SubMainImagelessBlogCard 
-                                            coverImage={post?.coverImage}
-                                            slug={post.slug}
-                                            publishedAt={post.publishedAt}
+                                        <SubMainImagelessBlogCard
+                                            slug={'blog/'+edge.node.category?.slug+'/'+edge.node.slug}
+                                            publishedAt={edge.node.publishedAt}
                                             // tags={card.imageUrl}
-                                            title={post.title}
-                                            author={post?.author}
-                                            excerpt={post.excerpt} 
-                                            content={post.content}
-                                            id={post.id}
+                                            title={edge.node.title}
+                                            author={edge.node?.author}
+                                            excerpt={edge.node.excerpt}
+                                            id={edge.node.id}
                                             bgColor='bg-gray-300 dark:bg-gray-500'
                                             // dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
-                                            key={post.id}
+                                            key={edge.node.id}
                                         />
                                 )
                             ))

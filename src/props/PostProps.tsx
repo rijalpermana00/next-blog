@@ -16,10 +16,10 @@
 //     name: string;
 // }
 
-// export interface Category {
-//     name: string,
-//     posts: PostProps[]
-// }
+export interface Category {
+    name: string,
+    slug: string,
+}
 
 // export interface Author {
 //     id: number;
@@ -41,6 +41,7 @@ export interface Post {
       id: string;
     };
     tags?: string[];
+    category?: Category;
     coverImage?: {
       fileName: string;
       height: number;

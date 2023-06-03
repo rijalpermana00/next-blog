@@ -20,14 +20,15 @@ export interface Tag {
 
 export interface Category {
     name: string;
+    slug: string;
     __typename: string;
 }
 
 export interface CoverImage {
-    fileName: string;
-    height: number;
-    url: string;
-    __typename: string;
+    fileName?: string;
+    height?: number;
+    url?: string;
+    __typename?: string;
 }
 
 export interface Post {
@@ -40,7 +41,7 @@ export interface Post {
     category: Category;
     coverImage: CoverImage | null;
     excerpt: string;
-    __typename: string;
+    __typename?: string;
 }
 
 export interface PostEdge {

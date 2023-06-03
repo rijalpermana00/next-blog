@@ -20,6 +20,10 @@ export const getPost = gql`
       tags {
         name
       }
+      category{
+        name
+        slug
+      }
     }
   }
 `;  

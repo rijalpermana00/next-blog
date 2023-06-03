@@ -23,6 +23,7 @@ export const getPosts = gql`
       }
       category {
         name
+        slug
       }
       coverImage {
         fileName

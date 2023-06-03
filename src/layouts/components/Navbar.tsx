@@ -5,13 +5,15 @@ import { NavbarButton, NavbarMenu } from "@/components/partials/NavbarMenu";
 import Search from "./Modal";
 import router from "next/router";
 import { ThemeProps } from "@/props/ThemeProps";
+import { useTheme } from "next-themes";
 // components
 
 export default function Navbar() {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [isTransparent, setIsTransparent] = useState(true);
     const [currentTheme, setCurrentTheme] = useState<string>('');
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [mounted, setMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
 
     const menus = menu.main;
     
@@ -53,27 +55,27 @@ export default function Navbar() {
     }, []);
     
     useEffect(() => {
-        setCurrentTheme(localStorage.getItem('theme') || '');
+        setMounted(true);
+        
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 0;
+            setIsTransparent(!isScrolled);
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
+
+    if (!mounted) {
+        return null;
+    }
     
     const toggleTheme = () => {
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-        setCurrentTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
-        document.documentElement.classList.toggle('dark', newTheme === 'dark');
-    };
-    
-    const setTheme = (theme: string) => {
-        if (theme === 'light') {
-        window.localStorage.setItem('theme', 'light');
-        } else if (theme === 'dark') {
-        window.localStorage.setItem('theme', 'dark');
-        } else {
-        window.localStorage.removeItem('theme');
-        }
-
-        setIsDarkMode(theme === 'dark');
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme)
     };
     
     return (
@@ -114,7 +116,7 @@ export default function Navbar() {
                             onClick={toggleTheme}
                             className="flex justify-center p-2 text-gray-500 transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-md lg:bg-white lg:dark:bg-gray-900 dark:text-gray-200 dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50"
                         >
-                            {isDarkMode ? (
+                            {theme === 'dark' ? (
                                 <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 20 20"

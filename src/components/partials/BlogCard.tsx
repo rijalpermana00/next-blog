@@ -1,4 +1,6 @@
 import { BlogCardProps } from "@/props/BlogCardProps";
+import { Post } from "@/props/PostConnectionProps";
+import Link from "next/link";
 import Moment from "react-moment";
 
 
@@ -58,7 +60,7 @@ export const MainBlogCard = ({
     tags,
     title,
     excerpt,
-}:BlogCardProps) => {
+}:Post) => {
     return(
         <div className={`bg-white dark:bg-dusk rounded-2xl shadow-lg overflow-hidden`}>
             <span className='block pt-[100%] relative w-full leading-4 overflow-hidden rounded-xl'>
@@ -81,11 +83,11 @@ export const MainBlogCard = ({
                     <span className='mx-2 w-1 h-1 rounded-full'></span>
                     {/* 8 minutes read */}
                 </div>
-                <a href={`blog/`+slug} className='m-0 mt-2 from-inherit'>
+                <Link href={slug} className='m-0 mt-2 from-inherit'>
                     <p className='text-2xl font-semibold barlow'>
                         {title}
                     </p>
-                </a>
+                </Link>
                 {excerpt && (
                     <p className='m-0 mt-2 leading-6 text-base font-normal overflow-hidden text-ellipsis line-clamp-2 flex flex-row'>
                         {excerpt}
@@ -114,6 +116,7 @@ export const MainBlogCard = ({
 export const SubMainBlogCard = ({
     coverImage,
     slug,
+    category,
     author,
     publishedAt,
     tags,
@@ -141,11 +144,11 @@ export const SubMainBlogCard = ({
                         <span className='mx-2 w-1 h-1 rounded-full'></span>
                         {/* 8 minutes read */}
                     </div>
-                    <a href={`blog/`+slug} className='m-0 mt-2 from-inherit'>
+                    <Link href={slug} className='m-0 mt-2 from-inherit'>
                         <p className='text-2xl sm:text-lg font-semibold barlow'>
                             {title}
                         </p>
-                    </a>
+                    </Link>
                     {/* {excerpt && (
                         <p className='m-0 mt-2 leading-6 text-base font-normal overflow-hidden text-ellipsis line-clamp-2 flex flex-row'>
                             {excerpt}
@@ -190,9 +193,9 @@ export const SubMainImagelessBlogCard = ({
                             <span className='mx-2 w-4 h-4 rounded-full'></span>
                             {/* 8 minutes read */}
                         </div>
-                        <a href={`blog/`+slug} className='m-0 mt-2 text-2xl sm:text-lg font-semibold barlow'>
+                        <Link href={slug} className='m-0 mt-2 text-2xl sm:text-lg font-semibold barlow'>
                             {title}
-                        </a>
+                        </Link>
                         {excerpt && (
                             <p className='m-0 mt-2 leading-6 text-base sm:text-sm font-normal overflow-hidden text-ellipsis line-clamp-3'>
                                 {excerpt}

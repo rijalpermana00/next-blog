@@ -2,7 +2,7 @@ import { ApolloError, QueryResult, useQuery } from "@apollo/client";
 import { getCategories } from "./queries/GetCategories";
 import { CategoriesConnectionData, CategoryInfo } from "@/props/CategoriesProps";
 
-export function Categories(){
+export function CategoryList(){
     const { 
         loading:loadingFeaturedPost, 
         error:errorFeaturedPost, 

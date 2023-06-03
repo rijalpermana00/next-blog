@@ -8,7 +8,7 @@ import { getFeaturedPosts } from '@/services/queries/posts/GetFeaturedPosts';
 import { getLatestPosts } from '@/services/queries/posts/GetLatestPosts';
 import { BlogCard, MainBlogCard, SubMainBlogCard, SubMainImagelessBlogCard } from '@/components/partials/BlogCard';
 import { getTags } from '@/services/queries/GetTags';
-import { Categories } from '@/services/Categories';
+import { CategoryList } from '@/services/Categories';
 import { Splides } from '@/components/partials/Splide';
 import { TagBadge } from '@/components/partials/Badge';
 import OwnerCard from '@/components/partials/OwnerCard';
@@ -17,52 +17,30 @@ import { ThemeProps } from '@/props/ThemeProps';
 import { MainContent } from '@/components/MainContent';
 import { SecondaryContent } from '@/components/SecondaryContent';
 import { useEffect, useState } from 'react';
+import { FeaturedPosts } from '@/services/FeaturedPosts';
+import { LatestPosts } from '@/services/LatestPosts';
 
 
 const Index = () => {
   
-    const { 
-        loading:loadingFeaturedPost, 
-        error:errorFeaturedPost, 
-        data:featuredPosts 
-    }:{ 
-        loading:boolean, 
-        error?: ApolloError, 
-        data?:QueryResult
-    } = useQuery(getFeaturedPosts);
+    const featuredPosts = FeaturedPosts();
     
-    const featuredPostIds = featuredPosts?.posts?.map(post => post.id) || [];
+    const featuredPostIds = featuredPosts?.postsConnection.edges?.map(edge => edge.node.id) || [];
     
-    const { 
-        loading:loadingLatestPost, 
-        error:errorLatestPost, 
-        data:latestPosts 
-    }:{ 
-        loading:boolean, 
-        error?: ApolloError, 
-        data?:QueryResult
-    } = useQuery(getLatestPosts, {
-        variables: { featuredPostIds: featuredPostIds },
-    });
+    const latestPosts = LatestPosts(featuredPostIds)
     
-    const categories = Categories();
+    const categories = CategoryList();
     
     return (
         <Main>
-            {/* <div className={`mx-auto max-w-7xl sm:p-6 p-4`}> */}
-                <Header/>
-                <MainContent posts={featuredPosts} contentTitle='Featured Posts'/>
-                <hr/>
-                {categories.length > 0 
-                    ? 
-                        <Splides data={categories}/>
-                    :
-                        <>
-                        </>
-                }
-                <hr/>
-                <SecondaryContent posts={latestPosts} ownerTitle='Owner' contentTitle='Latest Posts'/>
-            {/* </div> */}
+            <Header/>
+            <MainContent posts={featuredPosts} contentTitle='Featured Posts'/>
+            <hr/>
+            {categories.length > 0 &&
+                <Splides data={categories}/>
+            }
+            <hr/>
+            <SecondaryContent posts={latestPosts} ownerTitle='Owner' contentTitle='Latest Posts'/>
             <GoToTop/>
         </Main>
         

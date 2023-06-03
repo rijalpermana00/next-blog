@@ -1,8 +1,13 @@
 import { gql } from "@apollo/client";
 
 export const getPosts = gql`
-    query MyQuery($after: String) {
-        postsConnection(first: 6, orderBy: publishedAt_DESC, after: $after) {
+    query MyQuery($after: String,$category: String) {
+        postsConnection(
+            first: 6, 
+            orderBy: publishedAt_DESC, 
+            after: $after
+            where: {category: {_search: $category}}
+        ) {
             pageInfo {
             pageSize
             startCursor
@@ -25,6 +30,7 @@ export const getPosts = gql`
                     }
                     category {
                         name
+                        slug
                     }
                     coverImage {
                         fileName

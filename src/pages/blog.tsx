@@ -3,12 +3,11 @@ import { Post, QueryResult } from '@/props/PostProps';
 import { ApolloError, gql, useQuery } from '@apollo/client';
 import { SecondaryContent } from '@/components/SecondaryContent';
 import { getPosts } from '@/services/queries/posts/GetPostsPaginate';
-import { BlogComponents } from '@/components/partials/BlogComponents';
-import { PostCollection } from '@/props/PostConnectionProps';
+import { BlogComponents } from '@/components/BlogComponents';
+import { PostCollection, PostsConnection } from '@/props/PostConnectionProps';
 import { useState } from 'react';
 
-const Blog = () => {
-    const [isDarkMode, setIsDarkMode] = useState();
+export default function Index() {
     const { 
         loading:loadingFeaturedPost, 
         error:errorFeaturedPost, 
@@ -18,14 +17,15 @@ const Blog = () => {
         error?: ApolloError, 
         data?:PostCollection
     } = useQuery(getPosts, {
-        variables: { after: null },
+        variables: { 
+            after: null,
+            category: ""
+        },
     });
     
     return (
         <Main>
-            <BlogComponents posts={posts?.postsConnection}/>
+            <BlogComponents category='' posts={posts}/>
         </Main>
     );
 };
-
-export default Blog;

@@ -10,6 +10,10 @@ export interface BlogCardProps {
       name: string;
       id: string;
     };
+    category?: {
+      name: string;
+      slug: string;
+    }
     tags?: string[];
     coverImage?: {
       __typename?: string;
