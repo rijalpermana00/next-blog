@@ -2,6 +2,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { FaFacebook, FaTwitter, FaLinkedin, FaShare, FaHeart, FaComment, FaFacebookSquare, FaTwitterSquare, FaShareAlt, FaLink, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import Example from "./Test";
 import { Menu, Transition } from "@headlessui/react";
+import { useRouter } from "next/router";
 
 type props = {
     url: string;
@@ -14,10 +15,11 @@ function classNames(...classes: string[]) {
 
 export default function ShareButtonGroup({ url }:props) {
   const shareText = "Check out this awesome post!";
+  const router = useRouter();
 
-  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-  const twitterShareUrl = `https://twitter.com/share?url=${url}&text=${shareText}`;
-  const linkedinShareUrl = `https://www.linkedin.com/shareArticle?url=${url}`;
+  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${router.basePath+url}`;
+  const twitterShareUrl = `https://twitter.com/share?url=${router.basePath+url}&text=${shareText}`;
+  const linkedinShareUrl = `https://www.linkedin.com/shareArticle?url=${router.basePath+url}`;
 
     return (
         <div className="flex flex-row flex-wrap">

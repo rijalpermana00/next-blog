@@ -20,7 +20,7 @@ const Slug = () => {
                     author={post.author}
                     title={post.title}
                     tags={post.tags}
-                    slug={post.slug}
+                    slug={'/blog/'+post?.category?.slug+'/'+post.slug}
                     publishedAt={post.publishedAt}
                     content={post.content}
                     excerpt={post.excerpt}

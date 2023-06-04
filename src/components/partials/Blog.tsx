@@ -32,6 +32,8 @@ const Blog = ({
         }
     };
     
+    console.log(slug)
+    
     const similarPosts = SimilarPosts(category?.name);
     
     return (
