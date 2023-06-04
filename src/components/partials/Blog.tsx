@@ -106,7 +106,7 @@ const Blog = ({
             <div className='px-4 sm:px-32 sm:max-w-7xl sm:mx-auto'>
                 <div className="my-10">
                     <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2"></h5>
-                    <MultiBlog loadedItems={similarPosts} rows={4} width="7xl"/>
+                    <MultiBlog loadedItems={similarPosts} rows={'sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4'} width="7xl"/>
                 </div>
             </div>
             <div className='px-4 sm:px-32 sm:max-w-5xl sm:mx-auto'>

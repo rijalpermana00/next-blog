@@ -4,7 +4,7 @@ import Skeleton from "./Skeleton"
 
 interface props{
     loadedItems: PostCollection | null,
-    rows?: number
+    rows?: string
     width?: '4xl' | '2xl' | '3xl' | '5xl' | '6xl' | '7xl'
 }
 
@@ -14,11 +14,11 @@ export const MultiBlog = ({
     width
 }:props) => {
     
-    const counter = rows ?? 2;
+    const gridCols = rows ?? 'sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2';
     const maxW = width ?? '4xl';
     
     return(
-        <div className={`mx-auto max-w-${maxW} grid grid-cols-1 gap-5 sm:grid-cols-${counter} md:grid-cols-${counter} lg:grid-cols-${counter}`}>
+        <div className={`mx-auto max-w-${maxW} grid grid-cols-1 gap-5 ${gridCols}`}>
             {loadedItems ? 
                 loadedItems.postsConnection.edges.map((edge) => (
                     (edge.node.coverImage?.url 
