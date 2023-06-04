@@ -110,7 +110,14 @@ const Blog = ({
             </div>
             <div className='px-4 sm:px-32 sm:max-w-7xl sm:mx-auto'>
                 <div className="my-10">
-                    <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2">You might also like</h5>
+                    <div className="flex flex-row justify-between">
+                        <div className="flex flex-col">
+                            <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2">You might also like</h5>
+                        </div>
+                        {/* <div className="flex flex-row flex-wrap">
+                            <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2"><a href="">More</a></h5>
+                        </div> */}
+                    </div>
                     <MultiBlog loadedItems={similarPosts} rows={'sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4'} width="7xl"/>
                 </div>
             </div>
