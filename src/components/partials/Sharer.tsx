@@ -20,7 +20,7 @@ export default function ShareButtonGroup({ url }:props) {
   const linkedinShareUrl = `https://www.linkedin.com/shareArticle?url=${url}`;
 
     return (
-        <>
+        <div className="flex flex-row flex-wrap">
             <button className="bg-transparent hover:bg-blue-600 border-blue-500 border-solid border-2 text-white rounded-xl px-2 py-1 mr-2 inline-flex items-center justify-center">
                 <span>
                     <a className="flex flex-row items-center text-gray-800 dark:text-white" href={facebookShareUrl} target="_blank" rel="noopener noreferrer">
@@ -45,7 +45,7 @@ export default function ShareButtonGroup({ url }:props) {
                     </a>
                 </span>
             </button>
-        </>
+        </div>
     );
 }
 
