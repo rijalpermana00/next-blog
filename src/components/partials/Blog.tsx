@@ -96,8 +96,8 @@ const Blog = ({
                             <TagBadge text={cat.name} url={'/tags/'+cat.slug} key={index}/>
                         ))}
                     </div>
-                    <div className="mb-6 flex flex-row items-center flex-wrap">
-                        <h6 className="mr-2">Share this:</h6>
+                    <div className="mb-6 flex flex-row">
+                        <h6 className="mr-2">Share:</h6>
                         <ShareButtonGroup url={slug} title={title}/>
                     </div>
                     <hr/>

@@ -21,7 +21,7 @@ export default function ShareButtonGroup({ url }:props) {
 
     return (
         <div className="flex flex-row flex-wrap">
-            <button className="bg-transparent hover:bg-blue-600 border-blue-500 border-solid border-2 text-white rounded-xl px-2 py-1 mr-2 inline-flex items-center justify-center">
+            <button className="bg-transparent hover:bg-blue-600 border-blue-500 border-solid border-2 text-white text-xs rounded-lg px-2 py-1 mr-2 inline-flex items-center justify-center">
                 <span>
                     <a className="flex flex-row items-center text-gray-800 dark:text-white" href={facebookShareUrl} target="_blank" rel="noopener noreferrer">
                         <FaFacebookSquare className="mr-2"/>
@@ -29,7 +29,7 @@ export default function ShareButtonGroup({ url }:props) {
                     </a>
                 </span>
             </button>
-            <button className="bg-transparent hover:bg-blue-500 border-blue-400 border-solid border-2 text-white rounded-xl px-2 py-1 mr-2">
+            <button className="bg-transparent hover:bg-blue-500 border-blue-400 border-solid border-2 text-white text-xs rounded-lg px-2 py-1 mr-2">
                 <span>
                     <a className="flex flex-row items-center text-gray-800 dark:text-white" href={twitterShareUrl} target="_blank" rel="noopener noreferrer">
                         <FaTwitterSquare className="mr-2" />
@@ -37,7 +37,7 @@ export default function ShareButtonGroup({ url }:props) {
                     </a>
                 </span>
             </button>
-            <button className="bg-transparent hover:bg-blue-400 border-blue-300 border-solid border-2 text-white rounded-xl px-2 py-1 mr-2">
+            <button className="bg-transparent hover:bg-blue-400 border-blue-300 border-solid border-2 text-white text-xs rounded-lg px-2 py-1 mr-2">
                 <span>
                     <a className="flex flex-row items-center text-gray-800 dark:text-white" href={linkedinShareUrl} target="_blank" rel="noopener noreferrer">
                     <FaLinkedin className="mr-2" />
