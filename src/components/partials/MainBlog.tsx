@@ -66,7 +66,7 @@ export const MainBlog = ({
               <ul className="mt-4 sm:mt-4 flex flex-wrap items-center text-text">
                 {tags?.map((item, index) => (
                   <li key={index}>
-                    <Badge text={item} className="sm:border sm:border-white sm:bg-transparent"/>
+                    <Badge text={item.name} className="sm:border sm:border-white sm:bg-transparent"/>
                   </li>
                 ))}
               </ul>
