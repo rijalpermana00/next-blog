@@ -34,7 +34,7 @@ const Slug = () => {
     
     return(
         <Main>
-            <BlogComponents category={category} posts={posts?.postsConnection}/>
+            <BlogComponents category={category} posts={posts}/>
         </Main>
     )
     
