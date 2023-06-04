@@ -27,6 +27,7 @@ query MyQuery {
                 }
                 tags {
                     name
+                    slug
                 }
                 category {
                     name

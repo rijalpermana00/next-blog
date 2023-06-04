@@ -15,6 +15,7 @@ export interface Author {
 
 export interface Tag {
     name: string;
+    slug: string;
     __typename: string;
 }
 
@@ -42,6 +43,8 @@ export interface Post {
     coverImage: CoverImage | null;
     excerpt: string;
     __typename?: string;
+    bgColor?: 'bg-red-300' | 'bg-blue-300' | 'bg-green-300' | 'bg-white' | 'bg-black' | 'bg-yellow-300' | 'bg-gray-300' | 'bg-orange-300 ' | 'bg-orange-300 dark:bg-gray-500' | 'bg-gray-300 dark:bg-gray-500' | undefined
+    dimension?: string;
 }
 
 export interface PostEdge {

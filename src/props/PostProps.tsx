@@ -11,6 +11,8 @@
 //     content: string | TrustedHTML;
 // };
 
+import { Tag } from "./PostConnectionProps";
+
 // export interface Tags {
 //     id: number;
 //     name: string;
@@ -40,7 +42,7 @@ export interface Post {
       name: string;
       id: string;
     };
-    tags?: string[];
+    tags: Tag[];
     category?: Category;
     coverImage?: {
       fileName: string;

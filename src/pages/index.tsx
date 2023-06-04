@@ -29,16 +29,16 @@ const Index = () => {
     
     const latestPosts = LatestPosts(featuredPostIds)
     
-    const categories = CategoryList();
+    // const categories = CategoryList();
     
     return (
         <Main>
             <Header/>
             <MainContent posts={featuredPosts} contentTitle='Featured Posts'/>
-            <hr/>
+            {/* <hr/>
             {categories.length > 0 &&
                 <Splides data={categories}/>
-            }
+            } */}
             <hr/>
             <SecondaryContent posts={latestPosts} ownerTitle='Owner' contentTitle='Latest Posts'/>
             <GoToTop/>

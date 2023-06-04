@@ -15,7 +15,10 @@ export function SimilarPosts(category:string | undefined){
         error?: ApolloError, 
         data?:PostCollection
     } = useQuery(getLatestPosts, {
-        variables: { category: category },
+        variables: { 
+            total: 4,
+            category: category 
+        },
     });
    
     if(latestPosts){

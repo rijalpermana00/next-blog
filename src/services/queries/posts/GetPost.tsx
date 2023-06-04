@@ -19,6 +19,7 @@ export const getPost = gql`
       publishedAt
       tags {
         name
+        slug
       }
       category{
         name

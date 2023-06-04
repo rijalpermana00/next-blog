@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Badge from "./Badge";
+import Badge, { TagBadge } from "./Badge";
 import { useState } from "react";
-import ShareButtonGroup, { ShareButtonGroupAlt } from "./Sharer";
+import ShareButtonGroup, { ShareButtonGroupAlt, ShareDropDown } from "./Sharer";
 import Example from "./Test";
 import DisqusComments from "./Disqus";
 import { Post } from "@/props/PostProps";
@@ -35,59 +35,90 @@ const Blog = ({
     const similarPosts = SimilarPosts(category?.name);
     
     return (
-        <div className="text-gray-800 dark:text-white">
-            <div className="col-12 sm:col-6 mb-4">
-                <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[2.75rem] lg:text-5xl m-0 font-bold leading-snug barlow">
-                    {title}
-                </h1>
+        <>
+            <div className={`px-4 sm:px-32 sm:max-w-5xl sm:mx-auto`}>
+                <div className="text-gray-800 dark:text-white">
+                    <div className="col-12 sm:col-6 mb-4">
+                        <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[2.75rem] lg:text-5xl m-0 font-bold leading-snug barlow">
+                            {title}
+                        </h1>
+                    </div>
+                    <div className="col-12 sm:col-6">
+                        <div className="flex flex-row justify-between">
+                            <div className="flex flex-col">
+                                <div className="relative flex items-center justify-center w-12 h-12">
+                                    <img
+                                        src="https://picsum.photos/500/300?random"
+                                        alt={author?.name}
+                                        className="h-full w-full rounded-full text-center text-transparent object-cover object-center"
+                                    />
+                                </div>
+                            </div>
+                            <div className="ml-3 flex flex-col grow-[1]">
+                                <h6 className="font-semibold text-sm">{author?.name}</h6>
+                                <span className="mt-1 font-normal text-xs"><Moment format="DD MMM YYYY">{publishedAt}</Moment></span>
+                            </div>
+                            <div className="flex flex-row flex-wrap">
+                                <ShareDropDown/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-12 sm:relative text-center content-center mb-10">
+                        {coverImage?.url &&
+                            <a href={slug} className="text-center content-center">
+                                <Image
+                                    alt={coverImage?.fileName ?? ''}
+                                    src={coverImage?.url ?? ''}
+                                    onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
+                                    className={`rounded-lg relative hidden sm:block max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover items-center ${classImage}`}
+                                    style={{ margin: '0 auto'}}
+                                    width={4000}
+                                    height={4000}
+                                />
+                                <Image
+                                    alt={coverImage?.fileName ?? ''}
+                                    src={coverImage?.url ?? ''}
+                                    onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
+                                    className={`rounded-lg object-cover relative block sm:hidden items-center ${classImage}`}
+                                    style={{ margin: '0 auto'}}
+                                    width={4000}
+                                    height={4000}
+                                />
+                            </a>
+                        }
+                    </div>
+                    <div className="mb-10">
+                        <div className="text-left" dangerouslySetInnerHTML={{ __html: content.html }}/>
+                    </div>
+                    <div className="mb-10 flex flex-row items-center flex-wrap">
+                        <h6 className="mr-2">Tags:</h6>
+                        {tags?.map((cat,index) => (
+                            <TagBadge text={cat.name} url={'/tags/'+cat.slug} key={index}/>
+                        ))}
+                    </div>
+                    <div className="mb-6 flex flex-row items-center flex-wrap">
+                        <h6 className="mr-2">Share this:</h6>
+                        <ShareButtonGroup url={slug} title={title}/>
+                    </div>
+                    <hr/>
+                </div>
             </div>
-            <div className="col-12 sm:col-6">
-                <ul className="mb-2 flex flex-wrap items-center space-x-3">
-                    <li>
-                        <p className="mb-4 text-primary-500">Posted on <Moment format="DD MMM YYYY">{publishedAt}</Moment></p>
-                    </li>
-                </ul>
+            <div className='px-4 sm:px-32 sm:max-w-7xl sm:mx-auto'>
+                <div className="my-10">
+                    <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2"></h5>
+                    <MultiBlog loadedItems={similarPosts} rows={4} width="7xl"/>
+                </div>
             </div>
-            <div className="col-12 sm:relative text-center content-center mb-10">
-                {coverImage?.url &&
-                    <a href={slug} className="text-center content-center">
-                        <Image
-                            alt={coverImage?.fileName ?? ''}
-                            src={coverImage?.url ?? ''}
-                            onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-                            className={`rounded-lg relative hidden sm:block max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover items-center ${classImage}`}
-                            style={{ margin: '0 auto'}}
-                            width={4000}
-                            height={4000}
-                        />
-                        <Image
-                            alt={coverImage?.fileName ?? ''}
-                            src={coverImage?.url ?? ''}
-                            onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-                            className={`rounded-lg object-cover relative block sm:hidden items-center ${classImage}`}
-                            style={{ margin: '0 auto'}}
-                            width={4000}
-                            height={4000}
-                        />
-                    </a>
-                }
+            <div className='px-4 sm:px-32 sm:max-w-5xl sm:mx-auto'>
+                <hr/>
+                <DisqusComments post={{
+                    id:id,
+                    title:title,
+                    url:'https://sani-blog.vercel.app/blog/'+slug
+                }}/>
+                <hr/>
             </div>
-            <div className="mb-10">
-                <div dangerouslySetInnerHTML={{ __html: content.html }}/>
-            </div>
-            <hr/>
-            <ShareButtonGroup url={slug} title={title}/>
-            <DisqusComments post={{
-                id:id,
-                title:title,
-                url:'https://sani-blog.vercel.app/blog/'+slug
-            }}/>
-            <hr/>
-            <div className="mt-10">
-                <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2">Maybe You will like this</h5>
-                <MultiBlog loadedItems={similarPosts}/>
-            </div>
-        </div>
+        </>
     );
 };
 

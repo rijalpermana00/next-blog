@@ -1,14 +1,14 @@
     import { gql } from "@apollo/client";
 
     export const getLatestPosts = gql`
-    query MyQuery($featuredPostIds: [ID!]) {
+    query MyQuery($total:Int = 6, $featuredPostIds: [ID!]) {
         postsConnection(
         where: {
             AND: [
             { NOT: { id_in: $featuredPostIds } }
             ]
         }
-        first: 6
+        first: $total
         orderBy: publishedAt_DESC
         stage: PUBLISHED
         ){
@@ -31,6 +31,7 @@
                     }
                     tags {
                         name
+                        slug
                     }
                     category {
                         name

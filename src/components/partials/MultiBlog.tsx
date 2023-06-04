@@ -2,11 +2,23 @@ import { PostCollection, PostsConnection } from "@/props/PostConnectionProps"
 import { SubMainBlogCard, SubMainImagelessBlogCard } from "./BlogCard"
 import Skeleton from "./Skeleton"
 
+interface props{
+    loadedItems: PostCollection | null,
+    rows?: number
+    width?: '4xl' | '2xl' | '3xl' | '5xl' | '6xl' | '7xl'
+}
+
 export const MultiBlog = ({
-    loadedItems
-}:{loadedItems:PostCollection | null}) => {
+    loadedItems,
+    rows,
+    width
+}:props) => {
+    
+    const counter = rows ?? 2;
+    const maxW = width ?? '4xl';
+    
     return(
-        <div className="mx-auto max-w-4xl grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
+        <div className={`mx-auto max-w-${maxW} grid grid-cols-1 gap-5 sm:grid-cols-${counter} md:grid-cols-${counter} lg:grid-cols-${counter}`}>
             {loadedItems ? 
                 loadedItems.postsConnection.edges.map((edge) => (
                     (edge.node.coverImage?.url 
@@ -15,7 +27,7 @@ export const MultiBlog = ({
                                 coverImage={edge.node.coverImage}
                                 slug={'/blog/'+edge.node.category.slug+'/'+edge.node.slug}
                                 publishedAt={edge.node.publishedAt}
-                                // tags={card.imageUrl}
+                                tags={edge.node.tags}
                                 title={edge.node.title}
                                 author={edge.node?.author}
                                 excerpt={edge.node.excerpt}
@@ -37,6 +49,9 @@ export const MultiBlog = ({
                                 bgColor='bg-gray-300 dark:bg-gray-500'
                                 // dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
                                 key={edge.node.id}
+                                tags={edge.node.tags} 
+                                category={edge.node.category} 
+                                coverImage={null}
                             />
                     )
                 ))

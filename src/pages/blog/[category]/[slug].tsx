@@ -14,22 +14,20 @@ const Slug = () => {
         
     return (
         <Main>
-            <div className={`px-4 sm:px-32 sm:max-w-5xl sm:mx-auto`}>
-                {post && (
-                    <Blog
-                        category={post.category}
-                        author={post.author}
-                        title={post.title}
-                        tags={post.tags}
-                        slug={post.slug}
-                        publishedAt={post.publishedAt}
-                        content={post.content}
-                        excerpt={post.excerpt}
-                        coverImage={post.coverImage}
-                        id={post.id}
-                    />
-                )}
-            </div>
+            {post && (
+                <Blog
+                    category={post.category}
+                    author={post.author}
+                    title={post.title}
+                    tags={post.tags}
+                    slug={post.slug}
+                    publishedAt={post.publishedAt}
+                    content={post.content}
+                    excerpt={post.excerpt}
+                    coverImage={post.coverImage}
+                    id={post.id}
+                />
+            )}
             <GoToTop/>
         </Main>
     );
