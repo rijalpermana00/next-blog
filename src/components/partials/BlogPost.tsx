@@ -169,7 +169,7 @@ export const FourthDesign = ({
           <ul className="flex flex-wrap items-center text-text">
                 {tags?.slice(0, 1).map((item, index) => (
                   <li key={index}>
-                    <Badge text={item}/>
+                    <Badge text={item.name}/>
                   </li>
                 ))}
               </ul>
