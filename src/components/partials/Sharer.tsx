@@ -16,10 +16,11 @@ function classNames(...classes: string[]) {
 export default function ShareButtonGroup({ url }:props) {
   const shareText = "Check out this awesome post!";
   const router = useRouter();
+  const basePath = 'https://sani-blog.vercel.app/'
 
-  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${router.basePath+url}`;
-  const twitterShareUrl = `https://twitter.com/share?url=${router.basePath+url}&text=${shareText}`;
-  const linkedinShareUrl = `https://www.linkedin.com/shareArticle?url=${router.basePath+url}`;
+  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${basePath+url}`;
+  const twitterShareUrl = `https://twitter.com/share?url=${basePath+url}&text=${shareText}`;
+  const linkedinShareUrl = `https://www.linkedin.com/shareArticle?url=${basePath+url}`;
 
     return (
         <div className="flex flex-row flex-wrap">
