@@ -56,6 +56,8 @@ export const MainContent = (props:HomeProps) => {
                                             bgColor='bg-gray-300 dark:bg-gray-500'
                                             // dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
                                             key={edge.node.id}
+                                            tags={edge.node.tags}
+                                            category={edge.node.category}
                                         />
                                     : 
                                         <SubMainImagelessBlogCard
@@ -69,6 +71,9 @@ export const MainContent = (props:HomeProps) => {
                                             bgColor='bg-gray-300 dark:bg-gray-500'
                                             // dimension='w-[382px] h-[382px] sm:w-[270px] sm:h-[270px]'
                                             key={edge.node.id}
+                                            tags={edge.node.tags}
+                                            category={edge.node.category}
+                                            coverImage={edge.node.coverImage}
                                         />
                                 )
                             ))
