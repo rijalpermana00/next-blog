@@ -16,7 +16,7 @@ function classNames(...classes: string[]) {
 export default function ShareButtonGroup({ url }:props) {
   const shareText = "Check out this awesome post!";
   const router = useRouter();
-  const basePath = 'https://sani-blog.vercel.app/'
+  const basePath = 'https://sani-blog.vercel.app'
 
   const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${basePath+url}`;
   const twitterShareUrl = `https://twitter.com/share?url=${basePath+url}&text=${shareText}`;
