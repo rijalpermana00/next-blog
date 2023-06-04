@@ -8,3 +8,7 @@ html {
 body {
   @apply dark:bg-night
 }
+
+.contents p{
+  @apply mt-0 mb-4
+}

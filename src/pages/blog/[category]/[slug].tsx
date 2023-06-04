@@ -3,6 +3,7 @@ import Blog from '@/components/partials/Blog';
 import GoToTop from '@/components/partials/GoToTop';
 import { useRouter } from 'next/router';
 import { Post } from '@/services/Post';
+import Skeleton from '@/components/partials/Skeleton';
 
 const Slug = () => {
     const router = useRouter();
@@ -14,7 +15,7 @@ const Slug = () => {
     
     return (
         <Main title={post?.title} description={'check this out'}>
-            {post && (
+            {post ? (
                 <Blog
                     category={post.category}
                     author={post.author}
@@ -27,7 +28,30 @@ const Slug = () => {
                     coverImage={post.coverImage}
                     id={post.id}
                 />
-            )}
+            )
+            :
+            <div className='max-w-3xl mx-auto'>
+                <Skeleton className="text-left w-[50vh] h-10 my-7"/>
+                <Skeleton className="text-left w-[70vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[80vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[90vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[90vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[70vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[90vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[80vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[70vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[80vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[70vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[85vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[70vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[85vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[85vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[70vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[90vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[85vh] h-4 my-3"/>
+                <Skeleton className="text-left w-[90vh] h-4 my-3"/>
+            </div>
+            }
             <GoToTop/>
         </Main>
     );

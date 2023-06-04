@@ -93,7 +93,7 @@ const Blog = ({
                         }
                     </div>
                     <div className="mb-10">
-                        <div className="text-left" dangerouslySetInnerHTML={{ __html: content.html }}/>
+                        <div className="text-left contents" dangerouslySetInnerHTML={{ __html: content.html }}/>
                     </div>
                     <div className="mb-5 flex flex-row items-center flex-wrap">
                         <h6 className="mr-2">Tags:</h6>
