@@ -4,6 +4,7 @@ import Link from "next/link";
 type MenuProps = {
     title : string
     url?: string
+    slug?: string
     classNames?: string | undefined
     preIcon?: string | undefined
     postIcon?: string | undefined
@@ -13,11 +14,12 @@ type MenuProps = {
 export const NavbarMenu = (props:MenuProps) => {
     
     const pathname = usePathname();
+    const splited = pathname ? pathname?.split('/') : '';
 
     return (
-        <li className={`sm:pt-5 pt-3 sm:pb-5 pb-3 sm:border-b-2 hover:border-gray-800 hover:dark:border-gray-300 ${pathname === props.url ? 'border-gray-800 dark:border-gray-200' : 'border-transparent'}`}>
+        <li className={`sm:pt-5 pt-3 sm:pb-5 pb-3 sm:border-b-2 hover:border-gray-800 hover:dark:border-gray-300 ${props.slug === splited[1] ? 'border-gray-800 dark:border-gray-200' : 'border-transparent'}`}>
             <Link 
-                className={`${pathname === props.url ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-300'} hover:text-gray-900 hover:dark:text-white inline-flex items-center px-1 pt-1 font-bold`} 
+                className={`${props.slug === splited[1] ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-300'} hover:text-gray-900 hover:dark:text-white inline-flex items-center px-1 pt-1 font-bold`} 
                 href={props?.url ?? '#'}
             >
                 {props.title}

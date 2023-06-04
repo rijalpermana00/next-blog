@@ -5,7 +5,12 @@ import { getLatestPosts } from "./queries/posts/GetLatestPosts";
 import { PostCollection, PostsConnection } from "@/props/PostConnectionProps";
 import { getPosts } from "./queries/posts/GetPostsPaginate";
 
-export function SimilarPosts(category:string | undefined){
+interface props{
+    category: string | undefined;
+    id: string | string[]
+}
+
+export function SimilarPosts(props:props){
     const { 
         loading:loadingLatestPost, 
         error:errorLatestPost, 
@@ -14,10 +19,11 @@ export function SimilarPosts(category:string | undefined){
         loading:boolean, 
         error?: ApolloError, 
         data?:PostCollection
-    } = useQuery(getLatestPosts, {
+    } = useQuery(getPosts, {
         variables: { 
             total: 4,
-            category: category 
+            category: props.category,
+            featuredPostIds: props.id
         },
     });
    

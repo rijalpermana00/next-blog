@@ -11,7 +11,7 @@ const Slug = () => {
     const postData = Post(slug);
     
     const post = postData?.post;
-        
+    
     return (
         <Main title={post?.title} description={'check this out'}>
             {post && (

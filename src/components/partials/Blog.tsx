@@ -32,9 +32,10 @@ const Blog = ({
         }
     };
     
-    console.log(slug)
-    
-    const similarPosts = SimilarPosts(category?.name);
+    const similarPosts = SimilarPosts({
+        category:category?.name,
+        id:Array.isArray(id) ? id : [id],
+    });
     
     return (
         <>
@@ -45,7 +46,8 @@ const Blog = ({
                             {title}
                         </h1>
                     </div>
-                    <div className="col-12 sm:col-6">
+                    <hr/>
+                    <div className="col-12 sm:col-6 py-5">
                         <div className="flex flex-row justify-between">
                             <div className="flex flex-col">
                                 <div className="relative flex items-center justify-center w-12 h-12">
@@ -61,11 +63,12 @@ const Blog = ({
                                 <span className="mt-1 font-normal text-xs"><Moment format="DD MMM YYYY">{publishedAt}</Moment></span>
                             </div>
                             <div className="flex flex-row flex-wrap">
-                                <ShareDropDown/>
+                                <ShareDropDown url={slug} title={title}/>
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 sm:relative text-center content-center mb-10">
+                    <hr/>
+                    <div className="col-12 sm:relative text-center content-center my-10">
                         {coverImage?.url &&
                             <a href={slug} className="text-center content-center">
                                 <Image
@@ -92,13 +95,13 @@ const Blog = ({
                     <div className="mb-10">
                         <div className="text-left" dangerouslySetInnerHTML={{ __html: content.html }}/>
                     </div>
-                    <div className="mb-10 flex flex-row items-center flex-wrap">
+                    <div className="mb-5 flex flex-row items-center flex-wrap">
                         <h6 className="mr-2">Tags:</h6>
                         {tags?.map((cat,index) => (
                             <TagBadge text={cat.name} url={'/tags/'+cat.slug} key={index}/>
                         ))}
                     </div>
-                    <div className="mb-6 flex flex-row">
+                    <div className="mb-5 flex flex-row">
                         <h6 className="mr-2">Share:</h6>
                         <ShareButtonGroup url={slug} title={title}/>
                     </div>
@@ -107,7 +110,7 @@ const Blog = ({
             </div>
             <div className='px-4 sm:px-32 sm:max-w-7xl sm:mx-auto'>
                 <div className="my-10">
-                    <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2"></h5>
+                    <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2">You might also like</h5>
                     <MultiBlog loadedItems={similarPosts} rows={'sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4'} width="7xl"/>
                 </div>
             </div>

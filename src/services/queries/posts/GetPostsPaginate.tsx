@@ -1,12 +1,19 @@
 import { gql } from "@apollo/client";
 
 export const getPosts = gql`
-    query MyQuery($after: String,$category: String) {
+    query MyQuery($total:Int = 6,$after: String,$category: String, $featuredPostIds: [ID!]) {
         postsConnection(
-            first: 6, 
+            first: $total
             orderBy: publishedAt_DESC, 
             after: $after
-            where: {category: {_search: $category}}
+            where: {
+                category: {
+                    _search: $category
+                },
+                AND: [
+                    { NOT: { id_in: $featuredPostIds } }
+                ]
+            }
         ) {
             pageInfo {
             pageSize

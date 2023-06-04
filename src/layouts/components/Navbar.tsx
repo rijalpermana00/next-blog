@@ -100,7 +100,7 @@ export default function Navbar() {
                 >
                     <ul className="sm:pt-0 pt-3 sm:-my-px sm:ml-6 sm:flex sm:space-x-4 flex flex-col lg:flex-row list-none items-center">
                         {menus.map((menu, index) => (
-                            <NavbarMenu  title={menu.name} url={menu.url} key={index}/>
+                            <NavbarMenu  title={menu.name} slug={menu.slug} url={menu.url} key={index}/>
                         ))}
                     </ul>
                     <ul className="sm:pt-0 pt-3 sm:-my-px sm:flex sm:space-x-4 flex flex-col lg:flex-row list-none lg:ml-auto items-center">

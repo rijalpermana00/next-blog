@@ -27,7 +27,7 @@ export const AltBadge = (props: BadgeProps) => {
 export const TagBadge = (props: BadgeProps) => {
   return (
     <a href={props.url ?? '#'}>
-      <div className="inline-flex items-center gap-1 rounded-lg bg-gray-300 dark:bg-gray-700 px-2 py-1 text-xs font-semibold text-gray-800 dark:text-gray-200 m-1">
+      <div className="inline-flex items-center gap-1 rounded-lg bg-gray-300 dark:bg-gray-700 hover:bg-gray-500 hover:dark:bg-gray-500 px-2 py-1 text-sm font-semibold text-gray-800 dark:text-gray-200 m-1">
         {props.text}
       </div>
     </a>

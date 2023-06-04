@@ -24,7 +24,7 @@ export default function ShareButtonGroup({ url }:props) {
 
     return (
         <div className="flex flex-row flex-wrap">
-            <button className="bg-transparent hover:bg-blue-600 border-blue-500 border-solid border-2 text-white text-xs rounded-lg px-2 py-1 mr-2 inline-flex items-center justify-center">
+            <button className="bg-transparent hover:bg-blue-600 border-blue-500 border-solid border-2 text-white text-sm rounded-lg px-2 py-1 mr-2 inline-flex items-center justify-center">
                 <span>
                     <a className="flex flex-row items-center text-gray-800 dark:text-white" href={facebookShareUrl} target="_blank" rel="noopener noreferrer">
                         <FaFacebookSquare className="mr-2"/>
@@ -32,7 +32,7 @@ export default function ShareButtonGroup({ url }:props) {
                     </a>
                 </span>
             </button>
-            <button className="bg-transparent hover:bg-blue-500 border-blue-400 border-solid border-2 text-white text-xs rounded-lg px-2 py-1 mr-2">
+            <button className="bg-transparent hover:bg-blue-500 border-blue-400 border-solid border-2 text-white text-sm rounded-lg px-2 py-1 mr-2">
                 <span>
                     <a className="flex flex-row items-center text-gray-800 dark:text-white" href={twitterShareUrl} target="_blank" rel="noopener noreferrer">
                         <FaTwitterSquare className="mr-2" />
@@ -40,7 +40,7 @@ export default function ShareButtonGroup({ url }:props) {
                     </a>
                 </span>
             </button>
-            <button className="bg-transparent hover:bg-blue-400 border-blue-300 border-solid border-2 text-white text-xs rounded-lg px-2 py-1 mr-2">
+            <button className="bg-transparent hover:bg-blue-400 border-blue-300 border-solid border-2 text-white text-sm rounded-lg px-2 py-1 mr-2">
                 <span>
                     <a className="flex flex-row items-center text-gray-800 dark:text-white" href={linkedinShareUrl} target="_blank" rel="noopener noreferrer">
                     <FaLinkedin className="mr-2" />
@@ -54,11 +54,13 @@ export default function ShareButtonGroup({ url }:props) {
 
 
 export function ShareButtonGroupAlt({ url }:props) {
-  const shareText = "Check out this awesome post!";
-
-  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-  const twitterShareUrl = `https://twitter.com/share?url=${url}&text=${shareText}`;
-  const linkedinShareUrl = `https://www.linkedin.com/shareArticle?url=${url}`;
+    const shareText = "Check out this awesome post!";
+    const router = useRouter();
+    const basePath = 'https://sani-blog.vercel.app'
+  
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${basePath+url}`;
+    const twitterShareUrl = `https://twitter.com/share?url=${basePath+url}&text=${shareText}`;
+    const linkedinShareUrl = `https://www.linkedin.com/shareArticle?url=${basePath+url}`;
 
     return (
         <div className="grid grid-cols-12 gap-4 mt-10">
@@ -94,108 +96,117 @@ export function ShareButtonGroupAlt({ url }:props) {
     );
 }
 
-export function ShareDropDown() {
+async function copyUrlToClipboard(url: string): Promise<void>{
+    try {
+        await navigator.clipboard.writeText(url);
+        console.log('URL copied to clipboard');
+    } catch (error) {
+        console.error('Failed to copy URL to clipboard:', error);
+    }
+}
+
+export function ShareDropDown(props:props) {
+    const shareText = "Check out this awesome post!";
+    const basePath = 'https://sani-blog.vercel.app'
+
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${basePath+props.url}`;
+    const twitterShareUrl = `https://twitter.com/share?url=${basePath+props.url}&text=${shareText}`;
+    const linkedinShareUrl = `https://www.linkedin.com/shareArticle?url=${basePath+props.url}`;
+    
     return (
-      <Menu as="div" className="relative inline-block text-left">
-          <div>
-              <Menu.Button className="inline-flex w-full justify-center rounded-full p-3 text-sm font-semibold text-gray-600 hover:text-gray-100">
-                  <FaShareAlt className="h-4 w-4" aria-hidden="true" />
-              </Menu.Button>
-          </div>
-  
-          <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-          >
-              <Menu.Items className="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <div className="py-1">
-                      <Menu.Item>
-                          {({ active }) => (
-                              <a
-                                  href="#"
-                                  className={classNames(
-                                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                      'block px-4 py-2 text-sm'
-                                  )}
-                                  onClick={(event: React.MouseEvent) => {
-                                      event.preventDefault();
-                                      alert('Copy link to clipboard');
-                                  }}
-                              >
-                                  <div className="flex items-center">
-                                      <FaLink className="mr-3" />
-                                      <span>Copy Link</span>
-                                  </div>
-                              </a>
-                          )}
-                      </Menu.Item>
-                      <Menu.Item>
-                          {({ active }) => (
-                              <a
-                                  href="#"
-                                  className={classNames(
-                                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                      'block px-4 py-2 text-sm'
-                                  )}
-                                  onClick={(event: React.MouseEvent) => {
-                                  event.preventDefault();
-                                  alert('Share on Twitter');
-                                  }}
-                              >
-                                  
-                                  <div className="flex items-center">
-                                      <FaTwitter className="mr-3" />
-                                      <span>Share On Twitter</span>
-                                  </div>
-                              </a>
-                          )}
-                      </Menu.Item>
-                      <Menu.Item>
-                          {({ active }) => (
-                              <a
-                                  href="#"
-                                  className={classNames(
-                                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                      'block px-4 py-2 text-sm'
-                                  )}
-                                  onClick={(event: React.MouseEvent) => {
-                                  event.preventDefault();
-                                  alert('Share on Facebook');
-                                  }}
-                              >
-                                  <div className="flex items-center">
-                                      <FaFacebookF className="mr-3" />
-                                      <span>Share on Facebook</span>
-                                  </div>
-                                  
-                              </a>
-                          )}
-                      </Menu.Item>
-                      <Menu.Item>
-                          {({ active }) => (
-                              <a
-                                  href="#"
-                                  className={classNames(
-                                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                      'block px-4 py-2 text-sm'
-                                  )}
-                                  onClick={(event: React.MouseEvent) => {
-                                  event.preventDefault();
-                                  alert('Share on LinkedIn');
-                                  }}
-                              >
-                                  <div className="flex items-center">
-                                      <FaLinkedinIn className="mr-3" />
-                                      <span>Share on Linkedin</span>
-                                  </div>
-                              </a>
-                          )}
-                      </Menu.Item>
+        <Menu as="div" className="relative inline-block text-left">
+            <div>
+                <Menu.Button className="inline-flex w-full justify-center rounded-full p-3 text-sm font-semibold text-gray-600 hover:text-gray-100">
+                    <FaShareAlt className="h-4 w-4" aria-hidden="true" />
+                </Menu.Button>
+            </div>
+    
+            <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+            >
+            <Menu.Items className="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div className="py-1">
+                    <Menu.Item>
+                        {({ active }) => (
+                            <a
+                                className={classNames(
+                                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                    'block px-4 py-2 text-sm'
+                                )}
+                                onClick={() => { 
+                                    const URL = window.location.href;
+                                    copyUrlToClipboard(URL)
+                                }}
+                            >
+                                <div className="flex items-center">
+                                    <FaLink className="mr-3" />
+                                    <span>Copy Link</span>
+                                </div>
+                            </a>
+                        )}
+                    </Menu.Item>
+                    <Menu.Item>
+                        {({ active }) => (
+                            <a
+                                href={twitterShareUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className={classNames(
+                                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                    'block px-4 py-2 text-sm'
+                                )}
+                            >
+                                
+                                <div className="flex items-center">
+                                    <FaTwitter className="mr-3" />
+                                    <span>Share On Twitter</span>
+                                </div>
+                            </a>
+                        )}
+                    </Menu.Item>
+                    <Menu.Item>
+                        {({ active }) => (
+                            <a
+                                href={facebookShareUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className={classNames(
+                                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                    'block px-4 py-2 text-sm'
+                                )}
+                            >
+                                <div className="flex items-center">
+                                    <FaFacebookF className="mr-3" />
+                                    <span>Share on Facebook</span>
+                                </div>
+                                
+                            </a>
+                        )}
+                    </Menu.Item>
+                    <Menu.Item>
+                        {({ active }) => (
+                            <a
+                                href={linkedinShareUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className={classNames(
+                                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                    'block px-4 py-2 text-sm'
+                                )}
+                            >
+                                <div className="flex items-center">
+                                    <FaLinkedinIn className="mr-3" />
+                                    <span>Share on Linkedin</span>
+                                </div>
+                            </a>
+                        )}
+                    </Menu.Item>
                   </div>
               </Menu.Items>
           </Transition>

@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 export const getPost = gql`
   query MyQuery($slug: String!) {
     post(where: {slug: $slug}) {
+      id
       author {
         name
         id
