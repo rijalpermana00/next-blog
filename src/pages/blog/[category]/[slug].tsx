@@ -13,7 +13,7 @@ const Slug = () => {
     const post = postData?.post;
         
     return (
-        <Main>
+        <Main title={post?.title} description={'check this out'}>
             {post && (
                 <Blog
                     category={post.category}
