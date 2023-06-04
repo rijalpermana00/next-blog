@@ -75,7 +75,7 @@ const Blog = ({
                                     alt={coverImage?.fileName ?? ''}
                                     src={coverImage?.url ?? ''}
                                     onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-                                    className={`rounded-lg relative hidden sm:block max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-cover items-center ${classImage}`}
+                                    className={`rounded-lg relative hidden sm:block max-h-48 sm:max-h-[32rem] h-48 sm:h-[32rem] object-contain items-center ${classImage}`}
                                     style={{ margin: '0 auto'}}
                                     width={4000}
                                     height={4000}
@@ -84,7 +84,7 @@ const Blog = ({
                                     alt={coverImage?.fileName ?? ''}
                                     src={coverImage?.url ?? ''}
                                     onLoadingComplete={(e) => handleImage(e.naturalHeight,e.naturalWidth)} 
-                                    className={`rounded-lg object-cover relative block sm:hidden items-center ${classImage}`}
+                                    className={`rounded-lg object-contain relative block sm:hidden items-center ${classImage}`}
                                     style={{ margin: '0 auto'}}
                                     width={4000}
                                     height={4000}
