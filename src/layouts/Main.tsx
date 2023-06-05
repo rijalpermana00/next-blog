@@ -23,7 +23,7 @@ const Main = (props: IMainProps) => (
         <Meta title={props?.title ?? AppConfig.title} description={props?.description ?? AppConfig.description} canonical={props?.canonical}/>
         <Navbar/>
         <div className="h-[68px]"/>
-        <main className="mx-auto my-0 md:my-0 sm:my-16 lg:my-16">
+        <main className="mx-auto my-10 md:my-0 sm:my-16 lg:my-16">
             {props.children}
         </main>
         <Footer/>

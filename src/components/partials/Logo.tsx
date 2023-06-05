@@ -18,7 +18,7 @@ const Logo = ({ src }: { src?: string }) => {
 
   return (
     <Link href="/" className="navbar-brand block">
-      {src || siteConfig.logo ? (
+      {/* {src || siteConfig.logo ? (
         <Image
           width={siteConfig.logo_width * 2}
           height={siteConfig.logo_height * 2}
@@ -34,7 +34,10 @@ const Logo = ({ src }: { src?: string }) => {
         siteConfig.logo_text
       ) : (
         siteConfig.title
-      )}
+      )} */}
+      <div className="mr-5">
+        <h1 className="text-gray-800 p-3 rounded-xl bg-gray-100 dark:bg-gray-700 dark:text-gray-200 leading-hero font-extrabold">{siteConfig.title}</h1>
+      </div>
     </Link>
   );
 };

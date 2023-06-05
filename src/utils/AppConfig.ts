@@ -1,7 +1,8 @@
 export const AppConfig = {
-  site_name: 'Truegreys',
-  title: 'Truegreys',
-  description: 'Sani Asmi Ramdani Lestari Official Blog',
+  site_name: 'Truegrey',
+  title: 'Truegrey',
+  subtitle: 'by Sani Asmi',
+  description: 'Fiksi, Fiksi, Fiksi, atau Mungkin Bukan',
   locale: 'en',
   base_url: "/",
   favicon: "/favicon.ico",
