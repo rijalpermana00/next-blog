@@ -79,8 +79,8 @@ export default function Navbar() {
     };
     
     return (
-        <nav className={`fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 md:px-2 md:py-3 sm:px-0 sm:py-0 lg:px-0 lg:py-0 navbar-expand-lg bg-white dark:bg-night opacity-95 shadow`}>
-            <div className="container px-4 py-4 mx-auto flex flex-wrap items-center justify-between max-w-7xl sm:px-6 lg:px-8 sm:py-0 lg:py-0">
+        <nav className={`fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 md:px-2 md:py-6 sm:px-0 sm:py-0 lg:px-0 lg:py-0 navbar-expand-lg bg-white dark:bg-night opacity-95 shadow`}>
+            <div className="container px-4 py-4 mx-auto flex flex-wrap items-center justify-between max-w-7xl sm:px-6 lg:px-8 sm:py-2 lg:py-0">
                 <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                     <Logo/>
                     <button
@@ -98,7 +98,7 @@ export default function Navbar() {
                     }
                     id="example-navbar-warning"
                 >
-                    <ul className="sm:pt-0 pt-3 sm:-my-px sm:ml-6 md:ml-0 sm:flex flex flex-col lg:flex-row list-none items-center">
+                    <ul className="sm:pt-0 pt-3 sm:-my-px sm:ml-6 sm:space-x-0 md:space-x-0 lg:space-x-4 md:ml-0 sm:flex flex flex-col lg:flex-row list-none items-center">
                         {menus.map((menu, index) => (
                             <NavbarMenu  title={menu.name} slug={menu.slug} url={menu.url} key={index}/>
                         ))}
