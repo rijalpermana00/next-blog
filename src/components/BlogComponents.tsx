@@ -12,6 +12,7 @@ import { TagList } from "@/services/Tags";
 import { Categories } from "./partials/Categories";
 import { CategoryList } from "@/services/Categories";
 import { MultiBlog } from "./partials/MultiBlog";
+import { InfoCard } from "./partials/InfoCard";
 
 interface HomeProps {
   posts?: PostCollection;
@@ -93,18 +94,7 @@ export const BlogComponents = (props: HomeProps) => {
                         }
                     </div>
                 </div>
-                <div className="flex-grow-0 basis-auto w-full sm:w-1/3 md:w-full lg:w-1/3 px-0 sm:px-6 md:px-0 lg:px-6 sm:mb-5 md:mb-10 lg:mb-5">
-                    <OwnerCard title={props.ownerTitle} />
-                    <Categories data={categories} />
-                    <div className="mb-4">
-                        <h5 className="font-bold text-lg uppercase text-gray-700 dark:text-gray-300 px-1 mb-2"> Tags </h5>
-                        <ul>
-                            {tagsData?.tags.map((cat, index) => (
-                                <TagBadge text={cat.name} url={'/tags/' + cat.slug} key={index} />
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+                <InfoCard categories={categories} tagsData={tagsData}/>
             </div>
         </div>
     );

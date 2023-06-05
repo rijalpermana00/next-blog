@@ -24,7 +24,7 @@ export default function GoToTop() {
     <>
       {showButton && (
         <button
-          className="fixed bottom-4 right-4 bg-gray-500 hover:bg-gray-600 text-white rounded-full p-3"
+          className="fixed bottom-4 right-4 bg-gray-500 hover:bg-gray-600 text-white rounded-full p-3 z-10"
           onClick={handleClick}
         >
           <FaArrowUp />
