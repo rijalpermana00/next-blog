@@ -27,6 +27,8 @@ export const SearchPage = ({ authors }: Props) => {
     const [lastId, setLastId] = useState<string | null>(null);
     const [nextAvail, setNextAvail] = useState(false);
     
+    const loaded = GetPosts({keyword:keyword})
+    
     const [ loadMore, { loading } ] = useLazyQuery(getPosts, {
         notifyOnNetworkStatusChange: true,
         onCompleted: ( data ) => {
@@ -90,10 +92,10 @@ return (
         {/* ) : ( */}
         <div className="flex flex-row flex-wrap">
                 <div className="flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5">
-                    {loadedItems && loadedItems.postsConnection.edges.length > 0
+                    {loaded && loaded.postsConnection.edges.length > 0
                         ? 
                             <>
-                                <MultiBlog loadedItems={loadedItems}/>
+                                <MultiBlog loadedItems={loaded}/>
                                 <div className="flex flex-col items-center pt-10 pb-20 md:pb-0">
                                     { nextAvail &&  
                                         <button 
