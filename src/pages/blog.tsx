@@ -16,16 +16,11 @@ export default function Index() {
         loading:boolean, 
         error?: ApolloError, 
         data?:PostCollection
-    } = useQuery(getPosts, {
-        variables: { 
-            after: null,
-            category: ""
-        },
-    });
+    } = useQuery(getPosts);
     
     return (
         <Main>
-            <BlogComponents category='' posts={posts}/>
+            <BlogComponents category='' posts={posts} />
         </Main>
     );
 };

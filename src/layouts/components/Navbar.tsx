@@ -79,7 +79,7 @@ export default function Navbar() {
     };
     
     return (
-        <nav className={`fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 md:px-2 md:py-3 sm:px-0 sm:py-0 lg:px-0 lg:py-0 navbar-expand-lg bg-white dark:bg-night opacity-95 shadow`}>
+        <nav className={`fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 md:px-2 md:py-3 sm:px-0 sm:py-0 lg:px-0 lg:py-0 navbar-expand-lg bg-white dark:bg-night opacity-95 shadow border-b-2 border-gray-600`}>
             <div className="container px-4 py-4 mx-auto flex flex-wrap items-center justify-between max-w-7xl sm:px-6 lg:px-8 sm:py-1 lg:py-0">
                 <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                     <Logo/>
@@ -114,7 +114,7 @@ export default function Navbar() {
                             type="button" 
                             aria-label="Color Mode" 
                             onClick={toggleTheme}
-                            className="flex justify-center p-2 w-[60%] sm:w-10 ml-0 md:w-[25%] lg:w-10 sm:ml-0 md:ml-0 lg:ml-3 text-gray-500 transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-md lg:bg-white lg:dark:bg-gray-900 dark:text-gray-200 dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50"
+                            className="flex justify-center p-2 w-[60%] sm:w-10 ml-0 md:w-[25%] lg:w-10 sm:ml-0 md:ml-0 lg:ml-3 text-gray-500 transition duration-150 ease-in-out bg-gray-100 border border-transparent rounded-md lg:bg-white lg:dark:bg-gray-900 dark:text-gray-200 dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50"
                         >
                             {theme === 'dark' ? (
                                 <svg

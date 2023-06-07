@@ -25,7 +25,7 @@ export const MultiBlog = ({
                         ?
                             <SubMainBlogCard 
                                 coverImage={edge.node.coverImage}
-                                slug={'/blog/'+edge.node.category.slug+'/'+edge.node.slug}
+                                slug={'/blog/'+edge.node.slug}
                                 publishedAt={edge.node.publishedAt}
                                 tags={edge.node.tags}
                                 title={edge.node.title}
@@ -39,7 +39,7 @@ export const MultiBlog = ({
                             />
                         : 
                             <SubMainImagelessBlogCard 
-                                slug={'/blog/'+edge.node.category.slug+'/'+edge.node.slug}
+                                slug={'/blog/'+edge.node.slug}
                                 publishedAt={edge.node.publishedAt}
                                 // tags={card.imageUrl}
                                 title={edge.node.title}

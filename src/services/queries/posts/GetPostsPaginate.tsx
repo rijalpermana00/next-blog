@@ -1,14 +1,25 @@
 import { gql } from "@apollo/client";
 
 export const getPosts = gql`
-    query MyQuery($total:Int = 6,$after: String,$category: String, $featuredPostIds: [ID!]) {
+    query MyQuery(
+        $total:Int = 6,
+        $after: String = null,
+        $category: String = "",
+        $keyword: String = "",
+        $tag: String = "",
+        $featuredPostIds: [ID!]
+    ) {
         postsConnection(
             first: $total
             orderBy: publishedAt_DESC, 
             after: $after
             where: {
+                _search: $keyword,
                 category: {
                     _search: $category
+                },
+                tags_some: {
+                    _search: $tag
                 },
                 AND: [
                     { NOT: { id_in: $featuredPostIds } }

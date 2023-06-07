@@ -8,6 +8,7 @@ import { Post } from "@/props/PostProps";
 import Moment from "react-moment";
 import { MultiBlog } from "./MultiBlog";
 import { SimilarPosts } from "@/services/SimilarPosts";
+import { InfoCard, InfoCardAlt } from "./InfoCard";
 
 const Blog = ({
     category,
@@ -38,36 +39,37 @@ const Blog = ({
     });
     
     return (
-        <>
-            <div className={`px-4 sm:px-32 sm:max-w-5xl sm:mx-auto`}>
-                <div className="text-gray-800 dark:text-white">
-                    <div className="col-12 sm:col-6 mb-4">
-                        <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[2.75rem] lg:text-5xl m-0 font-bold leading-snug barlow">
-                            {title}
-                        </h1>
-                    </div>
-                    <hr/>
-                    <div className="col-12 sm:col-6 py-5">
-                        <div className="flex flex-row justify-between">
-                            <div className="flex flex-col">
-                                <div className="relative flex items-center justify-center w-12 h-12">
-                                    <img
-                                        src="https://picsum.photos/500/300?random"
-                                        alt={author?.name}
-                                        className="h-full w-full rounded-full text-center text-transparent object-cover object-center"
-                                    />
-                                </div>
-                            </div>
-                            <div className="ml-3 flex flex-col grow-[1]">
-                                <h6 className="font-semibold text-sm">{author?.name}</h6>
-                                <span className="mt-1 font-normal text-xs"><Moment format="DD MMM YYYY">{publishedAt}</Moment></span>
-                            </div>
-                            <div className="flex flex-row flex-wrap">
-                                <ShareDropDown url={slug} title={title}/>
+        <div className={`px-4 sm:max-w-6xl sm:p-6 p-4 sm:mx-auto text-gray-800 dark:text-white`}>
+            <div className="flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5 px-6">
+                <div className="col-12 sm:col-6 mb-4">
+                    <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[2.75rem] lg:text-5xl m-0 font-bold leading-snug barlow">
+                        {title}
+                    </h1>
+                </div>
+                <div className="col-12 sm:col-6 py-5">
+                    <div className="flex flex-row justify-between">
+                        <div className="flex flex-col">
+                            <div className="relative flex items-center justify-center w-12 h-12">
+                                <img
+                                    src="https://picsum.photos/500/300?random"
+                                    alt={author?.name}
+                                    className="h-full w-full rounded-full text-center text-transparent object-cover object-center"
+                                />
                             </div>
                         </div>
+                        <div className="ml-3 flex flex-col grow-[1]">
+                            <h6 className="font-semibold text-sm">{author?.name}</h6>
+                            <span className="mt-1 font-normal text-xs"><Moment format="DD MMM YYYY">{publishedAt}</Moment></span>
+                        </div>
+                        <div className="flex flex-row flex-wrap">
+                            <ShareDropDown url={slug} title={title}/>
+                        </div>
                     </div>
-                    <hr/>
+                </div>
+                <hr/>
+            </div>
+            <div className="flex flex-row flex-wrap">
+                <div className="flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5">
                     <div className="col-12 sm:relative text-center content-center my-10">
                         {coverImage?.url &&
                             <a href={slug} className="text-center content-center">
@@ -106,31 +108,32 @@ const Blog = ({
                         <ShareButtonGroup url={slug} title={title}/>
                     </div>
                     <hr/>
-                </div>
-            </div>
-            <div className='px-4 sm:px-32 sm:max-w-7xl sm:mx-auto'>
-                <div className="my-10">
-                    <div className="flex flex-row justify-between">
-                        <div className="flex flex-col">
-                            <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2">You might also like</h5>
+                    <div className="my-10">
+                        <div className="flex flex-row justify-between">
+                            <div className="flex flex-col">
+                                <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2">You might also like</h5>
+                            </div>
+                            {/* <div className="flex flex-row flex-wrap">
+                                <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2"><a href="">More</a></h5>
+                            </div> */}
                         </div>
-                        {/* <div className="flex flex-row flex-wrap">
-                            <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2"><a href="">More</a></h5>
-                        </div> */}
+                        <MultiBlog loadedItems={similarPosts} rows={'sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2'} width="7xl"/>
                     </div>
-                    <MultiBlog loadedItems={similarPosts} rows={'sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4'} width="7xl"/>
+                    <hr/>
+                    <DisqusComments post={{
+                        id:id,
+                        title:title,
+                        url:'https://sani-blog.vercel.app/blog/'+slug
+                    }}/>
+                    <hr/>
+                </div>
+                <div className="flex-grow-0 basis-auto w-full sm:w-1/3 md:w-full lg:w-1/3 px-0 sm:px-6 md:px-0 lg:px-6 sm:mb-5 md:mb-10 lg:mb-5">
+                    <div className="my-10">
+                        <InfoCardAlt category={category} tags={tags} />
+                    </div>
                 </div>
             </div>
-            <div className='px-4 sm:px-32 sm:max-w-5xl sm:mx-auto'>
-                <hr/>
-                <DisqusComments post={{
-                    id:id,
-                    title:title,
-                    url:'https://sani-blog.vercel.app/blog/'+slug
-                }}/>
-                <hr/>
-            </div>
-        </>
+        </div>
     );
 };
 

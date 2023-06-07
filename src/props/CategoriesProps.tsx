@@ -22,4 +22,5 @@ export interface CategoryInfo {
 
 export interface CategoryInfos{
     data: CategoryInfo[] | []
+    active: string | string[] | undefined;
 }

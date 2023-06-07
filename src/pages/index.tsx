@@ -34,13 +34,15 @@ const Index = () => {
     return (
         <Main>
             <Header/>
-            <MainContent posts={featuredPosts} contentTitle='Featured Posts'/>
+            <MainContent posts={featuredPosts}/>
             {/* <hr/>
             {categories.length > 0 &&
                 <Splides data={categories}/>
             } */}
-            <hr/>
-            <SecondaryContent posts={latestPosts} ownerTitle='Owner' contentTitle='Latest Posts'/>
+            <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
+                <hr/>
+            </div>
+            <SecondaryContent posts={latestPosts} ownerTitle='About Me'/>
             <GoToTop/>
         </Main>
         
