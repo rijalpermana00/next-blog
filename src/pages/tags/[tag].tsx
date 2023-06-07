@@ -12,7 +12,6 @@ import ShareButtonGroup, { ShareButtonGroupAlt } from '@/components/partials/Sha
 import { BlogComponents } from '@/components/BlogComponents';
 import { PostCollection } from '@/props/PostConnectionProps';
 import { getPosts } from '@/services/queries/posts/GetPostsPaginate';
-import { title } from 'process';
 
 const Slug = () => {
     const router = useRouter();
