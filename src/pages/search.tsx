@@ -81,14 +81,14 @@ export const SearchPage = ({ authors }: Props) => {
         } );
     };
 
-return (
-    <Main title={`Search results for ${query.key}`}>
-    <div className="section text-gray-800 dark:text-gray-200">
-        <div className="container">
-            <h1 className="h2 mb-8 text-center leading-hero text-6xl font-semibold">
-                Search results for <span className="text-primary">{query.key}</span>
-            </h1>
+    return (
+        <Main title={`Search results for ${query.key}`}>
             <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
+                <div className="col-12 sm:col-6 mb-10">
+                    <h1 className="text-[2rem] capitalize sm:text-[2.5rem] md:text-[2.75rem] lg:text-5xl m-0 font-bold leading-snug barlow text-gray-800 dark:text-white">
+                        Search results for <span className="text-primary">{query.key}</span>
+                    </h1>
+                </div>
                 <div className="flex flex-row flex-wrap">
                     <div className="flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5">
                         {loadingPost || postData && postData.postsConnection.edges.length > 0
@@ -117,10 +117,8 @@ return (
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    </Main>
-);
+        </Main>
+    );
 };
 
 export default SearchPage;
