@@ -3,7 +3,7 @@ import Blog from '@/components/partials/Blog';
 import GoToTop from '@/components/partials/GoToTop';
 import { useRouter } from 'next/router';
 import Skeleton from '@/components/partials/Skeleton';
-import { GetPost } from '@/services/Post';
+import { GetPost } from '@/services/GetPost';
 
 const Slug = () => {
     const router = useRouter();
