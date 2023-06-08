@@ -79,7 +79,7 @@ export default function Navbar() {
     };
     
     return (
-        <nav className={`fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 md:px-2 md:py-3 sm:px-0 sm:py-0 lg:px-0 lg:py-0 navbar-expand-lg bg-white dark:bg-night opacity-95 shadow border-b-2 border-gray-600`}>
+        <nav className={`fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 md:px-2 md:py-3 sm:px-0 sm:py-0 lg:px-0 lg:py-0 navbar-expand-lg bg-white dark:bg-night opacity-95 shadow border-b-2 border-gray-300 dark:border-gray-700`}>
             <div className="container px-4 py-4 mx-auto flex flex-wrap items-center justify-between max-w-7xl sm:px-6 lg:px-8 sm:py-1 lg:py-0">
                 <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                     <Logo/>

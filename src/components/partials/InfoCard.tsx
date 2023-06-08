@@ -23,6 +23,7 @@ export const InfoCard = (props:InfoCardProps) => {
                 <div className="max-w-lg mx-auto mb-10 bg-white dark:bg-gray-700 rounded-xl shadow-md p-5">
                     <div className="flex flex-col mb-10">
                         <h5 className="font-bold text-lg uppercase text-gray-700 dark:text-gray-300 mb-3"> Tags </h5>
+                        <hr className="mb-7"/>
                         <ul>
                             {props.tagsData?.tags.map((cat, index) => (
                                 <TagBadge text={cat.name} url={'/tags/' + cat.slug} key={index} />

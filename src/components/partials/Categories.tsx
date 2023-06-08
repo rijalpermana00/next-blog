@@ -9,6 +9,7 @@ export const Categories = (props:CategoryInfos) => {
         <div className="max-w-lg mx-auto mb-10 bg-white dark:bg-gray-700 rounded-xl shadow-md p-5">
             <div className="flex flex-col mb-10">
                 <h5 className="font-bold text-lg uppercase text-gray-900 dark:text-gray-300 mb-3">CATEGORIES</h5>
+                <hr className="mb-7"/>
                 <ul className="flex flex-col">
                     {sortedData.slice(0,5).map((category,index) => (
                     <li

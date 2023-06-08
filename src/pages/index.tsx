@@ -22,7 +22,7 @@ const Index = () => {
     })
     
     return (
-        <Main title='Blog'>
+        <Main>
             <Header/>
             <MainContent posts={featuredPosts.postData}/>
             {/* <hr/>
