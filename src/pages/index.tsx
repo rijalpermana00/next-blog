@@ -19,22 +19,28 @@ import { SecondaryContent } from '@/components/SecondaryContent';
 import { useEffect, useState } from 'react';
 import { FeaturedPosts } from '@/services/FeaturedPosts';
 import { LatestPosts } from '@/services/LatestPosts';
+import { GetPosts } from '@/services/GetPosts';
 
 
 const Index = () => {
   
-    const featuredPosts = FeaturedPosts();
+    // const featuredPosts = FeaturedPosts();
+    const featuredPosts = GetPosts({
+        tag:'featured',
+        total:5
+    })
     
-    const featuredPostIds = featuredPosts?.postsConnection.edges?.map(edge => edge.node.id) || [];
+    const featuredPostIds = featuredPosts.postData?.postsConnection.edges?.map(edge => edge.node.id) || [];
     
-    const latestPosts = LatestPosts(featuredPostIds)
-    
-    // const categories = CategoryList();
+    const latestPosts = GetPosts({
+        id:featuredPostIds,
+        total:6
+    })
     
     return (
-        <Main>
+        <Main title='Blog'>
             <Header/>
-            <MainContent posts={featuredPosts}/>
+            <MainContent posts={featuredPosts.postData}/>
             {/* <hr/>
             {categories.length > 0 &&
                 <Splides data={categories}/>
@@ -42,7 +48,7 @@ const Index = () => {
             <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
                 <hr/>
             </div>
-            <SecondaryContent posts={latestPosts} ownerTitle='About Me'/>
+            <SecondaryContent posts={latestPosts.postData} ownerTitle='About Me'/>
             <GoToTop/>
         </Main>
         

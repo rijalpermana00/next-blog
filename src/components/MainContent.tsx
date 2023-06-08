@@ -4,7 +4,7 @@ import Skeleton from "./partials/Skeleton"
 import { PostCollection } from "@/props/PostConnectionProps";
 
 interface HomeProps {
-    posts: PostCollection | null;
+    posts: PostCollection | undefined;
     contentTitle?: string;
 }
 

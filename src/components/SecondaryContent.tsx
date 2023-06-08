@@ -14,7 +14,7 @@ import { PostCollection, PostsConnection } from "@/props/PostConnectionProps";
 import { InfoCard } from "./partials/InfoCard";
 
 interface HomeProps {
-    posts: PostCollection | null;
+    posts: PostCollection | undefined;
     ownerTitle?: string;
     contentTitle?: string;
     category?: string | string[];

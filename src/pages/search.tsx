@@ -80,7 +80,7 @@ export const SearchPage = ({ authors }: Props) => {
           variables: queryVariables,
         } );
     };
-
+console.log(postData)
 return (
     <Main title={`Search results for ${query.key}`}>
     <div className="section text-gray-800 dark:text-gray-200">
@@ -91,13 +91,10 @@ return (
             <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
                 <div className="flex flex-row flex-wrap">
                     <div className="flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5">
-                        {loadingPost ? 
-                                <MultiBlog loadedItems={null}/>
-                            :
-                            postData && postData.postsConnection.edges.length > 0
+                        {loadingPost || postData && postData.postsConnection.edges.length > 0
                             ? 
                                 <>
-                                    <MultiBlog loadedItems={postData}/>
+                                    <MultiBlog loading={loadingPost} loadedItems={postData}/>
                                     <div className="flex flex-col items-center pt-10 pb-20 md:pb-0">
                                         { nextAvail &&  
                                             <button 
