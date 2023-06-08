@@ -7,7 +7,7 @@ import OwnerCard from "./partials/OwnerCard";
 import { TagBadge } from "./partials/Badge";
 import { PostCollection, PostsConnection } from "@/props/PostConnectionProps";
 import { useEffect, useState } from "react";
-import { getPosts } from "@/services/queries/posts/GetPostsPaginate";
+import { getPosts } from "@/services/queries/posts/GetPosts";
 import { TagList } from "@/services/Tags";
 import { Categories } from "./partials/Categories";
 import { CategoryList } from "@/services/Categories";
@@ -15,7 +15,9 @@ import { MultiBlog } from "./partials/MultiBlog";
 import { InfoCard } from "./partials/InfoCard";
 
 interface HomeProps {
-  posts?: PostCollection;
+  posts?: PostCollection | undefined;
+  loading?: boolean;
+  title?: string;
   ownerTitle?: string;
   contentTile?: string;
   category?: string | string[];
@@ -90,16 +92,16 @@ export const BlogComponents = (props: HomeProps) => {
                             ?
                             'Tag: '+props.tag
                             :
-                            ''    
+                            props.title    
                     }
                 </h1>
             </div>
             <div className="flex flex-row flex-wrap">
                 <div className="flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5">
-                    {loadedItems && loadedItems.postsConnection.edges.length > 0
+                    {props.loading || loadedItems && loadedItems.postsConnection.edges.length > 0
                         ? 
                             <>
-                                <MultiBlog loadedItems={loadedItems}/>
+                                <MultiBlog loading={props.loading} loadedItems={loadedItems ?? undefined}/>
                                 <div className="flex flex-col items-center pt-10 pb-20 md:pb-0">
                                     { nextAvail &&  
                                         <button 

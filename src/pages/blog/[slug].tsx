@@ -2,16 +2,16 @@ import { Main } from '@/layouts/Main';
 import Blog from '@/components/partials/Blog';
 import GoToTop from '@/components/partials/GoToTop';
 import { useRouter } from 'next/router';
-import { Post } from '@/services/Post';
+import { GetPost } from '@/services/Post';
 import Skeleton from '@/components/partials/Skeleton';
 
 const Slug = () => {
     const router = useRouter();
     const { slug } = router.query;
     
-    const postData = Post(slug);
+    const postData = GetPost(slug);
     
-    const post = postData?.post;
+    const post = postData?.postData?.post;
     
     return (
         <Main title={post?.title} description={'check this out'}>

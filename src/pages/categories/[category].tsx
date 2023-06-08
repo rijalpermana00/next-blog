@@ -11,30 +11,21 @@ import { getPost } from '@/services/queries/posts/GetPost';
 import ShareButtonGroup, { ShareButtonGroupAlt } from '@/components/partials/Sharer';
 import { BlogComponents } from '@/components/BlogComponents';
 import { PostCollection } from '@/props/PostConnectionProps';
-import { getPosts } from '@/services/queries/posts/GetPostsPaginate';
+import { getPosts } from '@/services/queries/posts/GetPosts';
 import { title } from 'process';
+import { GetPosts } from '@/services/GetPosts';
 
 const Slug = () => {
     const router = useRouter();
     const {category} = router.query;
 
-    const { 
-        loading:loadingFeaturedPost, 
-        error:errorFeaturedPost, 
-        data:posts 
-    }:{ 
-        loading:boolean, 
-        error?: ApolloError, 
-        data?:PostCollection
-    } = useQuery(getPosts, {
-        variables: {
-            category: category,
-        },
-    });
+    const data = GetPosts({
+        category: category
+    })
     
     return(
-        <Main>
-            <BlogComponents category={category} posts={posts}/>
+        <Main title={category ? 'Category: '+category : 'Categories'}>
+            <BlogComponents category={category} posts={data.postData} loading={data.loadingPost}/>
         </Main>
     )
     

@@ -12,7 +12,7 @@ import { InfoCard } from '@/components/partials/InfoCard';
 import { CategoryList } from '@/services/Categories';
 import { TagList } from '@/services/Tags';
 import { useLazyQuery } from '@apollo/client';
-import { getPosts } from '@/services/queries/posts/GetPostsPaginate';
+import { getPosts } from '@/services/queries/posts/GetPosts';
 import { PostCollection } from '@/props/PostConnectionProps';
 import Skeleton from '@/components/partials/Skeleton';
 
@@ -80,7 +80,7 @@ export const SearchPage = ({ authors }: Props) => {
           variables: queryVariables,
         } );
     };
-console.log(postData)
+
 return (
     <Main title={`Search results for ${query.key}`}>
     <div className="section text-gray-800 dark:text-gray-200">

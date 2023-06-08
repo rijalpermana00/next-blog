@@ -3,12 +3,12 @@ import { ApolloError, useQuery } from "@apollo/client";
 import { getFeaturedPosts } from "./queries/posts/GetFeaturedPosts";
 import { getLatestPosts } from "./queries/posts/GetLatestPosts";
 import { PostCollection, PostsConnection } from "@/props/PostConnectionProps";
-import { getPosts } from "./queries/posts/GetPostsPaginate";
+import { getPosts } from "./queries/posts/GetPosts";
 
 interface postProps{
     total?: number,
-    category?: string,
-    tag?: string,
+    category?: string | string[] | undefined,
+    tag?: string | string[] | undefined,
     id?:string[],
     after?:string,
     keyword?:string | string[] | undefined,
@@ -32,7 +32,7 @@ export function GetPosts(props:postProps){
             featuredPostIds: props.id ?? [],
             keyword: props.keyword ?? "",
             tag: props.tag ?? "",
-            after: props.after ?? null
+            after: props.after ?? null,
         },
     });
     

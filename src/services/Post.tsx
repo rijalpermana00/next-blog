@@ -4,7 +4,7 @@ import { getFeaturedPosts } from "./queries/posts/GetFeaturedPosts";
 import { getLatestPosts } from "./queries/posts/GetLatestPosts";
 import { getPost } from "./queries/posts/GetPost";
 
-export function Post(slug:string | string[] | undefined){
+export function GetPost(slug:string | string[] | undefined){
     const { 
         loading:loadingPost, 
         error:errorPost, 
@@ -17,5 +17,9 @@ export function Post(slug:string | string[] | undefined){
         variables: { slug: slug},
     });
     
-    return postData
+    return {
+        postData,
+        errorPost,
+        loadingPost
+    }
 }

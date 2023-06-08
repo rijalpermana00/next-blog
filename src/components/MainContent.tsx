@@ -34,7 +34,6 @@ export const MainContent = (props:HomeProps) => {
                         ) : (
                             
                             <Skeleton className="w-full h-56 sm:h-96 md:h-96 lg:h-[34rem]"/>
-                            // <Skeleton className="w-full h-[34rem]"/>
                         )
                     }
                 </div>

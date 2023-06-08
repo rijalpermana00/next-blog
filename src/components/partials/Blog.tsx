@@ -7,8 +7,8 @@ import DisqusComments from "./Disqus";
 import { Post } from "@/props/PostProps";
 import Moment from "react-moment";
 import { MultiBlog } from "./MultiBlog";
-import { SimilarPosts } from "@/services/SimilarPosts";
 import { InfoCard, InfoCardAlt } from "./InfoCard";
+import { GetPosts } from "@/services/GetPosts";
 
 const Blog = ({
     category,
@@ -33,9 +33,10 @@ const Blog = ({
         }
     };
     
-    const similarPosts = SimilarPosts({
+    const similarPosts = GetPosts({
         category:category?.name,
         id:Array.isArray(id) ? id : [id],
+        total: 4,
     });
     
     return (
@@ -117,7 +118,7 @@ const Blog = ({
                                 <h5 className="font-bold text-lg text-gray-700 dark:text-gray-300 px-1 mb-2"><a href="">More</a></h5>
                             </div> */}
                         </div>
-                        <MultiBlog loadedItems={similarPosts} rows={'sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2'} width="7xl"/>
+                        <MultiBlog loadedItems={similarPosts.postData} rows={'sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2'} width="7xl"/>
                     </div>
                     <hr/>
                     <DisqusComments post={{
