@@ -90,7 +90,7 @@ export const MainBlogCard = ({
                     </p>
                 </Link>
                 {excerpt && (
-                    <p className='m-0 mt-2 leading-6 text-base font-normal overflow-hidden text-ellipsis line-clamp-2 flex flex-row'>
+                    <p className='m-0 mt-2 leading-6 text-base font-normal text-gray-700 overflow-hidden text-ellipsis line-clamp-2 flex flex-row'>
                         {excerpt}
                     </p>
                 )}
@@ -150,11 +150,11 @@ export const SubMainBlogCard = ({
                             {title}
                         </p>
                     </Link>
-                    {/* {excerpt && (
-                        <p className='m-0 mt-2 leading-6 text-base font-normal overflow-hidden text-ellipsis line-clamp-2 flex flex-row'>
+                    {excerpt && (
+                        <p className='m-0 mt-2 leading-6 text-base sm:text-sm text-gray-300 font-normal overflow-hidden text-ellipsis line-clamp-3'>
                             {excerpt}
                         </p>
-                    )} */}
+                    )}
                     {/* {author?.name && ( */}
                         <div className='m-0 mt-2 flex flex-row items-center leading-6 text-sm font-normal pt-3 author'>
                             {/* <div className='w-8 h-8 relative flex items-center justify-center flex-shrink-0 text-xl leading-4 rounded-full overflow-hidden mr-2'>
@@ -202,11 +202,11 @@ export const SubMainImagelessBlogCard = ({
                         <Link href={slug} className='m-0 mt-2 text-2xl sm:text-lg font-semibold barlow'>
                             {title}
                         </Link>
-                        {/* {excerpt && (
-                            <p className='m-0 mt-2 leading-6 text-base sm:text-sm font-normal overflow-hidden text-ellipsis line-clamp-3'>
+                        {excerpt && (
+                            <p className='m-0 mt-2 leading-6 text-base sm:text-sm text-gray-200 font-normal overflow-hidden text-ellipsis line-clamp-3'>
                                 {excerpt}
                             </p>
-                        )} */}
+                        )}
                         {/* {author?.name && ( */}
                             <div className='m-0 mt-2 flex flex-row items-center leading-6 text-sm font-normal pt-3 author'>
                                 {/* <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-8 md:h-8 relative flex items-center justify-center flex-shrink-0 text-xl leading-4 rounded-full overflow-hidden mr-2'>

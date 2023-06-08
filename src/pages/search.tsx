@@ -28,7 +28,10 @@ export const SearchPage = ({ authors }: Props) => {
     const [lastId, setLastId] = useState<string | null>(null);
     const [nextAvail, setNextAvail] = useState(false);
     
-    const {postData,loadingPost,errorPost} = GetPosts({keyword:keyword})
+    const {postData,loadingPost,errorPost} = GetPosts({
+        keyword:keyword,
+        total:6
+    })
     
     const [ loadMore, { loading } ] = useLazyQuery(getPosts, {
         notifyOnNetworkStatusChange: true,
@@ -56,11 +59,12 @@ export const SearchPage = ({ authors }: Props) => {
     });
     
     useEffect(() => {
-        if(loadedItems?.postsConnection.edges) {
-            setLastId(loadedItems.postsConnection.pageInfo.endCursor)
-            setNextAvail(loadedItems.postsConnection.pageInfo.hasNextPage)
+        if(postData?.postsConnection.edges) {
+            setLoadedItems({postsConnection:postData.postsConnection});
+            setLastId(postData.postsConnection.pageInfo.endCursor)
+            setNextAvail(postData.postsConnection.pageInfo.hasNextPage)
         }
-    }, [loadedItems?.postsConnection.edges]);
+    }, [postData]);
     
     const categories = CategoryList();
     
@@ -74,13 +78,14 @@ export const SearchPage = ({ authors }: Props) => {
         
         let queryVariables = { 
             after: lastId,
+            keyword:keyword
         };
     
         loadMore( {
           variables: queryVariables,
         } );
     };
-
+    
     return (
         <Main title={`Search results for ${query.key}`}>
             <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
@@ -91,10 +96,10 @@ export const SearchPage = ({ authors }: Props) => {
                 </div>
                 <div className="flex flex-row flex-wrap">
                     <div className="flex-grow-0 basis-auto w-full sm:w-2/3 md:w-full lg:w-2/3 mb-10 sm:mb-5 md:mb-10 lg:mb-5">
-                        {loadingPost || postData && postData.postsConnection.edges.length > 0
+                        {loadingPost || loadedItems && loadedItems.postsConnection.edges.length > 0
                             ? 
                                 <>
-                                    <MultiBlog loading={loadingPost} loadedItems={postData}/>
+                                    <MultiBlog loading={loadingPost} loadedItems={loadedItems ?? undefined}/>
                                     <div className="flex flex-col items-center pt-10 pb-20 md:pb-0">
                                         { nextAvail &&  
                                             <button 
