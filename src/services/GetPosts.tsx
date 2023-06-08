@@ -18,8 +18,8 @@ interface postProps{
 export function GetPosts(props:postProps){
     
     const { 
-        loading:loadingLatestPost, 
-        error:errorLatestPost, 
+        loading:loadingPost, 
+        error:errorPost, 
         data:postData
     }:{ 
         loading:boolean, 
@@ -36,5 +36,9 @@ export function GetPosts(props:postProps){
         },
     });
     
-    return postData
+    return {
+        loadingPost,
+        errorPost,
+        postData
+    }
 }
