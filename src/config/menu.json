@@ -9,11 +9,6 @@
       "name": "Blog",
       "url": "/blog",
       "slug": "blog"
-    },
-    {
-      "name": "About",
-      "url": "/about",
-      "slug": "about"
     }
   ],
   "footer": [

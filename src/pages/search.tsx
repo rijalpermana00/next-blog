@@ -1,10 +1,5 @@
 import { Main } from '@layouts/Main';
-// import Posts from "@layouts/partials/Posts";
-// import { getSinglePage } from "@lib/contentParser";
-// import { slugify } from "@lib/utils/textConverter";
-// import { useSearchContext } from "context/state";
 import { useRouter } from "next/router";
-import { GetStaticProps } from "next";
 import { GetPosts } from '@/services/GetPosts';
 import { MultiBlog } from '@/components/partials/MultiBlog';
 import { useEffect, useState } from 'react';
@@ -14,7 +9,6 @@ import { TagList } from '@/services/Tags';
 import { useLazyQuery } from '@apollo/client';
 import { getPosts } from '@/services/queries/posts/GetPosts';
 import { PostCollection } from '@/props/PostConnectionProps';
-import Skeleton from '@/components/partials/Skeleton';
 
 interface Props {
     authors: any; // Replace "any" with appropriate type

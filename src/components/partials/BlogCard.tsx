@@ -2,7 +2,6 @@ import { BlogCardProps } from "@/props/BlogCardProps";
 import { Post } from "@/props/PostConnectionProps";
 import Link from "next/link";
 import Moment from "react-moment";
-import { TagBadge } from "./Badge";
 
 
 export const BlogCard = ({
