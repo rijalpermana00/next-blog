@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { AppConfig } from '../../utils/AppConfig';
+import { useEffect } from 'react';
 
 type IMetaProps = {
   title: string;
@@ -13,6 +14,12 @@ type IMetaProps = {
 const Meta = (props: IMetaProps) => {
   
   const basePath = 'sani-blog.vercel.app'
+  
+  let cannon;
+    
+  useEffect(() => {
+      cannon = window.location.href;
+  },[]);
 
   return (
     <>
@@ -51,11 +58,11 @@ const Meta = (props: IMetaProps) => {
       <NextSeo
         title={props.title}
         description={props.description}
-        canonical={props.canonical}
+        canonical={cannon}
         openGraph={{
           title: props.title,
           description: props.description,
-          url: props.canonical,
+          url: cannon,
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
         }}
