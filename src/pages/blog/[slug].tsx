@@ -8,6 +8,7 @@ import { MultiBlog } from '@/components/partials/MultiBlog';
 import { GetPosts } from '@/services/GetPosts';
 import { Meta } from '@/layouts/components/Meta';
 import AppConfig from '@/utils/AppConfig';
+import { useEffect } from 'react';
 
 const Slug = () => {
     const router = useRouter();
@@ -20,10 +21,16 @@ const Slug = () => {
     const similarPosts = GetPosts({
         total: 4,
     });
-    
+          
+    let cannon;
+        
+    useEffect(() => {
+        cannon = window.location.href;
+    },[]);
+
     return (
         <Main>
-            <Meta title={post?.title ?? AppConfig.title} description={post?.excerpt ?? AppConfig.description}/>
+            <Meta title={post?.title ?? AppConfig.title} description={post?.excerpt ?? AppConfig.description} canonical={cannon}/>
             {loadingPost 
                 ? (
                     <div className='max-w-3xl mx-auto'>

@@ -14,12 +14,6 @@ type IMetaProps = {
 const Meta = (props: IMetaProps) => {
   
   const basePath = 'sani-blog.vercel.app'
-  
-  let cannon;
-    
-  useEffect(() => {
-      cannon = window.location.href;
-  },[]);
 
   return (
     <>
@@ -58,11 +52,11 @@ const Meta = (props: IMetaProps) => {
       <NextSeo
         title={props.title}
         description={props.description}
-        canonical={cannon}
+        canonical={props.canonical}
         openGraph={{
           title: props.title,
           description: props.description,
-          url: cannon,
+          url: props.canonical,
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
           type:'article'

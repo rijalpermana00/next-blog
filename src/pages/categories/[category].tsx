@@ -4,6 +4,7 @@ import { BlogComponents } from '@/components/BlogComponents';
 import { GetPosts } from '@/services/GetPosts';
 import { Meta } from '@/layouts/components/Meta';
 import AppConfig from '@/utils/AppConfig';
+import { useEffect } from 'react';
 
 const Slug = () => {
     const router = useRouter();
@@ -13,9 +14,15 @@ const Slug = () => {
         category: category
     })
     
+    let cannon;
+        
+    useEffect(() => {
+        cannon = window.location.href;
+    },[]);
+    
     return(
         <Main>
-            <Meta title={category ? 'Category: '+category : 'Categories'} description={'Check this out'}/>
+            <Meta title={category ? 'Category: '+category : 'Categories'} description={'Check this out'} canonical={cannon}/>
             <BlogComponents category={category} posts={data.postData} loading={data.loadingPost}/>
         </Main>
     )
