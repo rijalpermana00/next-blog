@@ -31,7 +31,7 @@ const Slug = () => {
     return (
         <Main>
             <Meta 
-                title={`[` + post?.category + `]` + ` ` + post?.title +` `+ post?.author} 
+                title={`[` + post?.category?.name + `]` + ` ` + post?.title +` `+ post?.author?.name} 
                 description={post?.excerpt ?? AppConfig.description} 
                 canonical={cannon} 
             />
