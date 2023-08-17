@@ -35,7 +35,11 @@ const Index = () => {
     return (
         <Main>
             <Header/>
-            <Meta title={AppConfig.title} description={'check this out'} canonical={cannon}/>
+            <Meta 
+                title={AppConfig.title} 
+                description={'check this out'} 
+                canonical={cannon}
+            />
             <MainContent posts={featuredPosts.postData}/>
             {/* <hr/>
             {categories.length > 0 &&
