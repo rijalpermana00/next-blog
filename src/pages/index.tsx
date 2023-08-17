@@ -25,7 +25,6 @@ const Index = () => {
     
     return (
         <Main>
-            <DefaultSeo {...SEO} />
             <Header/>
             <MainContent posts={featuredPosts.postData}/>
             {/* <hr/>
