@@ -11,11 +11,7 @@ import { getPosts } from '@/services/queries/posts/GetPosts';
 import { PostCollection } from '@/props/PostConnectionProps';
 import { Meta } from '@/layouts/components/Meta';
 
-interface Props {
-    authors: any; // Replace "any" with appropriate type
-}
-
-export const SearchPage = ({ authors }: Props) => {
+export const SearchPage = () => {
     const router = useRouter();
     const { query } = router;
     const keyword = query.key;
