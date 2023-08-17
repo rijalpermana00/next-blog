@@ -17,7 +17,7 @@ export default function Index(props:MetaProps) {
     
     return (
         <Main>
-            <Meta title={AppConfig.title} description={AppConfig.description} canonical={cannon}/>
+            <Meta title={AppConfig.title + ' - Blog'} description={'Read many of awesome blog posts here!'} canonical={cannon}/>
             <BlogComponents title='Blog' posts={posts.postData} loading={posts.loadingPost} />
         </Main>
     );
