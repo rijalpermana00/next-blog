@@ -4,6 +4,8 @@ import GoToTop from '@/components/partials/GoToTop';
 import { MainContent } from '@/components/MainContent';
 import { SecondaryContent } from '@/components/SecondaryContent';
 import { GetPosts } from '@/services/GetPosts';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../components/DefaultSeo';
 
 
 const Index = () => {
@@ -23,6 +25,7 @@ const Index = () => {
     
     return (
         <Main>
+            <DefaultSeo {...SEO} />
             <Header/>
             <MainContent posts={featuredPosts.postData}/>
             {/* <hr/>
