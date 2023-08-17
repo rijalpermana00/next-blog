@@ -24,7 +24,11 @@ const Slug = () => {
     
     return (
         <Main>
-            <Meta title={post?.title ?? AppConfig.title} description={'check this out'} canonical={cannon}/>
+            <Meta 
+                title={post?.title ?? AppConfig.title} 
+                description={'check this out'} 
+                canonical={cannon}
+            />
             {post ? (
                 <Blog
                     category={post.category}

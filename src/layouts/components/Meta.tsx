@@ -50,7 +50,7 @@ const Meta = (props: IMetaProps) => {
         />
       </Head>
       <NextSeo
-        title={props.title}
+        title={props.title ?? AppConfig.title}
         description={props.description}
         canonical={props.canonical}
         openGraph={{

@@ -30,7 +30,11 @@ const Slug = () => {
 
     return (
         <Main>
-            <Meta title={post?.title ?? AppConfig.title} description={post?.excerpt ?? AppConfig.description} canonical={cannon}/>
+            <Meta 
+                title={`[` + post?.category + `]` + ` ` + post?.title +` `+ post?.author} 
+                description={post?.excerpt ?? AppConfig.description} 
+                canonical={cannon} 
+            />
             {loadingPost 
                 ? (
                     <div className='max-w-3xl mx-auto'>
