@@ -9,12 +9,13 @@ import { GetPosts } from '@/services/GetPosts';
 import { Meta } from '@/layouts/components/Meta';
 import AppConfig from '@/utils/AppConfig';
 import { useEffect } from 'react';
+import { GetSlugs } from '@/services/GetSlugs';
 
 const Slug = () => {
     const router = useRouter();
     const { slug } = router.query;
     
-    const {postData,loadingPost,errorPost} = GetPost(slug);
+    const {postData,loadingPost} = GetPost(slug);
     
     const post = postData?.post;
     

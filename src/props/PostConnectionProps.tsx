@@ -67,3 +67,13 @@ export interface PostsData {
         postsConnection: PostsConnection;
     };
 }
+
+export interface Slug {
+    slug: string
+}
+
+export interface SlugsData {
+    data: {
+        posts: Slug[];
+    };
+}

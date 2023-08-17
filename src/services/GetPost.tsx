@@ -10,8 +10,8 @@ export function GetPost(slug:string | string[] | undefined){
         error:errorPost, 
         data:postData
     }:{ 
-        loading:boolean, 
-        error?: ApolloError, 
+        loading:boolean,
+        error?: ApolloError,
         data?:MyQueryResult
     } = useQuery(getPost, {
         variables: { slug: slug},
