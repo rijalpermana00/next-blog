@@ -4,6 +4,8 @@ import GoToTop from '@/components/partials/GoToTop';
 import { useRouter } from 'next/router';
 import Skeleton from '@/components/partials/Skeleton';
 import { GetPost } from '@/services/GetPost';
+import { Meta } from '@/layouts/components/Meta';
+import AppConfig from '@/utils/AppConfig';
 
 const Slug = () => {
     const router = useRouter();
@@ -14,7 +16,8 @@ const Slug = () => {
     const post = postData?.postData?.post;
     
     return (
-        <Main title={post?.title} description={'check this out'}>
+        <Main >
+            <Meta title={post?.title ?? AppConfig.title} description={'check this out'}/>
             {post ? (
                 <Blog
                     category={post.category}

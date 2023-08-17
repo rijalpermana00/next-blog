@@ -6,6 +6,8 @@ import { GetPost } from '@/services/GetPost';
 import Skeleton from '@/components/partials/Skeleton';
 import { MultiBlog } from '@/components/partials/MultiBlog';
 import { GetPosts } from '@/services/GetPosts';
+import { Meta } from '@/layouts/components/Meta';
+import AppConfig from '@/utils/AppConfig';
 
 const Slug = () => {
     const router = useRouter();
@@ -20,7 +22,8 @@ const Slug = () => {
     });
     
     return (
-        <Main title={post?.title} description={'check this out'}>
+        <Main>
+            <Meta title={post?.title ?? AppConfig.title} description={post?.excerpt ?? AppConfig.description}/>
             {loadingPost 
                 ? (
                     <div className='max-w-3xl mx-auto'>

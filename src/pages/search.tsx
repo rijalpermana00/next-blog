@@ -9,6 +9,7 @@ import { TagList } from '@/services/Tags';
 import { useLazyQuery } from '@apollo/client';
 import { getPosts } from '@/services/queries/posts/GetPosts';
 import { PostCollection } from '@/props/PostConnectionProps';
+import { Meta } from '@/layouts/components/Meta';
 
 interface Props {
     authors: any; // Replace "any" with appropriate type
@@ -81,7 +82,8 @@ export const SearchPage = ({ authors }: Props) => {
     };
     
     return (
-        <Main title={`Search results for ${query.key}`}>
+        <Main>
+            <Meta title={`Search results for ${query.key}`} description={'Check this out'}/>
             <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
                 <div className="col-12 sm:col-6 mb-10">
                     <h1 className="text-[2rem] capitalize sm:text-[2.5rem] md:text-[2.75rem] lg:text-5xl m-0 font-bold leading-snug barlow text-gray-800 dark:text-white">

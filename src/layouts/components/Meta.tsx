@@ -65,7 +65,7 @@ const Meta = (props: IMetaProps) => {
           url: cannon,
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
-          type:'website'
+          type:'article'
         }}
         twitter={{
           cardType:'summary_large_image',
