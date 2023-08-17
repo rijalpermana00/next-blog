@@ -6,6 +6,9 @@ import { SecondaryContent } from '@/components/SecondaryContent';
 import { GetPosts } from '@/services/GetPosts';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../components/DefaultSeo';
+import { Meta } from '@/layouts/components/Meta';
+import AppConfig from '@/utils/AppConfig';
+import { useEffect } from 'react';
 
 
 const Index = () => {
@@ -23,9 +26,16 @@ const Index = () => {
         total:6
     })
     
+    let cannon;
+        
+    useEffect(() => {
+        cannon = window.location.href;
+    },[]);
+    
     return (
         <Main>
             <Header/>
+            <Meta title={AppConfig.title} description={'check this out'} canonical={cannon}/>
             <MainContent posts={featuredPosts.postData}/>
             {/* <hr/>
             {categories.length > 0 &&
