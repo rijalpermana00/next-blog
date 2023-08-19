@@ -11,10 +11,11 @@ import AppConfig from '@/utils/AppConfig';
 import { useEffect } from 'react';
 import { GetStaticPost, GetStaticSlugs } from '@/services/GetSlugs';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { Post } from '@/props/PostProps';
 
 interface slugProps{
     slug: string
-    post: any
+    post: Post
     loadingPost: boolean
 }
 
