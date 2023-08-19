@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /private/
+Disallow: /admin/
+Disallow: /restricted-page.html
+Allow: /images/
+Allow: /styles/
+Allow: /scripts/
+Sitemap: https://sani-blog.vercel.app/sitemap.xml
