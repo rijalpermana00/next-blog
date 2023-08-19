@@ -13,27 +13,21 @@ import { GetStaticPost, GetStaticSlugs } from '@/services/GetSlugs';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 interface slugProps{
+    slug: string
     post: any
     loadingPost: boolean
 }
 
-const Slug = ({post,loadingPost}:slugProps) => {
+const Slug = ({slug,post,loadingPost}:slugProps) => {
     const similarPosts = GetPosts({
         total: 4,
     });
-          
-    let cannon;
-        
-    useEffect(() => {
-        cannon = window.location.href;
-    },[]);
 
     return (
         <Main>
             <Meta 
                 title={`[` + post?.category?.name + `]` + ` ` + post?.title +` `+ post?.author?.name} 
                 description={post?.excerpt ?? AppConfig.description} 
-                canonical={cannon} 
             />
             {loadingPost 
                 ? (
@@ -107,8 +101,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const { params } = context;
     
     const {data,loading} = await GetStaticPost(params?.slug);
+    
     return {
         props: {
+            slug: params?.slug,
             post: data?.post,
             loading
         },
