@@ -28,6 +28,7 @@ const Slug = ({slug,post,loadingPost}:slugProps) => {
             <Meta 
                 title={`[` + post?.category?.name + `]` + ` ` + post?.title +` `+ post?.author?.name} 
                 description={post?.excerpt ?? AppConfig.description} 
+                canonical={slug} 
             />
             {loadingPost 
                 ? (
