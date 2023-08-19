@@ -9,16 +9,15 @@ import { GetPosts } from '@/services/GetPosts';
 import { Meta } from '@/layouts/components/Meta';
 import AppConfig from '@/utils/AppConfig';
 import { useEffect } from 'react';
-import { GetSlugs } from '@/services/GetSlugs';
+import { GetStaticPost, GetStaticSlugs } from '@/services/GetSlugs';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-const Slug = () => {
-    const router = useRouter();
-    const { slug } = router.query;
-    
-    const {postData,loadingPost} = GetPost(slug);
-    
-    const post = postData?.post;
-    
+interface slugProps{
+    post: any
+    loadingPost: boolean
+}
+
+const Slug = ({post,loadingPost}:slugProps) => {
     const similarPosts = GetPosts({
         total: 4,
     });
@@ -103,5 +102,34 @@ const Slug = () => {
         </Main>
     );
 };
+
+export const getStaticProps: GetStaticProps = async (context) => {
+    const { params } = context;
+    
+    const {data,loading} = await GetStaticPost(params?.slug);
+    return {
+        props: {
+            post: data?.post,
+            loading
+        },
+    }
+};
+
+interface dataProps{
+    slug: string
+    __typename: string
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const data = await GetStaticSlugs()
+    return {
+        paths: data.posts.map(({slug}:dataProps) => ({
+            params: { slug: slug },
+        })),
+        fallback: true,
+    }
+}
+
+
 
 export default Slug;
