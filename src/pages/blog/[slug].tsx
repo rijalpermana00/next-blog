@@ -106,7 +106,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     
     const {data,loading} = await GetStaticPost(params?.slug);
     
-    const maxLength = 50;
+    const maxLength = 100;
     const excerpt = createExcerpt(data?.post?.content?.html, maxLength);
     
     return {

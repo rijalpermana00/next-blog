@@ -1,9 +1,14 @@
+import striptags from "striptags";
+
 export function createExcerpt(content: string, maxLength: number): string {
-    if (content.length <= maxLength) {
-        return content;
+    
+    const plainTextContent = striptags(content);
+
+    if (plainTextContent.length <= maxLength) {
+        return plainTextContent;
     }
 
-    const words = content.split(' ');
+    const words = plainTextContent.split(' ');
     let excerpt = '';
     
     for (const word of words) {
@@ -14,7 +19,7 @@ export function createExcerpt(content: string, maxLength: number): string {
         }
     }
 
-    if (excerpt.length < content.length) {
+    if (excerpt.length < plainTextContent.length) {
         excerpt += '...';
     }
 
