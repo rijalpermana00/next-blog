@@ -1,6 +1,10 @@
 import striptags from "striptags";
 
-export function createExcerpt(content: string, maxLength: number): string {
+export function createExcerpt(content: string | undefined, maxLength: number): string {
+    
+    if(content === undefined){
+        return '';
+    }
     
     const plainTextContent = striptags(content);
 

@@ -21,7 +21,22 @@ interface slugProps{
     excerpt: string
 }
 
-const Slug = ({slug,post,loadingPost,excerpt}:slugProps) => {
+// const Slug = ({slug,post,loadingPost,excerpt}:slugProps) => {
+//     const similarPosts = GetPosts({
+//         total: 4,
+//     });
+const Slug = () => {
+    
+    const router = useRouter();
+    const { slug } = router.query;
+    
+    const {postData,loadingPost,errorPost} = GetPost(slug);
+    
+    const post = postData?.post;
+    
+    const maxLength = 100;
+    const excerpt = createExcerpt(post?.content?.html, maxLength);
+    
     const similarPosts = GetPosts({
         total: 4,
     });
@@ -31,7 +46,7 @@ const Slug = ({slug,post,loadingPost,excerpt}:slugProps) => {
             <Meta 
                 title={`[` + post?.category?.name + `]` + ` ` + post?.title +` By `+ post?.author?.name} 
                 description={excerpt ?? AppConfig.description} 
-                canonical={slug} 
+                canonical={slug?.toString()} 
             />
             {loadingPost 
                 ? (
