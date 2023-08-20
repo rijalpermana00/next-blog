@@ -27,7 +27,7 @@ export function GetPosts(props:postProps){
         data?:PostCollection
     } = useQuery(getPosts, {
         variables: { 
-            total: props. total ?? 4,
+            total: props.total ?? 4,
             category: props.category ?? "",
             featuredPostIds: props.id ?? [],
             keyword: props.keyword ?? "",

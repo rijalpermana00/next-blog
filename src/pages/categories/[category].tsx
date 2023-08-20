@@ -1,26 +1,58 @@
 import { Main } from '@/layouts/Main';
-import { useRouter } from 'next/router';
-import { BlogComponents } from '@/components/BlogComponents';
-import { GetPosts } from '@/services/GetPosts';
 import { Meta } from '@/layouts/components/Meta';
-import AppConfig from '@/utils/AppConfig';
-import { useEffect } from 'react';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticCategoriesSlugs, GetStaticCategory } from '@/services/GetStaticSlugs';
+import { Category } from '@/props/Categories';
+import { GetPosts } from '@/services/GetPosts';
+import { BlogComponents } from '@/components/BlogComponents';
+interface slugProps{
+    category: Category
+    loading: boolean
+}
 
-const Slug = () => {
-    const router = useRouter();
-    const {category} = router.query;
-
+const Slug = ({category}:slugProps) => {
     const data = GetPosts({
-        category: category
+        category: category.slug
     })
     
     return(
         <Main>
-            <Meta title={category ? 'Category: '+category : 'Categories'} description={'Check this out'} canonical={category?.toString()}/>
-            <BlogComponents category={category} posts={data.postData} loading={data.loadingPost}/>
+            <Meta 
+                title={category ? 'Category: '+category.name : 'Categories'} 
+                description={'Check awesome '+category.name+' posts here!!'} 
+                canonical={category.slug?.toString()}/>
+            <BlogComponents category={category.slug} posts={data.postData} loading={data.loadingPost}/>
         </Main>
     )
     
 };
+
+export const getStaticProps: GetStaticProps = async (context) => {
+    const { params } = context;
+    
+    const {data} = await GetStaticCategory(params?.category);
+    
+    return {
+        props: {
+            category: data.category,
+        },
+    }
+};
+
+interface dataProps{
+    slug: string
+    __typename: string
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const data = await GetStaticCategoriesSlugs();
+    
+    return {
+        paths: data.categories.map(({slug}:dataProps) => ({
+            params: { category: slug },
+        })),
+        fallback: true,
+    }
+}
 
 export default Slug;

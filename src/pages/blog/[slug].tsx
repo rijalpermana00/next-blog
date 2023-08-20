@@ -6,7 +6,7 @@ import { MultiBlog } from '@/components/partials/MultiBlog';
 import { GetPosts } from '@/services/GetPosts';
 import { Meta } from '@/layouts/components/Meta';
 import AppConfig from '@/utils/AppConfig';
-import { GetStaticPost, GetStaticSlugs } from '@/services/GetSlugs';
+import { GetStaticPost, GetStaticPostsSlugs } from '@/services/GetStaticSlugs';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Post } from '@/props/PostProps';
 
@@ -120,7 +120,7 @@ interface dataProps{
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const data = await GetStaticSlugs()
+    const data = await GetStaticPostsSlugs()
     return {
         paths: data.posts.map(({slug}:dataProps) => ({
             params: { slug: slug },

@@ -21,3 +21,13 @@ export const getCategories = gql`
     }
 
 `;
+
+export const getCategory = gql`
+    query MyQuery($slug: String!) {
+        category(where: {slug: $slug}) {
+            name
+            id
+            slug
+        }
+    }
+`;
