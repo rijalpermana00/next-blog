@@ -89,7 +89,7 @@ export const MainBlogCard = ({
                     </p>
                 </Link>
                 {excerpt && (
-                    <p className='m-0 mt-2 leading-6 text-base font-normal text-gray-700 overflow-hidden text-ellipsis line-clamp-2 flex flex-row'>
+                    <p className='m-0 mt-2 leading-6 text-base font-normal text-gray-400 dark:text-gray-400 overflow-hidden text-ellipsis line-clamp-2 flex flex-row'>
                         {excerpt}
                     </p>
                 )}
@@ -132,7 +132,6 @@ export const SubMainBlogCard = ({
                     <span id="wrapper" className="block text-transparent top-0 left-0 w-full h-full absolute rounded-xl">
                         <img
                             src={coverImage?.url}
-                            // src={`https://picsum.photos/500/300?random=` +  id}
                             alt={coverImage?.fileName}
                             className="h-full w-full object-cover object-center opacity-100"
                         />
@@ -149,11 +148,11 @@ export const SubMainBlogCard = ({
                             {title}
                         </p>
                     </Link>
-                    {excerpt && (
-                        <p className='m-0 mt-2 leading-6 text-base sm:text-sm text-gray-300 font-normal overflow-hidden text-ellipsis line-clamp-3'>
+                    {/* {excerpt && (
+                        <p className='m-0 mt-2 leading-6 text-base sm:text-sm text-gray-300 dark:text-white font-normal overflow-hidden text-ellipsis line-clamp-3'>
                             {excerpt}
                         </p>
-                    )}
+                    )} */}
                     {/* {author?.name && ( */}
                         <div className='m-0 mt-2 flex flex-row items-center leading-6 text-sm font-normal pt-3 author'>
                             {/* <div className='w-8 h-8 relative flex items-center justify-center flex-shrink-0 text-xl leading-4 rounded-full overflow-hidden mr-2'>
@@ -202,7 +201,7 @@ export const SubMainImagelessBlogCard = ({
                             {title}
                         </Link>
                         {excerpt && (
-                            <p className='m-0 mt-2 leading-6 text-base sm:text-sm text-gray-200 font-normal overflow-hidden text-ellipsis line-clamp-3'>
+                            <p className='m-0 mt-2 leading-6 text-base sm:text-sm text-gray-600 dark:text-gray-200 font-normal overflow-hidden text-ellipsis line-clamp-3'>
                                 {excerpt}
                             </p>
                         )}

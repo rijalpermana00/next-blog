@@ -1,4 +1,3 @@
-import { PostProps, QueryResult } from "@/props/PostProps"
 import { MainBlogCard, SubMainBlogCard, SubMainImagelessBlogCard } from "./partials/BlogCard"
 import Skeleton from "./partials/Skeleton"
 import { PostCollection } from "@/props/PostConnectionProps";

@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { GetStaticPost, GetStaticSlugs } from '@/services/GetSlugs';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Post } from '@/props/PostProps';
+import { createExcerpt } from '@/utils/CreateExcerpt';
 
 interface slugProps{
     slug: string
@@ -23,12 +24,15 @@ const Slug = ({slug,post,loadingPost}:slugProps) => {
     const similarPosts = GetPosts({
         total: 4,
     });
+    
+    const maxLength = 50;
+    const excerpt = createExcerpt(post.content.html, maxLength);
 
     return (
         <Main>
             <Meta 
-                title={`[` + post?.category?.name + `]` + ` ` + post?.title +` `+ post?.author?.name} 
-                description={post?.excerpt ?? AppConfig.description} 
+                title={`[` + post?.category?.name + `]` + ` ` + post?.title +` By `+ post?.author?.name} 
+                description={excerpt ?? AppConfig.description} 
                 canonical={slug} 
             />
             {loadingPost 
