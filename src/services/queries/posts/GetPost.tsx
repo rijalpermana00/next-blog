@@ -14,6 +14,8 @@ export const getPost = gql`
       coverImage {
         fileName
         url
+        height
+        width
       }
       slug
       title

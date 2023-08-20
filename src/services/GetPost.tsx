@@ -1,7 +1,5 @@
 import { MyQueryResult, QueryResult } from "@/props/PostProps";
 import { ApolloError, useQuery } from "@apollo/client";
-import { getFeaturedPosts } from "./queries/posts/GetFeaturedPosts";
-import { getLatestPosts } from "./queries/posts/GetLatestPosts";
 import { getPost } from "./queries/posts/GetPost";
 
 export function GetPost(slug:string | string[] | undefined){

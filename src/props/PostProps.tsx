@@ -48,6 +48,7 @@ export interface Post {
       fileName: string;
       height: number;
       url: string;
+      width: number;
     };
     excerpt?: string;
   }

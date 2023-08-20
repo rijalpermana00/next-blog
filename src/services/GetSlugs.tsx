@@ -1,5 +1,3 @@
-import { ApolloError, useQuery } from "@apollo/client";
-import { SlugsData } from "@/props/PostConnectionProps";
 import { getSlugs } from "./queries/posts/GetSlugs";
 import { getClient } from "@/apollo/Config";
 import { getPost } from "./queries/posts/GetPost";

@@ -9,6 +9,9 @@ type IMetaProps = {
   title: string;
   description: string;
   canonical?: string;
+  images?:string;
+  imgHeight?:number;
+  imgWidth?:number;
 };
 
 const Meta = (props: IMetaProps) => {
@@ -24,7 +27,7 @@ const Meta = (props: IMetaProps) => {
           content="width=device-width,initial-scale=1"
           key="viewport"
         />
-        <link
+        {/* <link
           rel="apple-touch-icon"
           href={`${basePath}/apple-touch-icon.png`}
           key="apple"
@@ -42,7 +45,7 @@ const Meta = (props: IMetaProps) => {
           sizes="16x16"
           href={`${basePath}/favicon-16x16.png`}
           key="icon16"
-        />
+        /> */}
         <link
           rel="icon"
           href={`${basePath}/favicon.ico`}
@@ -59,7 +62,25 @@ const Meta = (props: IMetaProps) => {
           url: props.canonical,
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
-          type:'article'
+          type:'article',
+          images: [
+            {
+              url: 'images',
+              width: 800,
+              height: 600,
+              alt: 'Og Image Alt',
+              type: 'image/jpeg',
+            },
+            {
+              url: 'https://www.example.ie/og-image-02.jpg',
+              width: 900,
+              height: 800,
+              alt: 'Og Image Alt Second',
+              type: 'image/jpeg',
+            },
+            { url: 'https://www.example.ie/og-image-03.jpg' },
+            { url: 'https://www.example.ie/og-image-04.jpg' },
+          ]
         }}
         twitter={{
           cardType:'summary_large_image',
