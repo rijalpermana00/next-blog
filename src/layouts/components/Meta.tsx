@@ -9,7 +9,8 @@ type IMetaProps = {
   title: string;
   description: string;
   canonical?: string;
-  images?:string;
+  imageUrl?:string;
+  imageName?: string;
   imgHeight?:number;
   imgWidth?:number;
 };
@@ -65,21 +66,12 @@ const Meta = (props: IMetaProps) => {
           type:'article',
           images: [
             {
-              url: 'images',
-              width: 800,
-              height: 600,
+              url: props?.imageUrl ?? '',
+              width: props.imgWidth,
+              height: props.imgHeight,
               alt: 'Og Image Alt',
               type: 'image/jpeg',
             },
-            {
-              url: 'https://www.example.ie/og-image-02.jpg',
-              width: 900,
-              height: 800,
-              alt: 'Og Image Alt Second',
-              type: 'image/jpeg',
-            },
-            { url: 'https://www.example.ie/og-image-03.jpg' },
-            { url: 'https://www.example.ie/og-image-04.jpg' },
           ]
         }}
         twitter={{
