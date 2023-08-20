@@ -8,20 +8,17 @@ import { MultiBlog } from '@/components/partials/MultiBlog';
 import { GetPosts } from '@/services/GetPosts';
 import { Meta } from '@/layouts/components/Meta';
 import AppConfig from '@/utils/AppConfig';
-import { useEffect } from 'react';
 import { GetStaticPost, GetStaticSlugs } from '@/services/GetSlugs';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Post } from '@/props/PostProps';
-import { createExcerpt } from '@/utils/CreateExcerpt';
 
 interface slugProps{
     slug: string
     post: Post
     loadingPost: boolean
-    excerpt: string
 }
 
-const Slug = ({slug,post,loadingPost,excerpt}:slugProps) => {
+const Slug = ({slug,post,loadingPost}:slugProps) => {
     const similarPosts = GetPosts({
         total: 4,
     });
@@ -30,7 +27,7 @@ const Slug = ({slug,post,loadingPost,excerpt}:slugProps) => {
         <Main>
             <Meta 
                 title={`[` + post?.category?.name + `]` + ` ` + post?.title +` By `+ post?.author?.name} 
-                description={excerpt ?? AppConfig.description} 
+                description={post.excerpt ?? AppConfig.description} 
                 canonical={slug} 
             />
             {loadingPost 
@@ -106,15 +103,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
     
     const {data,loading} = await GetStaticPost(params?.slug);
     
-    const maxLength = 100;
-    const excerpt = createExcerpt(data?.post?.content?.html, maxLength);
-    
     return {
         props: {
             slug: params?.slug,
             post: data?.post,
-            loading,
-            excerpt
+            loading
         },
     }
 };
