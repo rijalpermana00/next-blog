@@ -21,22 +21,7 @@ interface slugProps{
     excerpt: string
 }
 
-// const Slug = ({slug,post,loadingPost,excerpt}:slugProps) => {
-//     const similarPosts = GetPosts({
-//         total: 4,
-//     });
-const Slug = () => {
-    
-    const router = useRouter();
-    const { slug } = router.query;
-    
-    const {postData,loadingPost,errorPost} = GetPost(slug);
-    
-    const post = postData?.post;
-    
-    const maxLength = 100;
-    const excerpt = createExcerpt(post?.content?.html, maxLength);
-    
+const Slug = ({slug,post,loadingPost,excerpt}:slugProps) => {
     const similarPosts = GetPosts({
         total: 4,
     });
@@ -46,7 +31,7 @@ const Slug = () => {
             <Meta 
                 title={`[` + post?.category?.name + `]` + ` ` + post?.title +` By `+ post?.author?.name} 
                 description={excerpt ?? AppConfig.description} 
-                canonical={slug?.toString()} 
+                canonical={slug} 
             />
             {loadingPost 
                 ? (
@@ -116,37 +101,39 @@ const Slug = () => {
     );
 };
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-//     const { params } = context;
+export const getStaticProps: GetStaticProps = async (context) => {
+    const { params } = context;
     
-//     const {data,loading} = await GetStaticPost(params?.slug);
+    const {data,loading} = await GetStaticPost(params?.slug);
     
-//     const maxLength = 100;
-//     const excerpt = createExcerpt(data?.post?.content?.html, maxLength);
+    const maxLength = 100;
+    const excerpt = createExcerpt(data?.post?.content?.html, maxLength);
     
-//     return {
-//         props: {
-//             slug: params?.slug,
-//             post: data?.post,
-//             loading,
-//             excerpt
-//         },
-//     }
-// };
+    return {
+        props: {
+            slug: params?.slug,
+            post: data?.post,
+            loading,
+            excerpt
+        },
+    }
+};
 
-// interface dataProps{
-//     slug: string
-//     __typename: string
-// }
+interface dataProps{
+    slug: string
+    __typename: string
+}
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//     const data = await GetStaticSlugs()
-//     return {
-//         paths: data.posts.map(({slug}:dataProps) => ({
-//             params: { slug: slug },
-//         })),
-//         fallback: true,
-//     }
-// }
+export const getStaticPaths: GetStaticPaths = async () => {
+    const data = await GetStaticSlugs()
+    return {
+        paths: data.posts.map(({slug}:dataProps) => ({
+            params: { slug: slug },
+        })),
+        fallback: true,
+    }
+}
+
+
 
 export default Slug;
