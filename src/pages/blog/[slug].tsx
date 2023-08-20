@@ -1,8 +1,6 @@
 import { Main } from '@/layouts/Main';
 import Blog from '@/components/partials/Blog';
 import GoToTop from '@/components/partials/GoToTop';
-import { useRouter } from 'next/router';
-import { GetPost } from '@/services/GetPost';
 import Skeleton from '@/components/partials/Skeleton';
 import { MultiBlog } from '@/components/partials/MultiBlog';
 import { GetPosts } from '@/services/GetPosts';
