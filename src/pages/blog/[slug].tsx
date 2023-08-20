@@ -26,7 +26,7 @@ const Slug = ({slug,post,loadingPost}:slugProps) => {
     });
     
     const maxLength = 50;
-    const excerpt = createExcerpt(post.content.html, maxLength);
+    const excerpt = createExcerpt(post?.content?.html, maxLength);
 
     return (
         <Main>
