@@ -19,6 +19,7 @@ export const getPost = gql`
       }
       slug
       title
+      excerpt
       publishedAt
       tags {
         name
