@@ -77,15 +77,9 @@ export const SearchPage = () => {
         } );
     };
     
-    let cannon;
-        
-    useEffect(() => {
-        cannon = window.location.href;
-    },[]);
-    
     return (
         <Main>
-            <Meta title={`Search results for ${query.key}`} description={'Check this out'} canonical={cannon}/>
+            <Meta title={`Search results for ${query.key}`} description={'Check this out'} canonical={'search?key='+query.key}/>
             <div className={`mx-auto max-w-6xl sm:p-6 p-4 mt-8`}>
                 <div className="col-12 sm:col-6 mb-10">
                     <h1 className="text-[2rem] capitalize sm:text-[2.5rem] md:text-[2.75rem] lg:text-5xl m-0 font-bold leading-snug barlow text-gray-800 dark:text-white">

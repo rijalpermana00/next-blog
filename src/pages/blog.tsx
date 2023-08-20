@@ -9,17 +9,11 @@ export default function Index(props:MetaProps) {
     
     const posts = GetPosts({})
     
-    let cannon;
-        
-    useEffect(() => {
-        cannon = window.location.href;
-    },[]);
-    
     return (
         <Main>
             <Meta 
                 title={'Blog by '+ AppConfig.owner.name} 
-                description={'Read many of awesome blog posts here!'} canonical={cannon}
+                description={'Read many of awesome blog posts here!'} canonical={'/blog'}
             />
             <BlogComponents title='Blog' posts={posts.postData} loading={posts.loadingPost} />
         </Main>

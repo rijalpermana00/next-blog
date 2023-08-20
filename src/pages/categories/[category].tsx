@@ -14,15 +14,9 @@ const Slug = () => {
         category: category
     })
     
-    let cannon;
-        
-    useEffect(() => {
-        cannon = window.location.href;
-    },[]);
-    
     return(
         <Main>
-            <Meta title={category ? 'Category: '+category : 'Categories'} description={'Check this out'} canonical={cannon}/>
+            <Meta title={category ? 'Category: '+category : 'Categories'} description={'Check this out'} canonical={category?.toString()}/>
             <BlogComponents category={category} posts={data.postData} loading={data.loadingPost}/>
         </Main>
     )

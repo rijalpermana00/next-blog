@@ -13,15 +13,13 @@ const Slug = () => {
         tag:tag
     })
     
-    let cannon;
-        
-    useEffect(() => {
-        cannon = window.location.href;
-    },[]);
-    
     return(
         <Main>
-            <Meta title={tag ? 'Tag: '+tag : 'Tags'} description={'Check this out'} canonical={cannon}/>
+            <Meta 
+                title={tag ? 'Tag: '+tag : 'Tags'} 
+                description={'Check this out'} 
+                canonical={tag?.toString()}
+            />
             <BlogComponents loading={posts.loadingPost} tag={tag} posts={posts.postData}/>
         </Main>
     )

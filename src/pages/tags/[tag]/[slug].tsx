@@ -6,7 +6,6 @@ import Skeleton from '@/components/partials/Skeleton';
 import { GetPost } from '@/services/GetPost';
 import { Meta } from '@/layouts/components/Meta';
 import AppConfig from '@/utils/AppConfig';
-import { useEffect } from 'react';
 
 const Slug = () => {
     const router = useRouter();
@@ -16,15 +15,13 @@ const Slug = () => {
     
     const post = postData?.postData?.post;
     
-    let cannon;
-        
-    useEffect(() => {
-        cannon = window.location.href;
-    },[]);
-    
     return (
         <Main >
-            <Meta title={post?.title ?? AppConfig.title} description={'check this out'} canonical={cannon}/>
+            <Meta 
+                title={post?.title ?? AppConfig.title} 
+                description={'check this out'} 
+                canonical={slug?.toString()}
+            />
             {post ? (
                 <Blog
                     category={post.category}
