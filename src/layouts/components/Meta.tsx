@@ -66,9 +66,9 @@ const Meta = (props: IMetaProps) => {
           type:'article',
           images: [
             {
-              url: props?.imageUrl ?? '/no-image.jpg',
-              width: props.imgWidth,
-              height: props.imgHeight,
+              url: props?.imageUrl ?? '',
+              width: 1200,
+              height: 630,
               alt: props.imageName,
               type: 'image',
             },
