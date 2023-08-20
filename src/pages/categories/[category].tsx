@@ -12,16 +12,16 @@ interface slugProps{
 
 const Slug = ({category}:slugProps) => {
     const data = GetPosts({
-        category: category.slug
+        category: category?.slug
     })
     
     return(
         <Main>
             <Meta 
-                title={category ? 'Category: '+category.name : 'Categories'} 
-                description={'Check awesome '+category.name+' posts here!!'} 
-                canonical={category.slug?.toString()}/>
-            <BlogComponents category={category.slug} posts={data.postData} loading={data.loadingPost}/>
+                title={category ? 'Category: '+category?.name : 'Categories'} 
+                description={'Check awesome '+category?.name+' posts here!!'} 
+                canonical={category?.slug?.toString()}/>
+            <BlogComponents category={category?.slug} posts={data.postData} loading={data.loadingPost}/>
         </Main>
     )
     

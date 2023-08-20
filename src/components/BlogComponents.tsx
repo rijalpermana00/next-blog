@@ -1,15 +1,8 @@
-import { TagsConnectionData } from "@/props/TagsProps";
-import { getTags } from "@/services/queries/GetTags";
-import { ApolloError, useLazyQuery, useQuery } from "@apollo/client";
-import { SubMainBlogCard, SubMainImagelessBlogCard } from "./partials/BlogCard";
-import Skeleton from "./partials/Skeleton";
-import OwnerCard from "./partials/OwnerCard";
-import { TagBadge } from "./partials/Badge";
-import { PostCollection, PostsConnection } from "@/props/PostConnectionProps";
+import { useLazyQuery } from "@apollo/client";
+import { PostCollection } from "@/props/PostConnectionProps";
 import { useEffect, useState } from "react";
 import { getPosts } from "@/services/queries/posts/GetPosts";
 import { TagList } from "@/services/Tags";
-import { Categories } from "./partials/Categories";
 import { CategoryList } from "@/services/Categories";
 import { MultiBlog } from "./partials/MultiBlog";
 import { InfoCard } from "./partials/InfoCard";

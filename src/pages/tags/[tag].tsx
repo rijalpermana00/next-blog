@@ -15,17 +15,17 @@ interface slugProps{
 
 const Slug = ({tag}:slugProps) => {
     const posts = GetPosts({
-        tag:tag.slug
+        tag:tag?.slug
     })
     
     return(
         <Main>
             <Meta 
-                title={tag ? 'Tag: '+tag.name : 'Tags'} 
-                description={'Check awesome '+tag.name+' posts here!!'} 
-                canonical={tag.slug?.toString()}
+                title={tag ? 'Tag: '+tag?.name : 'Tags'} 
+                description={'Check awesome '+tag?.name+' posts here!!'} 
+                canonical={tag?.slug?.toString()}
             />
-            <BlogComponents loading={posts.loadingPost} tag={tag.name} posts={posts.postData}/>
+            <BlogComponents loading={posts.loadingPost} tag={tag?.name} posts={posts.postData}/>
         </Main>
     )
     
