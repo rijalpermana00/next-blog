@@ -63,7 +63,7 @@ const Slug = ({slug,post,loadingPost}:slugProps) => {
                             author={post.author}
                             title={post.title}
                             tags={post.tags}
-                            slug={'/blog/'+post?.category?.slug+'/'+post.slug}
+                            slug={'/blog/'+post.slug}
                             publishedAt={post.publishedAt}
                             content={post.content}
                             excerpt={post.excerpt}
