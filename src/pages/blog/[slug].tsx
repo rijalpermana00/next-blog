@@ -18,15 +18,13 @@ interface slugProps{
     slug: string
     post: Post
     loadingPost: boolean
+    excerpt: string
 }
 
-const Slug = ({slug,post,loadingPost}:slugProps) => {
+const Slug = ({slug,post,loadingPost,excerpt}:slugProps) => {
     const similarPosts = GetPosts({
         total: 4,
     });
-    
-    const maxLength = 50;
-    const excerpt = createExcerpt(post?.content?.html, maxLength);
 
     return (
         <Main>
@@ -108,11 +106,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
     
     const {data,loading} = await GetStaticPost(params?.slug);
     
+    const maxLength = 50;
+    const excerpt = createExcerpt(data?.post?.content?.html, maxLength);
+    
     return {
         props: {
             slug: params?.slug,
             post: data?.post,
-            loading
+            loading,
+            excerpt
         },
     }
 };
