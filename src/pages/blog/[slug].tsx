@@ -9,20 +9,19 @@ import AppConfig from '@/utils/AppConfig';
 import { GetStaticPost, GetStaticPostsSlugs } from '@/services/GetStaticSlugs';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Post } from '@/props/PostProps';
+import { Tag } from '@/props/PostConnectionProps';
 
 interface slugProps{
     slug: string
     post: Post
+    tags: string
     loadingPost: boolean
 }
 
-const Slug = ({slug,post,loadingPost}:slugProps) => {
+const Slug = ({slug,post,loadingPost,tags}:slugProps) => {
     const similarPosts = GetPosts({
         total: 4,
     });
-
-    const namesArray = post.tags.map(item => item.name);
-    const namesString = namesArray.join(', ');
     
     return (
         <Main>
@@ -34,7 +33,7 @@ const Slug = ({slug,post,loadingPost}:slugProps) => {
                 imgHeight={post?.coverImage?.height}
                 imgWidth={post?.coverImage?.width}
                 canonical={slug}
-                keywords={namesString}
+                keywords={tags}
             />
             {loadingPost 
                 ? (
@@ -108,11 +107,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const { params } = context;
     
     const {data,loading} = await GetStaticPost(params?.slug);
+
+    const namesArray = data.post.tags.map(({name}:Tag) => name);
+    const namesString = namesArray.join(', ');
     
     return {
         props: {
             slug: params?.slug,
             post: data?.post,
+            tags: namesString,
             loading
         },
     }
