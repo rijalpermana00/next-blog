@@ -21,6 +21,9 @@ const Slug = ({slug,post,loadingPost}:slugProps) => {
         total: 4,
     });
 
+    const namesArray = post.tags.map(item => item.name);
+    const namesString = namesArray.join(', ');
+    
     return (
         <Main>
             <Meta 
@@ -30,7 +33,8 @@ const Slug = ({slug,post,loadingPost}:slugProps) => {
                 imageUrl={post?.coverImage?.url}
                 imgHeight={post?.coverImage?.height}
                 imgWidth={post?.coverImage?.width}
-                canonical={slug} 
+                canonical={slug}
+                keywords={namesString}
             />
             {loadingPost 
                 ? (

@@ -47,12 +47,12 @@ const Blog = ({
                         {title}
                     </h1>
                 </div>
-                <div className="col-12 sm:col-6 py-5">
+                {/* <div className="col-12 sm:col-6 py-5">
                     <div className="flex flex-row justify-between">
                         <div className="flex flex-col">
                             <div className="relative flex items-center justify-center w-12 h-12">
                                 <img
-                                    src="https://picsum.photos/500/300?random"
+                                    src={author?.picture?.url ?? '/sani.png'}
                                     alt={author?.name}
                                     className="h-full w-full rounded-full text-center text-transparent object-cover object-center"
                                 />
@@ -66,7 +66,7 @@ const Blog = ({
                             <ShareDropDown url={slug} title={title}/>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <hr/>
             </div>
             <div className="flex flex-row flex-wrap">
@@ -130,7 +130,7 @@ const Blog = ({
                 </div>
                 <div className="flex-grow-0 basis-auto w-full sm:w-1/3 md:w-full lg:w-1/3 px-0 sm:px-6 md:px-0 lg:px-6 sm:mb-5 md:mb-10 lg:mb-5">
                     <div className="my-10">
-                        <InfoCardAlt category={category} tags={tags} />
+                        <InfoCardAlt publishedDate={publishedAt} category={category} tags={tags} />
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ import OwnerCard, { OwnerCardAlt } from "./OwnerCard"
 import { TagsConnectionData, TagsData } from "@/props/TagsProps";
 import { Category } from "@/props/PostProps";
 import { Tag } from "@/props/PostConnectionProps";
+import Moment from "react-moment";
 
 interface InfoCardProps {
     ownerTitle?: string;
@@ -40,7 +41,7 @@ export const InfoCardAlt = (props:detailPostProps) => {
     return (
         <>
             <OwnerCardAlt title={props.ownerTitle} />
-            <DetailPostCard category={props.category} tags={props.tags} />
+            <DetailPostCard publishedDate={props?.publishedDate} category={props.category} tags={props.tags} />
         </>
     )
 }
@@ -49,6 +50,7 @@ interface detailPostProps{
     ownerTitle?:string;
     category?: Category | undefined;
     tags?: Tag[]
+    publishedDate: string;
 }
 
 export const DetailPostCard = (props:detailPostProps) => {
@@ -58,6 +60,14 @@ export const DetailPostCard = (props:detailPostProps) => {
             <div className="flex flex-col mb-10">
                 <h5 className="font-bold text-lg uppercase text-gray-900 dark:text-gray-300 mb-3">POST DETAILS</h5>
                 <hr className="mb-5"/>
+                <h5 className="font-bold text-lg uppercase text-gray-900 dark:text-gray-300 mb-3">PUBLISHED AT</h5>
+                <ul className="ml-3 mb-5">
+                    <li>
+                        <div>
+                            <Moment className="text-sm" format="DD MMM YYYY">{props.publishedDate}</Moment>
+                        </div>
+                    </li>
+                </ul>
                 <h5 className="font-bold text-lg uppercase text-gray-900 dark:text-gray-300 mb-3">CATEGORY</h5>
                 <ul className="list-disc ml-7 mb-5">
                     <li>

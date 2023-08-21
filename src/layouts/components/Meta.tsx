@@ -13,6 +13,8 @@ type IMetaProps = {
   imageName?: string;
   imgHeight?:number;
   imgWidth?:number;
+  author?:string;
+  keywords?:string;
 };
 
 const Meta = (props: IMetaProps) => {
@@ -27,6 +29,14 @@ const Meta = (props: IMetaProps) => {
           name="viewport"
           content="width=device-width,initial-scale=1"
           key="viewport"
+        />
+        <meta
+          name="author"
+          content={props?.author ?? AppConfig.owner.name}
+        />
+        <meta
+          name="keywords"
+          content={props?.keywords}
         />
         {/* <link
           rel="apple-touch-icon"
@@ -57,6 +67,7 @@ const Meta = (props: IMetaProps) => {
         title={props.title ?? AppConfig.title}
         description={props.description}
         canonical={props.canonical}
+        
         openGraph={{
           title: props.title,
           description: props.description,
@@ -64,6 +75,15 @@ const Meta = (props: IMetaProps) => {
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
           type:'article',
+          article:{
+            authors:[
+              'Sani Asmi Ramdani Lestari'
+            ],
+            tags:[
+              'ini',
+              'itu'
+            ]
+          },
           images: [
             {
               url: props?.imageUrl ?? '',

@@ -7,6 +7,11 @@ export const getPost = gql`
       author {
         name
         id
+        picture {
+          id
+          url
+          fileName
+        }
       }
       content {
         html

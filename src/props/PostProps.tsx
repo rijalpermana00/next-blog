@@ -31,27 +31,34 @@ export interface Category {
 // }
 
 export interface Post {
+  id: string;
+  slug: string;
+  title: string;
+  publishedAt: string;
+  content: {
+    html: string;
+  };
+  author?: {
+    name: string;
     id: string;
-    slug: string;
-    title: string;
-    publishedAt: string;
-    content: {
-      html: string;
-    };
-    author?: {
-      name: string;
-      id: string;
-    };
-    tags: Tag[];
-    category?: Category;
-    coverImage?: {
-      fileName: string;
-      height: number;
-      url: string;
-      width: number;
-    };
-    excerpt?: string;
-  }
+    picture: Picture;
+  };
+  tags: Tag[];
+  category?: Category;
+  coverImage?: {
+    fileName: string;
+    height: number;
+    url: string;
+    width: number;
+  };
+  excerpt?: string;
+}
+
+export interface Picture{
+  id:string;
+  url:string;
+  fileName:string;
+}
   
 export interface MyQueryResult {
     post: Post;
