@@ -79,10 +79,6 @@ const Meta = (props: IMetaProps) => {
             authors:[
               'Sani Asmi Ramdani Lestari'
             ],
-            tags:[
-              'ini',
-              'itu'
-            ]
           },
           images: [
             {
